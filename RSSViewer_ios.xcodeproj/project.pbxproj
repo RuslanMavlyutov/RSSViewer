@@ -3,19 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3103C74D20D11F6C00076F2D /* ParserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3103C74C20D11F6C00076F2D /* ParserController.m */; };
+		3103C75020D124E200076F2D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3103C74F20D124E200076F2D /* WebKit.framework */; };
+		3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3103C77D20D79A6400076F2D /* IndicatorController.m */; };
 		31214A3120D0EACA00340599 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A3020D0EACA00340599 /* AppDelegate.m */; };
 		31214A3420D0EACA00340599 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A3320D0EACA00340599 /* ViewController.m */; };
 		31214A3720D0EACA00340599 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31214A3520D0EACA00340599 /* Main.storyboard */; };
 		31214A3920D0EACB00340599 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31214A3820D0EACB00340599 /* Assets.xcassets */; };
 		31214A3C20D0EACB00340599 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31214A3A20D0EACB00340599 /* LaunchScreen.storyboard */; };
 		31214A3F20D0EACB00340599 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A3E20D0EACB00340599 /* main.m */; };
+		31214A4720D0EEFB00340599 /* TableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A4620D0EEFB00340599 /* TableController.m */; };
+		31214A4A20D10F7C00340599 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A4920D10F7C00340599 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3103C74B20D11F6C00076F2D /* ParserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserController.h; sourceTree = "<group>"; };
+		3103C74C20D11F6C00076F2D /* ParserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParserController.m; sourceTree = "<group>"; };
+		3103C74F20D124E200076F2D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3103C77C20D79A6400076F2D /* IndicatorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndicatorController.h; sourceTree = "<group>"; };
+		3103C77D20D79A6400076F2D /* IndicatorController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndicatorController.m; sourceTree = "<group>"; };
 		31214A2C20D0EACA00340599 /* RSSViewer_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSViewer_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31214A2F20D0EACA00340599 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31214A3020D0EACA00340599 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +36,10 @@
 		31214A3B20D0EACB00340599 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31214A3D20D0EACB00340599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31214A3E20D0EACB00340599 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		31214A4520D0EEFB00340599 /* TableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableController.h; sourceTree = "<group>"; };
+		31214A4620D0EEFB00340599 /* TableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableController.m; sourceTree = "<group>"; };
+		31214A4820D10F7C00340599 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		31214A4920D10F7C00340599 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +47,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3103C75020D124E200076F2D /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3103C74E20D124E100076F2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3103C74F20D124E200076F2D /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		31214A2320D0EACA00340599 = {
 			isa = PBXGroup;
 			children = (
 				31214A2E20D0EACA00340599 /* RSSViewer_ios */,
 				31214A2D20D0EACA00340599 /* Products */,
+				3103C74E20D124E100076F2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +86,14 @@
 				31214A3020D0EACA00340599 /* AppDelegate.m */,
 				31214A3220D0EACA00340599 /* ViewController.h */,
 				31214A3320D0EACA00340599 /* ViewController.m */,
+				31214A4820D10F7C00340599 /* DetailViewController.h */,
+				31214A4920D10F7C00340599 /* DetailViewController.m */,
+				3103C74B20D11F6C00076F2D /* ParserController.h */,
+				3103C74C20D11F6C00076F2D /* ParserController.m */,
+				31214A4520D0EEFB00340599 /* TableController.h */,
+				31214A4620D0EEFB00340599 /* TableController.m */,
+				3103C77C20D79A6400076F2D /* IndicatorController.h */,
+				3103C77D20D79A6400076F2D /* IndicatorController.m */,
 				31214A3520D0EACA00340599 /* Main.storyboard */,
 				31214A3820D0EACB00340599 /* Assets.xcassets */,
 				31214A3A20D0EACB00340599 /* LaunchScreen.storyboard */,
@@ -102,11 +134,12 @@
 				TargetAttributes = {
 					31214A2B20D0EACA00340599 = {
 						CreatedOnToolsVersion = 9.4;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 31214A2720D0EACA00340599 /* Build configuration list for PBXProject "RSSViewer_ios" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -141,7 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31214A4A20D10F7C00340599 /* DetailViewController.m in Sources */,
+				31214A4720D0EEFB00340599 /* TableController.m in Sources */,
+				3103C74D20D11F6C00076F2D /* ParserController.m in Sources */,
 				31214A3420D0EACA00340599 /* ViewController.m in Sources */,
+				3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */,
 				31214A3F20D0EACB00340599 /* main.m in Sources */,
 				31214A3120D0EACA00340599 /* AppDelegate.m in Sources */,
 			);
@@ -285,10 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RSSViewer_ios/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "developIOS.RSSViewer-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -301,10 +335,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RSSViewer_ios/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "developIOS.RSSViewer-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
