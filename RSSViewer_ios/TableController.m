@@ -1,5 +1,6 @@
 #import "TableController.h"
 #import "DetailViewController.h"
+#import "Post.h"
 
 static NSString* const cellName = @"cell";
 static NSString* const titleName = @"title";
@@ -16,6 +17,8 @@ static NSString* const linkName = @"link";
     NSMutableArray *tableFeeds;
 }
 
+@synthesize parserFeed, posts;
+
 - (id)init
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -23,8 +26,7 @@ static NSString* const linkName = @"link";
                                                  name:@"reloadNotification"
                                                object:nil];
 
-//    [self performSegueWithIdentifier:@"TableController" sender:self];
-//    [self performSegueWithIdentifier:@"tableId" sender:self];
+    posts = [[NSMutableArray alloc] init];
 
     return self;
 }
@@ -33,9 +35,11 @@ static NSString* const linkName = @"link";
 {
     NSDictionary *dict = notification.userInfo;
     tableFeeds = [dict valueForKey:@"feeds"];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+    for (Post *feedPost in tableFeeds) {
+        [posts addObject:feedPost];
+    }
+
+    [self.tableView reloadData];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -50,15 +54,20 @@ static NSString* const linkName = @"link";
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellName forIndexPath:indexPath];
-    cell.textLabel.text = [[tableFeeds objectAtIndex:indexPath.row] objectForKey:titleName];
+    NSUInteger row = [indexPath row];
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName];
+
+    Post *currentPost = [posts objectAtIndex:row];
+    cell.textLabel.text = [currentPost title];
+    cell.detailTextLabel.text = [currentPost description];
+
     return cell;
 }
 
 -(void) reloadTableView
 {
     [self.tableView reloadData];
-//    UIViewController *vc = self.window.rootViewController;
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -72,9 +81,8 @@ static NSString* const linkName = @"link";
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *string = [tableFeeds[indexPath.row] objectForKey:@"link"];
-    NSArray *list = [string componentsSeparatedByString:@" "];
-    NSString *firstItem = [list[0] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    Post *currentPost = [posts objectAtIndex:[indexPath row]];
+    NSString *firstItem = [currentPost guid];
 
     NSDictionary *dict = [NSDictionary dictionaryWithObject:firstItem forKey:@"firstItem"];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"loadWebLink" object:nil userInfo:dict];

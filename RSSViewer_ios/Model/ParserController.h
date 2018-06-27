@@ -3,4 +3,6 @@
 
 @interface ParserController : UIViewController
 
+@property (nonatomic, retain) NSMutableArray *feedPosts;
+
 @end
