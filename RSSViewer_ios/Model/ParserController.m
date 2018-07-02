@@ -7,8 +7,6 @@
 NSString* reloadNotification = @"reloadNotification";
 NSString* IndicatorRSSNotification = @"IndicatorRSSNotification";
 
-static NSString *const startChannelRss = @"https://developer.apple.com/news/rss/news.rss";
-//static NSString *const startChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
 static NSString *const channelElementName = @"channel";
 static NSString *const itemElementName = @"item";
 
@@ -16,12 +14,10 @@ static NSString *const itemElementName = @"item";
     IBOutlet UITextField *urlField;
     IBOutlet UILabel *warningLabel;
     Channel *feedChannel;
-    NSMutableArray *feedPosts;
     NSMutableString *currentElementData;
 }
 
 - (IBAction)loadUrl:(id)sender;
-- (void) loadParser : (NSURL*) url;
 
 @property (nonatomic, assign) BOOL warningState;
 @property (nonatomic, retain) Channel *feedChannel;
@@ -40,11 +36,29 @@ static NSString *const itemElementName = @"item";
 @synthesize feedPosts;
 @synthesize currentElement;
 @synthesize currentElementData;
+@synthesize isRssChannelUpdate;
+@synthesize titleArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     feedPosts = [[NSMutableArray alloc] init];
+}
+
+- (id) init
+{
+    isRssChannelUpdate = false;
+    feedPosts = [[NSMutableArray alloc] init];
+
+    return self;
+}
+
+-(id)initWithLink : (NSURL*) url
+{
+    isRssChannelUpdate = true;
+    [self updateParser:url];
+
+    return self;
 }
 
 - (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -78,6 +92,13 @@ static NSString *const itemElementName = @"item";
     }
 
     currentElementData = nil;
+
+    if(isRssChannelUpdate && feedChannel.description != nil) {
+        if(!titleArray)
+            titleArray = [[NSMutableArray alloc] init];
+        [titleArray addObject:feedChannel];
+        [parser abortParsing];
+    }
 }
 
 - (void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -153,12 +174,6 @@ static NSString *const itemElementName = @"item";
 
 - (void) loadParser : (NSURL*) url
 {
-    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *navController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"table"];
-
-    UIStoryboardSegue *segue = [[UIStoryboardSegue alloc] initWithIdentifier:@"table" source:self destination:navController];
-    [self prepareForSegue:segue sender:self];
-
     if(feedPosts != nil)
         [feedPosts removeAllObjects];
 
@@ -166,6 +181,18 @@ static NSString *const itemElementName = @"item";
     [parser setDelegate:self];
     [parser setShouldResolveExternalEntities:NO];
     [parser parse];
+}
+
+-(void) updateParser: (NSURL*) url
+{
+    dispatch_queue_t reentrantAvoidanceQueue = dispatch_queue_create("reentrantAvoidanceQueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(reentrantAvoidanceQueue, ^{
+        self->parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+        [self->parser setDelegate:self];
+        [self->parser setShouldResolveExternalEntities:NO];
+        [self->parser parse];
+    });
+    dispatch_sync(reentrantAvoidanceQueue, ^{});
 }
 
 @end

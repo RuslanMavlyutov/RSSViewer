@@ -2,7 +2,7 @@
 
 @implementation Post
 
-@synthesize title, description, pubDate;
+@synthesize title, description, pubDate, guid;
 
 -(id)init {
 

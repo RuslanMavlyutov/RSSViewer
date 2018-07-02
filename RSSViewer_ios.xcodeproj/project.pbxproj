@@ -20,6 +20,7 @@
 		31214A4A20D10F7C00340599 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A4920D10F7C00340599 /* DetailViewController.m */; };
 		3179518A20E369EA009D3DA0 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518920E369EA009D3DA0 /* Post.m */; };
 		3179518D20E379B8009D3DA0 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518C20E379B8009D3DA0 /* Channel.m */; };
+		3179519120E66690009D3DA0 /* StartScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179519020E66690009D3DA0 /* StartScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		3179518920E369EA009D3DA0 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		3179518B20E379B7009D3DA0 /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
 		3179518C20E379B8009D3DA0 /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		3179518F20E66690009D3DA0 /* StartScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartScreen.h; sourceTree = "<group>"; };
+		3179519020E66690009D3DA0 /* StartScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartScreen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				31214A3320D0EACA00340599 /* ViewController.m */,
 				31214A4820D10F7C00340599 /* DetailViewController.h */,
 				31214A4920D10F7C00340599 /* DetailViewController.m */,
+				3179518F20E66690009D3DA0 /* StartScreen.h */,
+				3179519020E66690009D3DA0 /* StartScreen.m */,
 				3179518E20E3D7C5009D3DA0 /* Model */,
 				31214A4520D0EEFB00340599 /* TableController.h */,
 				31214A4620D0EEFB00340599 /* TableController.m */,
@@ -198,6 +203,7 @@
 				3179518D20E379B8009D3DA0 /* Channel.m in Sources */,
 				31214A3420D0EACA00340599 /* ViewController.m in Sources */,
 				3179518A20E369EA009D3DA0 /* Post.m in Sources */,
+				3179519120E66690009D3DA0 /* StartScreen.m in Sources */,
 				3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */,
 				31214A3F20D0EACB00340599 /* main.m in Sources */,
 				31214A3120D0EACA00340599 /* AppDelegate.m in Sources */,
