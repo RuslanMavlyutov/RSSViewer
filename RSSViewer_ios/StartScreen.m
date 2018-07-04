@@ -63,6 +63,29 @@ static NSString *const mainSettings = @"settings";
     [parserController loadParser:url];
 }
 
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
+        [array removeObjectAtIndex:indexPath.row];
+        linkArray = [NSArray arrayWithArray:array];
+        array = [NSMutableArray arrayWithArray:channels];
+        [array removeObjectAtIndex:indexPath.row];
+        channels = [NSArray arrayWithArray:array];
+
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:linkArray forKey:mainSettings];
+        [defaults synchronize];
+
+        [tableView reloadData];
+    }
+}
+
 - (IBAction)addRssChanel:(UIBarButtonItem *)sender
 {
     UIAlertController *alertController = [UIAlertController
@@ -104,7 +127,6 @@ static NSString *const mainSettings = @"settings";
 
     NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
     [array addObject:link];
-    linkArray = nil;
     linkArray = [NSArray arrayWithArray:array];
     url = [NSURL URLWithString:link];
     channels = [NSArray arrayWithArray:[[parser initWithLink:url] titleArray]];
