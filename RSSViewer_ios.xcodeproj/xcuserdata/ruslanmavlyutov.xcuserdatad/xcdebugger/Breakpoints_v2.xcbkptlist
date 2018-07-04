@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/TableController.m"
-            timestampString = "552230933.848262"
+            timestampString = "552406835.2132159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/TableController.m"
-            timestampString = "552230933.848376"
+            timestampString = "552406835.213274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/DetailViewController.m"
-            timestampString = "552230933.848474"
+            timestampString = "552406835.213318"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/TableController.m"
-            timestampString = "552230933.848519"
+            timestampString = "552406835.213358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/DetailViewController.m"
-            timestampString = "552230933.848606"
+            timestampString = "552406835.213394"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/DetailViewController.m"
-            timestampString = "552230933.848649"
+            timestampString = "552406835.21343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/DetailViewController.m"
-            timestampString = "552230933.84869"
+            timestampString = "552406835.213466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/DetailViewController.m"
-            timestampString = "552230933.84873"
+            timestampString = "552406835.213501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/DetailViewController.m"
-            timestampString = "552230933.8487689"
+            timestampString = "552406835.213534"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/TableController.m"
-            timestampString = "552230933.848809"
+            timestampString = "552406835.213568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/DetailViewController.m"
-            timestampString = "552230933.848893"
+            timestampString = "552406835.2136019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -394,7 +394,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/TableController.m"
-            timestampString = "552230933.8499891"
+            timestampString = "552406835.213843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -410,7 +410,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/TableController.m"
-            timestampString = "552230933.850065"
+            timestampString = "552406835.2138799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.236781"
+            timestampString = "552392035.620479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,28 +442,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.237215"
+            timestampString = "552406835.213937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
             endingLineNumber = "177"
             landmarkName = "-loadParser:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.237269"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -554,7 +538,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.237624"
+            timestampString = "552392035.62071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -570,7 +554,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.2379169"
+            timestampString = "552406835.214077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -586,7 +570,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.237981"
+            timestampString = "552406835.2141269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
@@ -602,7 +586,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.238028"
+            timestampString = "552406835.214188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -618,7 +602,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.238073"
+            timestampString = "552406835.214247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "116"
@@ -634,7 +618,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.238119"
+            timestampString = "552406835.214293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "169"
@@ -666,7 +650,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.238185"
+            timestampString = "552392035.62104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -682,11 +666,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.238485"
+            timestampString = "552392035.62112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -698,12 +682,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.23876"
+            timestampString = "552392035.6212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "-addRssLink:"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-addRssChanel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -714,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.239036"
+            timestampString = "552392035.621278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-addRssLink:"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,7 +730,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.239329"
+            timestampString = "552406835.214432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -762,7 +746,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Model/ParserController.m"
-            timestampString = "552382393.239373"
+            timestampString = "552406835.214514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -778,12 +762,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.239414"
+            timestampString = "552392035.62146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-tableView:commitEditingStyle:forRowAtIndexPath:"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-tableView:canEditRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -794,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.239709"
+            timestampString = "552392035.6215219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -810,12 +794,124 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/StartScreen.m"
-            timestampString = "552382393.240069"
+            timestampString = "552392035.621582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/StartScreen.m"
+            timestampString = "552392035.621631"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/StartScreen.m"
+            timestampString = "552392035.621676"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/StartScreen.m"
+            timestampString = "552392035.62172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/StartScreen.m"
+            timestampString = "552392035.621763"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "-addRssLink:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/StartScreen.m"
+            timestampString = "552392035.621801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-linkValidate:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/LinkController.m"
+            timestampString = "552392035.621839"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "-errorState:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/LinkController.m"
+            timestampString = "552392035.622095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-errorState:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

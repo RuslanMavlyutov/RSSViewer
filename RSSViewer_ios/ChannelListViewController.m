@@ -1,4 +1,4 @@
-#import "StartScreen.h"
+#import "ChannelListViewController.h"
 #import "ParserController.h"
 #import "TableController.h"
 
@@ -7,7 +7,7 @@ static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/region
 static NSString *const thirdChannelRss = @"https://www.kommersant.ru/rss/regions/saratov.xml";
 static NSString *const mainSettings = @"settings";
 
-@implementation StartScreen {
+@implementation ChannelListViewController {
     NSArray *channels;
     NSArray *linkArray;
     NSURL *url;
@@ -124,7 +124,10 @@ static NSString *const mainSettings = @"settings";
     NSLog(@"Link: %@", link);
 
     // TODO: check link error
-
+    
+    if([linkArray containsObject:link])
+        return;
+    
     NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
     [array addObject:link];
     linkArray = [NSArray arrayWithArray:array];

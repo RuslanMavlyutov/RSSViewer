@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface StartScreen : UITableViewController
+@interface ChannelListViewController : UITableViewController
 
 @end

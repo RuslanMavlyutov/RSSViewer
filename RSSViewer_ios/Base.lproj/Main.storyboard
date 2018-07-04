@@ -31,7 +31,7 @@
         <!--Rss-->
         <scene sceneID="0bX-ua-EIX">
             <objects>
-                <tableViewController id="5vc-b7-wKR" customClass="StartScreen" sceneMemberID="viewController">
+                <tableViewController id="5vc-b7-wKR" customClass="ChannelListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="c4T-Sq-eke">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,6 +109,7 @@
                     </connections>
                 </customObject>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWN-tL-v8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="XMX-mF-LAH" customClass="LinkController"/>
             </objects>
             <point key="canvasLocation" x="1647" y="-564"/>
         </scene>
