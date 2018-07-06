@@ -11,7 +11,6 @@
 		3103C75020D124E200076F2D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3103C74F20D124E200076F2D /* WebKit.framework */; };
 		3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3103C77D20D79A6400076F2D /* IndicatorController.m */; };
 		31214A3120D0EACA00340599 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A3020D0EACA00340599 /* AppDelegate.m */; };
-		31214A3420D0EACA00340599 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A3320D0EACA00340599 /* ViewController.m */; };
 		31214A3720D0EACA00340599 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31214A3520D0EACA00340599 /* Main.storyboard */; };
 		31214A3920D0EACB00340599 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31214A3820D0EACB00340599 /* Assets.xcassets */; };
 		31214A3C20D0EACB00340599 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31214A3A20D0EACB00340599 /* LaunchScreen.storyboard */; };
@@ -32,8 +31,6 @@
 		31214A2C20D0EACA00340599 /* RSSViewer_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSViewer_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31214A2F20D0EACA00340599 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31214A3020D0EACA00340599 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		31214A3220D0EACA00340599 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		31214A3320D0EACA00340599 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		31214A3620D0EACA00340599 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31214A3820D0EACB00340599 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31214A3B20D0EACB00340599 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,8 +90,6 @@
 			children = (
 				31214A2F20D0EACA00340599 /* AppDelegate.h */,
 				31214A3020D0EACA00340599 /* AppDelegate.m */,
-				31214A3220D0EACA00340599 /* ViewController.h */,
-				31214A3320D0EACA00340599 /* ViewController.m */,
 				31214A4820D10F7C00340599 /* DetailViewController.h */,
 				31214A4920D10F7C00340599 /* DetailViewController.m */,
 				3179518F20E66690009D3DA0 /* ChannelListViewController.h */,
@@ -201,7 +196,6 @@
 				31214A4720D0EEFB00340599 /* TableController.m in Sources */,
 				3103C74D20D11F6C00076F2D /* ParserController.m in Sources */,
 				3179518D20E379B8009D3DA0 /* Channel.m in Sources */,
-				31214A3420D0EACA00340599 /* ViewController.m in Sources */,
 				3179518A20E369EA009D3DA0 /* Post.m in Sources */,
 				3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */,
 				3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */,

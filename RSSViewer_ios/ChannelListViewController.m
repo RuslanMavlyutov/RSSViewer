@@ -5,6 +5,8 @@
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
 static NSString *const thirdChannelRss = @"https://www.kommersant.ru/rss/regions/saratov.xml";
+static NSString *const fourthChannelRss = @"https://habr.com/rss/interesting";
+static NSString *const fivethChannelRss = @"https://lenta.ru/rss/news";
 static NSString *const mainSettings = @"settings";
 
 @implementation ChannelListViewController {

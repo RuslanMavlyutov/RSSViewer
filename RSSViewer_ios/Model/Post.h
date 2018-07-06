@@ -1,11 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface Post : NSObject {
-    NSString *title;
-    NSString *description;
-    NSDate *pubDate;
-    NSString *guid;
-}
+@interface Post : NSObject
 
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *description;

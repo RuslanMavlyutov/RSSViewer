@@ -1,10 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface Channel : NSObject {
-    NSString *title;
-    NSString *link;
-    NSString *description;
-}
+@interface Channel : NSObject
 
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *link;

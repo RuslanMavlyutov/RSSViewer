@@ -1,7 +1,6 @@
 #import "DetailViewController.h"
 #import "TableController.h"
 #import "ParserController.h"
-#import "ViewController.h"
 
 @interface DetailViewController ()
 

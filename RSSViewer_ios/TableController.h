@@ -5,8 +5,6 @@
 @interface TableController : UIViewController {
     NSMutableArray *feed;
     NSArray *array;
-    ParserController *parserFeed;
-    NSMutableArray *posts;
 }
 
 @property (nonatomic, retain) ParserController *parserFeed;

@@ -1,10 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface ParserController : UIViewController {
-    NSMutableArray *titleArray;
-    BOOL isRssChannelUpdate;
-}
+@interface ParserController : UIViewController
 
 -(void) loadParser : (NSURL*) url;
 -(id)initWithLink : (NSURL*) url;
