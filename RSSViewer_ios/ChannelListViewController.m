@@ -30,6 +30,7 @@ static NSString *const mainSettings = @"settings";
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     linkArray = [defaults arrayForKey:mainSettings];
+
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
@@ -37,10 +38,16 @@ static NSString *const mainSettings = @"settings";
     parserN = [[RSSParser alloc] init];
     rssFeedModel = [[RSSFeedModel alloc] initWithLoader:loader parser:parserN];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable:)
+                                                 name:@"reloadChannelNotification"
+                                               object:nil];
+
     for(int i = 0; i < linkArray.count; i++) {
         url = [NSURL URLWithString:linkArray[i]];
         [self loadRSSChannel:url];
     }
+
 //    parser = [ParserController alloc];
 //
 //    for(int i = 0; i < linkArray.count; i++) {
@@ -70,11 +77,10 @@ static NSString *const mainSettings = @"settings";
 
             [self presentViewController:alertController animated:YES completion:nil];
         }
-        [self reloadTable];
     }];
 }
 
--(void) reloadTable
+-(void) reloadTable:(NSNotification*)notification
 {
     if(channels)
         self->channels = nil;

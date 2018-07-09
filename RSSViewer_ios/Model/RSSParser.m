@@ -2,6 +2,7 @@
 #import "Post.h"
 #include "TableController.h"
 
+NSString* reloadChannelNotification = @"reloadChannelNotification";
 NSString* IndicatorRSSNotification = @"IndicatorRSSNotification";
 
 static NSString *const channelElementName = @"channel";
@@ -90,6 +91,7 @@ static NSString *const itemElementName = @"item";
             titleArray = [[NSMutableArray alloc] init];
         [titleArray addObject:feedChannel];
         [parser abortParsing];
+        [[NSNotificationCenter defaultCenter] postNotificationName:reloadChannelNotification object:nil userInfo:nil];
     }
 }
 
