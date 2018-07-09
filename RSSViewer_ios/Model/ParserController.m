@@ -5,7 +5,7 @@
 #import "Post.h"
 
 NSString* reloadNotification = @"reloadNotification";
-NSString* IndicatorRSSNotification = @"IndicatorRSSNotification";
+//NSString* IndicatorRSSNotification = @"IndicatorRSSNotification";
 
 static NSString *const channelElementName = @"channel";
 static NSString *const itemElementName = @"item";
@@ -116,14 +116,14 @@ static NSString *const itemElementName = @"item";
     NSDictionary *dict = [NSDictionary dictionaryWithObject:feedPosts forKey:@"feeds"];
     [[NSNotificationCenter defaultCenter] postNotificationName:reloadNotification object:nil userInfo:dict];
 
-    NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"isStart"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
+//    NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"isStart"];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
 }
 
 - (IBAction)loadUrl:(id)sender
 {
-    NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"isStart"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
+//    NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"isStart"];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
 
     [warningLabel setText:@""];
     NSString *string = urlField.text;
@@ -136,8 +136,8 @@ static NSString *const itemElementName = @"item";
             [self setWarningState:YES];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self->warningLabel setText:@"Page can't be found"];
-                NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"isStart"];
-                [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
+//                NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"isStart"];
+//                [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
             });
         } else {
             NSInteger statusCode = [(NSHTTPURLResponse*)response statusCode];
@@ -149,8 +149,8 @@ static NSString *const itemElementName = @"item";
                 NSString *warning = [NSString stringWithFormat:@"The url is invalid! - %ld", (long)statusCode];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self->warningLabel setText: warning];
-                    NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"isStart"];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
+//                    NSDictionary *dictIndicator = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:@"isStart"];
+//                    [[NSNotificationCenter defaultCenter] postNotificationName:IndicatorRSSNotification object:nil userInfo:dictIndicator];
                 });
                 [self setWarningState:YES];
             }

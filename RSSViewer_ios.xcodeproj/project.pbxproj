@@ -20,6 +20,9 @@
 		3179518A20E369EA009D3DA0 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518920E369EA009D3DA0 /* Post.m */; };
 		3179518D20E379B8009D3DA0 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518C20E379B8009D3DA0 /* Channel.m */; };
 		3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179519020E66690009D3DA0 /* ChannelListViewController.m */; };
+		3197CE4F20EFA5CD00B5C233 /* RSSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE4E20EFA5CD00B5C233 /* RSSLoader.m */; };
+		3197CE5220EFA72100B5C233 /* RSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE5120EFA72100B5C233 /* RSSParser.m */; };
+		3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,12 @@
 		3179518C20E379B8009D3DA0 /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		3179518F20E66690009D3DA0 /* ChannelListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelListViewController.h; sourceTree = "<group>"; };
 		3179519020E66690009D3DA0 /* ChannelListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelListViewController.m; sourceTree = "<group>"; };
+		3197CE4D20EFA5CD00B5C233 /* RSSLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSLoader.h; sourceTree = "<group>"; };
+		3197CE4E20EFA5CD00B5C233 /* RSSLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSLoader.m; sourceTree = "<group>"; };
+		3197CE5020EFA72100B5C233 /* RSSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSParser.h; sourceTree = "<group>"; };
+		3197CE5120EFA72100B5C233 /* RSSParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSParser.m; sourceTree = "<group>"; };
+		3197CE5320EFAAE600B5C233 /* RSSFeedModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSFeedModel.h; sourceTree = "<group>"; };
+		3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSFeedModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +126,12 @@
 				3179518C20E379B8009D3DA0 /* Channel.m */,
 				3179518820E369EA009D3DA0 /* Post.h */,
 				3179518920E369EA009D3DA0 /* Post.m */,
+				3197CE4D20EFA5CD00B5C233 /* RSSLoader.h */,
+				3197CE4E20EFA5CD00B5C233 /* RSSLoader.m */,
+				3197CE5020EFA72100B5C233 /* RSSParser.h */,
+				3197CE5120EFA72100B5C233 /* RSSParser.m */,
+				3197CE5320EFAAE600B5C233 /* RSSFeedModel.h */,
+				3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,13 +209,16 @@
 			files = (
 				31214A4A20D10F7C00340599 /* DetailViewController.m in Sources */,
 				31214A4720D0EEFB00340599 /* TableController.m in Sources */,
+				3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */,
 				3103C74D20D11F6C00076F2D /* ParserController.m in Sources */,
 				3179518D20E379B8009D3DA0 /* Channel.m in Sources */,
 				3179518A20E369EA009D3DA0 /* Post.m in Sources */,
+				3197CE4F20EFA5CD00B5C233 /* RSSLoader.m in Sources */,
 				3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */,
 				3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */,
 				31214A3F20D0EACB00340599 /* main.m in Sources */,
 				31214A3120D0EACA00340599 /* AppDelegate.m in Sources */,
+				3197CE5220EFA72100B5C233 /* RSSParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

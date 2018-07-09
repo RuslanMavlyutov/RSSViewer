@@ -2,6 +2,11 @@
 #import "ParserController.h"
 #import "TableController.h"
 
+#import "RSSLoader.h"
+#import "RSSParser.h"
+#import "RSSFeedModel.h"
+#import "Channel.h"
+
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
 static NSString *const thirdChannelRss = @"https://www.kommersant.ru/rss/regions/saratov.xml";
@@ -14,6 +19,9 @@ static NSString *const mainSettings = @"settings";
     NSArray *linkArray;
     NSURL *url;
     ParserController *parser;
+    RSSLoader *loader;
+    RSSParser *parserN;
+    RSSFeedModel *rssFeedModel;
 }
 
 - (void)viewDidLoad
@@ -25,13 +33,56 @@ static NSString *const mainSettings = @"settings";
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
-    parser = [ParserController alloc];
+    loader = [[RSSLoader alloc] init];
+    parserN = [[RSSParser alloc] init];
+    rssFeedModel = [[RSSFeedModel alloc] initWithLoader:loader parser:parserN];
 
     for(int i = 0; i < linkArray.count; i++) {
         url = [NSURL URLWithString:linkArray[i]];
-        channels = nil;
-        channels = [NSArray arrayWithArray:[[parser initWithLink:url] titleArray]];
+        [self loadRSSChannel:url];
     }
+//    parser = [ParserController alloc];
+//
+//    for(int i = 0; i < linkArray.count; i++) {
+//        url = [NSURL URLWithString:linkArray[i]];
+//        channels = nil;
+//        channels = [NSArray arrayWithArray:[[parser initWithLink:url] titleArray]];
+//    }
+}
+
+- (void) loadRSSChannel : (NSURL *) url
+{
+    [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
+        if(![warning isEqualToString:@""]) {
+            UIAlertController *alertController = [UIAlertController
+                                                  alertControllerWithTitle:@"Warning:"
+                                                  message:warning
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction *actionOK = [UIAlertAction
+                                       actionWithTitle:@"Ok"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction *action)
+                                       {
+                                       }];
+
+            [alertController addAction:actionOK];
+
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        [self reloadTable];
+    }];
+}
+
+-(void) reloadTable
+{
+    if(channels)
+        self->channels = nil;
+    self->channels = [NSArray arrayWithArray:[parserN titleArray]];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,10 +177,10 @@ static NSString *const mainSettings = @"settings";
     NSLog(@"Link: %@", link);
 
     // TODO: check link error
-    
+
     if([linkArray containsObject:link])
         return;
-    
+
     NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
     [array addObject:link];
     linkArray = [NSArray arrayWithArray:array];
