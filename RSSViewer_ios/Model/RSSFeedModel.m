@@ -23,11 +23,13 @@
 
     [self.loader loadChannelWithUrl:url competitionHandler: ^(NSData *data, NSError *error, NSString *warning) {
         NSLog(@"%@", error);
-        if([warning isEqualToString:@""])
+        if([warning isEqualToString:@""]) {
             [self.parser parserRss:data completion:^(Channel *channel, NSError *err, NSString *warning) {
-                if(error)
+                if(err)
                     NSLog(@"%@", error);
-        }];
+                completion(channel, err, warning);
+            }];
+        }
         completion(nil, error, warning);
     }];
 }

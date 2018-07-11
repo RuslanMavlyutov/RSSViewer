@@ -17,6 +17,7 @@ static NSString *const mainSettings = @"settings";
 @implementation ChannelListViewController {
     NSArray *channels;
     NSArray *linkArray;
+    NSMutableArray *urlArray;
     NSURL *url;
     ParserController *parser;
     RSSLoader *loader;
@@ -29,6 +30,7 @@ static NSString *const mainSettings = @"settings";
     [super viewDidLoad];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    urlArray = [[NSMutableArray alloc] init];
     linkArray = [defaults arrayForKey:mainSettings];
 
     if(!linkArray)
@@ -38,16 +40,10 @@ static NSString *const mainSettings = @"settings";
     parserN = [[RSSParser alloc] init];
     rssFeedModel = [[RSSFeedModel alloc] initWithLoader:loader parser:parserN];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadTable:)
-                                                 name:@"reloadChannelNotification"
-                                               object:nil];
-
     for(int i = 0; i < linkArray.count; i++) {
         url = [NSURL URLWithString:linkArray[i]];
         [self loadRSSChannel:url];
     }
-
 //    parser = [ParserController alloc];
 //
 //    for(int i = 0; i < linkArray.count; i++) {
@@ -60,7 +56,7 @@ static NSString *const mainSettings = @"settings";
 - (void) loadRSSChannel : (NSURL *) url
 {
     [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
-        if(![warning isEqualToString:@""]) {
+        if(![warning isEqualToString:@""] && warning != nil) {
             UIAlertController *alertController = [UIAlertController
                                                   alertControllerWithTitle:@"Warning:"
                                                   message:warning
@@ -77,18 +73,14 @@ static NSString *const mainSettings = @"settings";
 
             [self presentViewController:alertController animated:YES completion:nil];
         }
+        if(channel) {
+            self->channels = [NSArray arrayWithArray:[self->parserN titleArray]];
+            [self->urlArray addObject:url];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
     }];
-}
-
--(void) reloadTable:(NSNotification*)notification
-{
-    if(channels)
-        self->channels = nil;
-    self->channels = [NSArray arrayWithArray:[parserN titleArray]];
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +109,7 @@ static NSString *const mainSettings = @"settings";
     [self.navigationController pushViewController:vc animated:YES];
 
     ParserController *parserController = [[ParserController alloc] init];
-    NSString *str = [linkArray objectAtIndex:indexPath.row];
+    NSString *str = [NSString stringWithFormat:@"%@", [urlArray objectAtIndex:indexPath.row]];
     NSURL *url = [NSURL URLWithString:str];
     [parserController loadParser:url];
 }

@@ -30,7 +30,6 @@ static NSString *const itemElementName = @"item";
 @synthesize titleArray;
 @synthesize isRssChannelUpdate;
 
-
 -(id) init
 {
     self.parsingQueue = dispatch_queue_create("com.rss.parsing", NULL);
@@ -44,14 +43,13 @@ static NSString *const itemElementName = @"item";
     isRssChannelUpdate = true;
 }
 
-- (void)parserRss:(NSData *)rss completion:(void (^)(Channel *, NSError *, NSString *warning))completion
+- (void)parserRss:(NSData *)rss completion:(void (^)(Channel *, NSError *, NSString *))completion
 {
-    dispatch_async(_parsingQueue, ^{
-        self->parser = [[NSXMLParser alloc] initWithData:rss];
-        [self->parser setDelegate:self];
-        [self->parser setShouldResolveExternalEntities:NO];
-        [self->parser parse];
-    });
+    self->parser = [[NSXMLParser alloc] initWithData:rss];
+    [self->parser setDelegate:self];
+    [self->parser setShouldResolveExternalEntities:NO];
+    [self->parser parse];
+    completion(feedChannel, nil, nil);
 }
 
 - (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -91,7 +89,6 @@ static NSString *const itemElementName = @"item";
             titleArray = [[NSMutableArray alloc] init];
         [titleArray addObject:feedChannel];
         [parser abortParsing];
-        [[NSNotificationCenter defaultCenter] postNotificationName:reloadChannelNotification object:nil userInfo:nil];
     }
 }
 

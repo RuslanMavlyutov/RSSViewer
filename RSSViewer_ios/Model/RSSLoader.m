@@ -19,12 +19,8 @@
             }
         }
         if(competitionHandler) {
-            if(error) {
-                competitionHandler(data, error, warning);
-            } else {
-                competitionHandler(data, error, warning);
+            competitionHandler(data, error, warning);
             }
-        }
     }];
 
     [dataTask resume];
