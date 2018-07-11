@@ -76,9 +76,26 @@ static NSString *const mainSettings = @"settings";
         if(channel) {
             self->channels = [NSArray arrayWithArray:[self->parserN titleArray]];
             [self->urlArray addObject:url];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
+            if(self->channels.count == self->linkArray.count) {
+                NSMutableArray *tempUrl = [[NSMutableArray alloc] init];
+                NSMutableArray *tempChannel = [[NSMutableArray alloc] init];
+                for(int i = 0; i <  self->urlArray.count; i++) {
+                    int index = 0;
+                    for(NSURL* url in self->urlArray) {
+                        NSLog(@"%@", self->linkArray[i]);
+                        if([self->linkArray[i] isEqual: url.absoluteString]) {
+                            [tempUrl addObject:url];
+                            [tempChannel addObject:self->channels[index]];
+                        }
+                        index++;
+                    }
+                }
+                self->urlArray = [[NSMutableArray alloc] initWithArray:tempUrl];
+                self->channels = [[NSArray alloc] initWithArray:tempChannel];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            }
         }
     }];
 }
