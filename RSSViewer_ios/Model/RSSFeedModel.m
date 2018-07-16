@@ -9,10 +9,10 @@
 
 @implementation RSSFeedModel
 
-- (id) initWithLoader:(RSSLoader *)loader parser:(RSSParser *)parser
+-(id) init
 {
-    self.parser = parser;
-    self.loader = loader;
+    _loader = [[RSSLoader alloc] init];
+    _parser = [[RSSParser alloc] init];
 
     return self;
 }

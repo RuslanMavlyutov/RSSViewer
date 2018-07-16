@@ -1,11 +1,7 @@
 #import "ChannelListViewController.h"
 #import "ParserController.h"
 #import "TableController.h"
-
-#import "RSSLoader.h"
-#import "RSSParser.h"
 #import "RSSFeedModel.h"
-#import "Channel.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
@@ -15,13 +11,9 @@ static NSString *const fivethChannelRss = @"https://lenta.ru/rss/news";
 static NSString *const mainSettings = @"settings";
 
 @implementation ChannelListViewController {
-    NSArray *channels;
-    NSArray *linkArray;
-    NSMutableArray *urlArray;
-    NSURL *url;
-    ParserController *parser;
-    RSSLoader *loader;
-    RSSParser *parserN;
+    NSArray<Channel *> *channels;
+    NSArray<NSString *> *linkArray;
+    NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
 }
 
@@ -30,18 +22,17 @@ static NSString *const mainSettings = @"settings";
     [super viewDidLoad];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    urlArray = [[NSMutableArray alloc] init];
+    urlArray = [[NSArray alloc] init];
     linkArray = [defaults arrayForKey:mainSettings];
+    channels = [[NSArray alloc] init];
 
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
-    loader = [[RSSLoader alloc] init];
-    parserN = [[RSSParser alloc] init];
-    rssFeedModel = [[RSSFeedModel alloc] initWithLoader:loader parser:parserN];
+    rssFeedModel = [[RSSFeedModel alloc] init];
 
     for(int i = 0; i < linkArray.count; i++) {
-        url = [NSURL URLWithString:linkArray[i]];
+        NSURL *url = [NSURL URLWithString:linkArray[i]];
         [self loadRSSChannel:url];
     }
 //    parser = [ParserController alloc];
@@ -74,15 +65,17 @@ static NSString *const mainSettings = @"settings";
             [self presentViewController:alertController animated:YES completion:nil];
         }
         if(channel) {
-            self->channels = [NSArray arrayWithArray:[self->parserN titleArray]];
-            [self->urlArray addObject:url];
-            if(self->channels.count == self->linkArray.count) {
+            NSArray *arrayChannel = [[NSArray alloc] initWithObjects:channel, nil];
+            self->channels = [self->channels arrayByAddingObjectsFromArray:arrayChannel];
+            NSArray *arrayUrl = [[NSArray alloc] initWithObjects:url, nil];
+            self->urlArray = [self->urlArray arrayByAddingObjectsFromArray:arrayUrl];
+          if(self->channels.count == self->linkArray.count) {
                 NSMutableArray *tempUrl = [[NSMutableArray alloc] init];
                 NSMutableArray *tempChannel = [[NSMutableArray alloc] init];
                 for(int i = 0; i <  self->urlArray.count; i++) {
                     int index = 0;
                     for(NSURL* url in self->urlArray) {
-                        NSLog(@"%@", self->linkArray[i]);
+//                        NSLog(@"%@", self->linkArray[i]);
                         if([self->linkArray[i] isEqual: url.absoluteString]) {
                             [tempUrl addObject:url];
                             [tempChannel addObject:self->channels[index]];
@@ -199,9 +192,8 @@ static NSString *const mainSettings = @"settings";
     NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
     [array addObject:link];
     linkArray = [NSArray arrayWithArray:array];
-    url = [NSURL URLWithString:link];
-    channels = [NSArray arrayWithArray:[[parser initWithLink:url] titleArray]];
-    [self.tableView reloadData];
+    NSURL *url = [NSURL URLWithString:link];
+    [self loadRSSChannel:url];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:linkArray forKey:mainSettings];
     [defaults synchronize];
