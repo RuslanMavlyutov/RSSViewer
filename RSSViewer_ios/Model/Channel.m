@@ -4,12 +4,4 @@
 
 @synthesize title, link, description, posts;
 
--(id)init {
-
-    if (self = [super init]) {
-    }
-
-    return self;
-}
-
 @end
