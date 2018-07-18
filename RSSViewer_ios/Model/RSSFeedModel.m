@@ -19,8 +19,6 @@
 
 - (void) loadRSSWithUrl:(NSURL *)url completion:(ChannelBlock)completion
 {
-    [self.parser updateChannel];
-
     [self.loader loadChannelWithUrl:url competitionHandler: ^(NSData *data, NSError *error, NSString *warning) {
         NSLog(@"%@", error);
         if([warning isEqualToString:@""]) {

@@ -23,24 +23,15 @@ static NSString *const itemElementName = @"item";
     NSString *element;
 }
 
-@synthesize feedPosts;
 @synthesize currentElement;
 @synthesize currentElementData;
 @synthesize feedChannel;
-@synthesize titleArray;
-@synthesize isRssChannelUpdate;
 
 -(id) init
 {
     self.parsingQueue = dispatch_queue_create("com.rss.parsing", NULL);
-    feedPosts = [[NSMutableArray alloc] init];
 
     return self;
-}
-
-- (void) updateChannel
-{
-    isRssChannelUpdate = true;
 }
 
 - (void)parserRss:(NSData *)rss completion:(void (^)(Channel *, NSError *, NSString *))completion
@@ -62,13 +53,15 @@ static NSString *const itemElementName = @"item";
         Channel *channel = [[Channel alloc] init];
         feedChannel = channel;
         currentElement = channel;
+        feedChannel.posts = [[NSArray alloc] init];
         return;
     }
 
     if ([element isEqualToString:itemElementName]) {
 
         Post *post = [[Post alloc] init];
-        [feedPosts addObject:post];
+        NSArray *currentPost = [[NSArray alloc] initWithObjects:post, nil];
+        feedChannel.posts = [feedChannel.posts arrayByAddingObjectsFromArray:currentPost];
         currentElement = post;
         return;
     }
@@ -79,17 +72,11 @@ static NSString *const itemElementName = @"item";
     SEL selectorName = NSSelectorFromString(elementName);
     if ([currentElement respondsToSelector:selectorName]) {
 
+    if(![[currentElement valueForKey:elementName] length])
         [currentElement setValue:currentElementData forKey:elementName];
     }
 
     currentElementData = nil;
-
-    if(isRssChannelUpdate && feedChannel.description != nil) {
-        if(!titleArray)
-            titleArray = [[NSMutableArray alloc] init];
-        [titleArray addObject:feedChannel];
-        [parser abortParsing];
-    }
 }
 
 - (void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string

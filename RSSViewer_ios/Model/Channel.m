@@ -2,7 +2,7 @@
 
 @implementation Channel
 
-@synthesize title, link, description;
+@synthesize title, link, description, posts;
 
 -(id)init {
 
