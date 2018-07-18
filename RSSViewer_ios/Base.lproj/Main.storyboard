@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="-564.46776611694156"/>
         </scene>
-        <!--Rss-->
+        <!--RSS Channels-->
         <scene sceneID="0bX-ua-EIX">
             <objects>
                 <tableViewController id="5vc-b7-wKR" customClass="ChannelListViewController" sceneMemberID="viewController">
@@ -54,8 +54,8 @@
                             <outlet property="delegate" destination="5vc-b7-wKR" id="8tO-rJ-fEE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Rss" id="G8e-hS-m9r">
-                        <barButtonItem key="rightBarButtonItem" title="Add rss channel" id="mpS-vn-au9">
+                    <navigationItem key="navigationItem" title="RSS Channels" id="G8e-hS-m9r">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mpS-vn-au9">
                             <connections>
                                 <action selector="addRssChanel:" destination="5vc-b7-wKR" id="rau-bU-0zE"/>
                             </connections>
@@ -109,7 +109,6 @@
                     </connections>
                 </customObject>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWN-tL-v8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="XMX-mF-LAH" customClass="LinkController"/>
             </objects>
             <point key="canvasLocation" x="1647" y="-564"/>
         </scene>
