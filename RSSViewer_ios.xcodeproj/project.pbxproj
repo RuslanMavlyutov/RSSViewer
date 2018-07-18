@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3103C74D20D11F6C00076F2D /* ParserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3103C74C20D11F6C00076F2D /* ParserController.m */; };
 		3103C75020D124E200076F2D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3103C74F20D124E200076F2D /* WebKit.framework */; };
 		3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3103C77D20D79A6400076F2D /* IndicatorController.m */; };
 		31214A3120D0EACA00340599 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A3020D0EACA00340599 /* AppDelegate.m */; };
@@ -26,8 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3103C74B20D11F6C00076F2D /* ParserController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParserController.h; sourceTree = "<group>"; };
-		3103C74C20D11F6C00076F2D /* ParserController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParserController.m; sourceTree = "<group>"; };
 		3103C74F20D124E200076F2D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3103C77C20D79A6400076F2D /* IndicatorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndicatorController.h; sourceTree = "<group>"; };
 		3103C77D20D79A6400076F2D /* IndicatorController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndicatorController.m; sourceTree = "<group>"; };
@@ -120,8 +117,6 @@
 		3179518E20E3D7C5009D3DA0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3103C74B20D11F6C00076F2D /* ParserController.h */,
-				3103C74C20D11F6C00076F2D /* ParserController.m */,
 				3179518B20E379B7009D3DA0 /* Channel.h */,
 				3179518C20E379B8009D3DA0 /* Channel.m */,
 				3179518820E369EA009D3DA0 /* Post.h */,
@@ -210,7 +205,6 @@
 				31214A4A20D10F7C00340599 /* DetailViewController.m in Sources */,
 				31214A4720D0EEFB00340599 /* TableController.m in Sources */,
 				3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */,
-				3103C74D20D11F6C00076F2D /* ParserController.m in Sources */,
 				3179518D20E379B8009D3DA0 /* Channel.m in Sources */,
 				3179518A20E369EA009D3DA0 /* Post.m in Sources */,
 				3197CE4F20EFA5CD00B5C233 /* RSSLoader.m in Sources */,

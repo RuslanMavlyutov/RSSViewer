@@ -1,5 +1,4 @@
 #import "ChannelListViewController.h"
-#import "ParserController.h"
 #import "TableController.h"
 #import "RSSFeedModel.h"
 
@@ -9,6 +8,8 @@ static NSString *const thirdChannelRss = @"https://www.kommersant.ru/rss/regions
 static NSString *const fourthChannelRss = @"https://habr.com/rss/interesting";
 static NSString *const fivethChannelRss = @"https://lenta.ru/rss/news";
 static NSString *const mainSettings = @"settings";
+
+NSString* reloadNotification = @"reloadNotification";
 
 @implementation ChannelListViewController {
     NSArray<Channel *> *channels;
@@ -35,13 +36,6 @@ static NSString *const mainSettings = @"settings";
         NSURL *url = [NSURL URLWithString:linkArray[i]];
         [self loadRSSChannel:url];
     }
-//    parser = [ParserController alloc];
-//
-//    for(int i = 0; i < linkArray.count; i++) {
-//        url = [NSURL URLWithString:linkArray[i]];
-//        channels = nil;
-//        channels = [NSArray arrayWithArray:[[parser initWithLink:url] titleArray]];
-//    }
 }
 
 - (void) loadRSSChannel : (NSURL *) url
@@ -118,10 +112,9 @@ static NSString *const mainSettings = @"settings";
     TableController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"table"];
     [self.navigationController pushViewController:vc animated:YES];
 
-    ParserController *parserController = [[ParserController alloc] init];
-    NSString *str = [NSString stringWithFormat:@"%@", [urlArray objectAtIndex:indexPath.row]];
-    NSURL *url = [NSURL URLWithString:str];
-    [parserController loadParser:url];
+    NSArray *selectedChannel = [[NSArray alloc] initWithArray:[[channels objectAtIndex:indexPath.row] posts]];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:selectedChannel forKey:@"feeds"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:reloadNotification object:nil userInfo:dict];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

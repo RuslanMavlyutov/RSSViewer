@@ -17,7 +17,7 @@ static NSString* const linkName = @"link";
     NSMutableArray *tableFeeds;
 }
 
-@synthesize parserFeed, posts;
+@synthesize posts;
 
 - (id)init
 {
