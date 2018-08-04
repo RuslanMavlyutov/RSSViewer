@@ -1,4 +1,5 @@
 #import "AppDelegate.h"
+#import "ChannelListViewController.h"
 
 @interface AppDelegate ()
 
@@ -6,6 +7,7 @@
 
 @implementation AppDelegate
 
+@synthesize navController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

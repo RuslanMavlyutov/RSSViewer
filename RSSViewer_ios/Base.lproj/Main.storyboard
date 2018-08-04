@@ -45,7 +45,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="LSC-tS-46C" kind="show" id="xiV-gO-wcn"/>
+                                    <segue destination="LSC-tS-46C" kind="show" identifier="showNews" id="xiV-gO-wcn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,7 +69,7 @@
         <!--TableController-->
         <scene sceneID="SYm-Ox-109">
             <objects>
-                <tableViewController storyboardIdentifier="table" title="TableController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LSC-tS-46C" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="table" title="TableController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LSC-tS-46C" customClass="TableController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QC6-DT-q6d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,23 +86,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="wYD-9S-878" kind="showDetail" identifier="showDetail" id="dcH-w6-1l7"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sCm-7A-Git" id="yYO-p7-iUT"/>
-                            <outlet property="delegate" destination="sCm-7A-Git" id="3ed-dY-wj5"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="RSS Viewer" id="oyp-5n-QJ4"/>
                 </tableViewController>
-                <customObject id="sCm-7A-Git" userLabel="TableController" customClass="TableController">
-                    <connections>
-                        <outlet property="tableView" destination="QC6-DT-q6d" id="O7E-wj-TRI"/>
-                    </connections>
-                </customObject>
                 <customObject id="hlo-dc-GLd" customClass="IndicatorController">
                     <connections>
                         <outlet property="indicatorRss" destination="UqI-5e-3gE" id="wf8-4K-6IB"/>
@@ -129,15 +117,6 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k98-9b-dvm">
-                                <rect key="frame" x="13" y="26" width="52" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="backToPreviousScreen:" destination="wYD-9S-878" eventType="touchUpInside" id="d23-uT-m9H"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oMe-T8-4Xg">
                                 <rect key="frame" x="177" y="356" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

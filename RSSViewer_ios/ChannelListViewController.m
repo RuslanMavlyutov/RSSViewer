@@ -69,7 +69,6 @@ NSString* reloadNotification = @"reloadNotification";
                 for(int i = 0; i <  self->urlArray.count; i++) {
                     int index = 0;
                     for(NSURL* url in self->urlArray) {
-//                        NSLog(@"%@", self->linkArray[i]);
                         if([self->linkArray[i] isEqual: url.absoluteString]) {
                             [tempUrl addObject:url];
                             [tempChannel addObject:self->channels[index]];
@@ -113,8 +112,7 @@ NSString* reloadNotification = @"reloadNotification";
     [self.navigationController pushViewController:vc animated:YES];
 
     NSArray *selectedChannel = [[NSArray alloc] initWithArray:[[channels objectAtIndex:indexPath.row] posts]];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:selectedChannel forKey:@"feeds"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:reloadNotification object:nil userInfo:dict];
+    [vc loadNews:selectedChannel];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

@@ -2,6 +2,5 @@
 #import <WebKit/WebKit.h>
 
 @interface DetailViewController : UIViewController
-@property (strong, nonatomic) NSString *url;
-
+-(void) loadLink: (NSString *) urlString;
 @end

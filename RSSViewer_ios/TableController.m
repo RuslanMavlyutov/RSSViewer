@@ -8,8 +8,6 @@ static NSString* const linkName = @"link";
 
 @interface TableController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation TableController
@@ -19,16 +17,15 @@ static NSString* const linkName = @"link";
 
 @synthesize posts;
 
-- (id)init
+- (void) loadNews : (NSArray *) array
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadTable:)
-                                                 name:@"reloadNotification"
-                                               object:nil];
-
     posts = [[NSMutableArray alloc] init];
+    tableFeeds = [[NSMutableArray alloc] initWithArray:array];
+    for (Post *feedPost in tableFeeds) {
+        [posts addObject:feedPost];
+    }
 
-    return self;
+    [self.tableView reloadData];
 }
 
 -(void) reloadTable:(NSNotification*)notification
@@ -65,27 +62,16 @@ static NSString* const linkName = @"link";
     return cell;
 }
 
--(void) reloadTableView
-{
-    [self.tableView reloadData];
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSString *string = [tableFeeds[indexPath.row] objectForKey:@"link"];
-        [[segue destinationViewController] setUrl:string];
-    }
-}
-
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Post *currentPost = [posts objectAtIndex:[indexPath row]];
     NSString *firstItem = [currentPost guid];
 
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:firstItem forKey:@"firstItem"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadWebLink" object:nil userInfo:dict];
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DetailViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"detail"];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc view];
+    [vc loadLink:firstItem];
 }
 
 @end
