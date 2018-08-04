@@ -52,6 +52,7 @@
 		3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSFeedModel.m; sourceTree = "<group>"; };
 		31AE610A21157A210037C02E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31AE610B21157A210037C02E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		31AE610D211580AD0037C02E /* NSString+warning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+warning.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 		31214A2320D0EACA00340599 = {
 			isa = PBXGroup;
 			children = (
+				31AE611121158B3C0037C02E /* Category */,
 				31214A2E20D0EACA00340599 /* RSSViewer_ios */,
 				31214A2D20D0EACA00340599 /* Products */,
 				3103C74E20D124E100076F2D /* Frameworks */,
@@ -129,6 +131,14 @@
 				3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		31AE611121158B3C0037C02E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				31AE610D211580AD0037C02E /* NSString+warning.h */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

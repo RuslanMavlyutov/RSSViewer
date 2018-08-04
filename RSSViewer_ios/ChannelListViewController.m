@@ -1,6 +1,7 @@
 #import "ChannelListViewController.h"
 #import "TableController.h"
 #import "RSSFeedModel.h"
+#import "NSString+warning.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
@@ -41,7 +42,7 @@ NSString* reloadNotification = @"reloadNotification";
 - (void) loadRSSChannel : (NSURL *) url
 {
     [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
-        if(![warning isEqualToString:@""] && warning != nil) {
+        if(warning.isEmpty) {
             UIAlertController *alertController = [UIAlertController
                                                   alertControllerWithTitle:@"Warning:"
                                                   message:warning
