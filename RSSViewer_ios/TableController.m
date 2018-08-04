@@ -3,8 +3,6 @@
 #import "Post.h"
 
 static NSString* const cellName = @"cell";
-static NSString* const titleName = @"title";
-static NSString* const linkName = @"link";
 
 @interface TableController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -12,29 +10,12 @@ static NSString* const linkName = @"link";
 
 @implementation TableController
 {
-    NSMutableArray *tableFeeds;
+    Channel *currentChannel;
 }
 
-@synthesize posts;
-
-- (void) loadNews : (NSArray *) array
+- (void) showChannel : (Channel *) channel
 {
-    posts = [[NSMutableArray alloc] init];
-    tableFeeds = [[NSMutableArray alloc] initWithArray:array];
-    for (Post *feedPost in tableFeeds) {
-        [posts addObject:feedPost];
-    }
-
-    [self.tableView reloadData];
-}
-
--(void) reloadTable:(NSNotification*)notification
-{
-    NSDictionary *dict = notification.userInfo;
-    tableFeeds = [dict valueForKey:@"feeds"];
-    for (Post *feedPost in tableFeeds) {
-        [posts addObject:feedPost];
-    }
+    currentChannel = channel;
 
     [self.tableView reloadData];
 }
@@ -46,7 +27,7 @@ static NSString* const linkName = @"link";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return tableFeeds.count;
+    return [[currentChannel posts] count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,23 +36,21 @@ static NSString* const linkName = @"link";
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName];
 
-    Post *currentPost = [posts objectAtIndex:row];
-    cell.textLabel.text = [currentPost title];
-    cell.detailTextLabel.text = [currentPost description];
+    cell.textLabel.text = [[[currentChannel posts] objectAtIndex:row] title];
+    cell.detailTextLabel.text = [[[currentChannel posts] objectAtIndex:row] description];
 
     return cell;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Post *currentPost = [posts objectAtIndex:[indexPath row]];
-    NSString *firstItem = [currentPost guid];
+    NSString *strLink = [[[currentChannel posts] objectAtIndex:[indexPath row]] guid];
 
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DetailViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"detail"];
     [self.navigationController pushViewController:vc animated:YES];
     [vc view];
-    [vc loadLink:firstItem];
+    [vc loadLink:strLink];
 }
 
 @end

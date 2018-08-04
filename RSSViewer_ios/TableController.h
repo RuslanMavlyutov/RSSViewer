@@ -1,13 +1,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Channel.h"
 
-@interface TableController : UITableViewController {
-    NSMutableArray *feed;
-    NSArray *array;
-}
+@interface TableController : UITableViewController
 
-@property (nonatomic, retain) NSMutableArray *posts;
-
-- (void) loadNews : (NSArray *) array;
+- (void) showChannel : (Channel *) channel;
 
 @end

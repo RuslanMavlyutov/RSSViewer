@@ -112,8 +112,8 @@ NSString* reloadNotification = @"reloadNotification";
     TableController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"table"];
     [self.navigationController pushViewController:vc animated:YES];
 
-    NSArray *selectedChannel = [[NSArray alloc] initWithArray:[[channels objectAtIndex:indexPath.row] posts]];
-    [vc loadNews:selectedChannel];
+    Channel *selectedChannel = [channels objectAtIndex:indexPath.row];
+    [vc showChannel:selectedChannel];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
