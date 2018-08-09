@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="1647" y="-564"/>
         </scene>
-        <!--Post Detail View Controller-->
+        <!--RSS Detail-->
         <scene sceneID="MYM-6z-uTs">
             <objects>
                 <viewController storyboardIdentifier="detail" id="wYD-9S-878" customClass="PostDetailViewController" sceneMemberID="viewController">
@@ -120,6 +120,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dVO-cE-JMD"/>
                     </view>
+                    <navigationItem key="navigationItem" title="RSS Detail" id="mbJ-eV-zOI"/>
                     <connections>
                         <outlet property="webView" destination="Ja3-MK-tgD" id="Qgp-H1-uda"/>
                     </connections>
