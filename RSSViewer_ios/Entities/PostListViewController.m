@@ -1,7 +1,7 @@
 #import "PostListViewController.h"
 #import "PostDetailViewController.h"
 #import "Post.h"
-#import "NSString+warning.h"
+#import "NSString+Warning.h"
 
 static NSString* const cellName = @"cell";
 

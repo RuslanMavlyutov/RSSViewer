@@ -22,6 +22,7 @@
 		3197CE5220EFA72100B5C233 /* RSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE5120EFA72100B5C233 /* RSSParser.m */; };
 		3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */; };
 		31AE610C21157A210037C02E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AE610B21157A210037C02E /* AppDelegate.m */; };
+		31AE6118211C49AF0037C02E /* NSString+Warning.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AE6117211C49AF0037C02E /* NSString+Warning.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +53,8 @@
 		3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSFeedModel.m; sourceTree = "<group>"; };
 		31AE610A21157A210037C02E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31AE610B21157A210037C02E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		31AE610D211580AD0037C02E /* NSString+warning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+warning.h"; sourceTree = "<group>"; };
+		31AE6116211C49AF0037C02E /* NSString+Warning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Warning.h"; sourceTree = "<group>"; };
+		31AE6117211C49AF0037C02E /* NSString+Warning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Warning.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +127,8 @@
 		31AE611121158B3C0037C02E /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				31AE610D211580AD0037C02E /* NSString+warning.h */,
+				31AE6116211C49AF0037C02E /* NSString+Warning.h */,
+				31AE6117211C49AF0037C02E /* NSString+Warning.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */,
 				3179518D20E379B8009D3DA0 /* Channel.m in Sources */,
 				3179518A20E369EA009D3DA0 /* Post.m in Sources */,
+				31AE6118211C49AF0037C02E /* NSString+Warning.m in Sources */,
 				3197CE4F20EFA5CD00B5C233 /* RSSLoader.m in Sources */,
 				3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */,
 				3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */,

@@ -1,7 +1,7 @@
 #import "ChannelListViewController.h"
 #import "PostListViewController.h"
 #import "RSSFeedModel.h"
-#import "NSString+warning.h"
+#import "NSString+Warning.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
