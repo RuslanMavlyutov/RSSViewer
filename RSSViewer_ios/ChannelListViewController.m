@@ -17,6 +17,7 @@ NSString* reloadNotification = @"reloadNotification";
     NSArray<NSString *> *linkArray;
     NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
+    NSArray<RSSFeedModel *> *modelArray;
 }
 
 - (void)viewDidLoad
@@ -27,6 +28,7 @@ NSString* reloadNotification = @"reloadNotification";
     urlArray = [[NSArray alloc] init];
     linkArray = [defaults arrayForKey:mainSettings];
     channels = [[NSArray alloc] init];
+    modelArray = [[NSArray alloc] init];
 
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
@@ -83,6 +85,7 @@ NSString* reloadNotification = @"reloadNotification";
                     [self.tableView reloadData];
                 });
             }
+            self->modelArray = [self->modelArray arrayByAddingObjectsFromArray: [[NSArray alloc] initWithObjects:self->rssFeedModel, nil]];
         }
     }];
 }
@@ -113,7 +116,7 @@ NSString* reloadNotification = @"reloadNotification";
     [self.navigationController pushViewController:vc animated:YES];
 
     Channel *selectedChannel = [channels objectAtIndex:indexPath.row];
-    [vc showChannel:selectedChannel];
+    [vc showChannel:selectedChannel : [modelArray objectAtIndex:indexPath.row]];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

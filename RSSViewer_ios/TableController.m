@@ -1,6 +1,7 @@
 #import "TableController.h"
 #import "DetailViewController.h"
 #import "Post.h"
+#import "NSString+warning.h"
 
 static NSString* const cellName = @"cell";
 
@@ -11,13 +12,68 @@ static NSString* const cellName = @"cell";
 @implementation TableController
 {
     Channel *currentChannel;
+    RSSFeedModel* rssFeedModel;
+    UIRefreshControl *refreshControl;
 }
 
-- (void) showChannel : (Channel *) channel
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void) updateRssModel
+{
+    [rssFeedModel loadRSSWithUrl:currentChannel.urlChannel completion:^(Channel *channel, NSError *error, NSString *warning) {
+        if(warning.isEmpty)
+            [self alertMessage:warning];
+        if(channel) {
+            if([[self->currentChannel posts] count] != [[channel posts] count]) {
+                self->currentChannel = channel;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self->refreshControl endRefreshing];
+                    [self.tableView reloadData];
+                });
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->refreshControl endRefreshing];
+        });
+    }];
+}
+
+- (void) refreshTable
+{
+    [self updateRssModel];
+}
+
+- (void) showChannel : (Channel *) channel : (RSSFeedModel *) feedModel
 {
     currentChannel = channel;
+    rssFeedModel = feedModel;
 
     [self.tableView reloadData];
+}
+
+- (void) alertMessage : (NSString *) warning
+{
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Warning:"
+                                          message:warning
+                                          preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *actionOK = [UIAlertAction
+                               actionWithTitle:@"Ok"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                               }];
+
+    [alertController addAction:actionOK];
+
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView

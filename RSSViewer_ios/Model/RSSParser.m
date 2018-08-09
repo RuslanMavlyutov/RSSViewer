@@ -21,6 +21,7 @@ static NSString *const itemElementName = @"item";
 {
     NSXMLParser *parser;
     NSString *element;
+    NSURL *urlChannel;
 }
 
 @synthesize currentElement;
@@ -34,8 +35,9 @@ static NSString *const itemElementName = @"item";
     return self;
 }
 
-- (void)parserRss:(NSData *)rss completion:(void (^)(Channel *, NSError *, NSString *))completion
+- (void)parserRss: (NSURL *) url : (NSData *)rss completion:(void (^)(Channel *, NSError *, NSString *))completion
 {
+    urlChannel = url;
     self->parser = [[NSXMLParser alloc] initWithData:rss];
     [self->parser setDelegate:self];
     [self->parser setShouldResolveExternalEntities:NO];
@@ -51,6 +53,8 @@ static NSString *const itemElementName = @"item";
     if([element isEqualToString: channelElementName]) {
 
         Channel *channel = [[Channel alloc] init];
+        if(channel.urlChannel.absoluteString.length == 0)
+            channel.urlChannel = urlChannel;
         feedChannel = channel;
         currentElement = channel;
         feedChannel.posts = [[NSArray alloc] init];

@@ -22,7 +22,7 @@
     [self.loader loadChannelWithUrl:url competitionHandler: ^(NSData *data, NSError *error, NSString *warning) {
         NSLog(@"%@", error);
         if([warning isEqualToString:@""]) {
-            [self.parser parserRss:data completion:^(Channel *channel, NSError *err, NSString *warning) {
+            [self.parser parserRss: url : data completion:^(Channel *channel, NSError *err, NSString *warning) {
                 if(err)
                     NSLog(@"%@", error);
                 completion(channel, err, warning);
