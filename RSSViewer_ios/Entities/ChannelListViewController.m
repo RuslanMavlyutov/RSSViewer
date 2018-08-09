@@ -18,6 +18,7 @@ NSString* reloadNotification = @"reloadNotification";
     NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
     NSArray<RSSFeedModel *> *modelArray;
+    UIActivityIndicatorView *indicator;
 }
 
 - (void)viewDidLoad
@@ -29,6 +30,7 @@ NSString* reloadNotification = @"reloadNotification";
     linkArray = [defaults arrayForKey:mainSettings];
     channels = [[NSArray alloc] init];
     modelArray = [[NSArray alloc] init];
+    [self initIndicator];
 
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
@@ -37,14 +39,26 @@ NSString* reloadNotification = @"reloadNotification";
 
     for(int i = 0; i < linkArray.count; i++) {
         NSURL *url = [NSURL URLWithString:linkArray[i]];
+        [indicator startAnimating];
         [self loadRSSChannel:url];
     }
+}
+
+-(void) initIndicator
+{
+    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator.color = [UIColor blackColor];
+    indicator.hidesWhenStopped = true;
+    self.tableView.backgroundView = indicator;
 }
 
 - (void) loadRSSChannel : (NSURL *) url
 {
     [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
         if(warning.isEmpty) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self->indicator stopAnimating];
+            });
             UIAlertController *alertController = [UIAlertController
                                                   alertControllerWithTitle:@"Warning:"
                                                   message:warning
@@ -58,7 +72,6 @@ NSString* reloadNotification = @"reloadNotification";
                                        }];
 
             [alertController addAction:actionOK];
-
             [self presentViewController:alertController animated:YES completion:nil];
         }
         if(channel) {
@@ -83,6 +96,7 @@ NSString* reloadNotification = @"reloadNotification";
                 self->channels = [[NSArray alloc] initWithArray:tempChannel];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
+                    [self->indicator stopAnimating];
                 });
             }
             self->modelArray = [self->modelArray arrayByAddingObjectsFromArray: [[NSArray alloc] initWithObjects:self->rssFeedModel, nil]];
@@ -165,7 +179,6 @@ NSString* reloadNotification = @"reloadNotification";
                                handler:^(UIAlertAction *action)
                                {
                                    UITextField *link = alertController.textFields.firstObject;
-
                                    [self addRssLink:[link text]];
                                }];
 
@@ -184,6 +197,7 @@ NSString* reloadNotification = @"reloadNotification";
     if([linkArray containsObject:link])
         return;
 
+    [indicator startAnimating];
     NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
     [array addObject:link];
     linkArray = [NSArray arrayWithArray:array];
