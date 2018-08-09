@@ -1,6 +1,6 @@
 #import "RSSParser.h"
 #import "Post.h"
-#include "TableController.h"
+//#include "TableController.h"
 
 NSString* reloadChannelNotification = @"reloadChannelNotification";
 NSString* IndicatorRSSNotification = @"IndicatorRSSNotification";

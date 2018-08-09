@@ -1,15 +1,13 @@
-#import "DetailViewController.h"
-#import "TableController.h"
+#import "PostDetailViewController.h"
+//#import "TableController.h"
 
-@interface DetailViewController ()
+@interface PostDetailViewController ()
 
 @property (strong, nonatomic) IBOutlet WKWebView *webView;
 
 @end
 
-@implementation DetailViewController {
-    TableController *table;
-}
+@implementation PostDetailViewController
 
 -(void) loadLink: (NSString *) urlString
 {

@@ -69,7 +69,7 @@
         <!--TableController-->
         <scene sceneID="SYm-Ox-109">
             <objects>
-                <tableViewController storyboardIdentifier="table" title="TableController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LSC-tS-46C" customClass="TableController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="table" title="TableController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LSC-tS-46C" customClass="PostListViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QC6-DT-q6d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="1647" y="-564"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Post Detail View Controller-->
         <scene sceneID="MYM-6z-uTs">
             <objects>
-                <viewController storyboardIdentifier="detail" id="wYD-9S-878" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail" id="wYD-9S-878" customClass="PostDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PSc-qZ-ka8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

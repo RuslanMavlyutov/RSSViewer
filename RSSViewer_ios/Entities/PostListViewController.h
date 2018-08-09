@@ -3,7 +3,7 @@
 #import "Channel.h"
 #import "RSSFeedModel.h"
 
-@interface TableController : UITableViewController
+@interface PostListViewController : UITableViewController
 
 - (void) showChannel : (Channel *) channel : (RSSFeedModel *) feedModel;
 

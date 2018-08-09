@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface DetailViewController : UIViewController
+@interface PostDetailViewController : UIViewController
 -(void) loadLink: (NSString *) urlString;
 @end

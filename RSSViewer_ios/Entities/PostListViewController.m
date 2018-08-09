@@ -1,15 +1,15 @@
-#import "TableController.h"
-#import "DetailViewController.h"
+#import "PostListViewController.h"
+#import "PostDetailViewController.h"
 #import "Post.h"
 #import "NSString+warning.h"
 
 static NSString* const cellName = @"cell";
 
-@interface TableController () <UITableViewDataSource, UITableViewDelegate>
+@interface PostListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation TableController
+@implementation PostListViewController
 {
     Channel *currentChannel;
     RSSFeedModel* rssFeedModel;
@@ -103,7 +103,7 @@ static NSString* const cellName = @"cell";
     NSString *strLink = [[[currentChannel posts] objectAtIndex:[indexPath row]] guid];
 
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    DetailViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"detail"];
+    PostDetailViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"detail"];
     [self.navigationController pushViewController:vc animated:YES];
     [vc view];
     [vc loadLink:strLink];

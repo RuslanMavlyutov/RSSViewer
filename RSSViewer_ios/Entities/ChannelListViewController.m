@@ -1,5 +1,5 @@
 #import "ChannelListViewController.h"
-#import "TableController.h"
+#import "PostListViewController.h"
 #import "RSSFeedModel.h"
 #import "NSString+warning.h"
 
@@ -112,7 +112,7 @@ NSString* reloadNotification = @"reloadNotification";
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    TableController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"table"];
+    PostListViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"table"];
     [self.navigationController pushViewController:vc animated:YES];
 
     Channel *selectedChannel = [channels objectAtIndex:indexPath.row];
