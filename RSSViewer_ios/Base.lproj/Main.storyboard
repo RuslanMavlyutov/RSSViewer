@@ -55,6 +55,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="RSS Channels" id="G8e-hS-m9r">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Paq-tz-vrB"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mpS-vn-au9">
                             <connections>
                                 <action selector="addRssChanel:" destination="5vc-b7-wKR" id="rau-bU-0zE"/>
@@ -74,13 +75,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <activityIndicatorView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="UqI-5e-3gE">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="WXY-AS-FBB">
-                                <rect key="frame" x="0.0" y="48" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WXY-AS-FBB" id="mtm-YA-uF7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -89,13 +86,11 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="RSS Viewer" id="oyp-5n-QJ4"/>
+                    <navigationItem key="navigationItem" title="RSS Viewer" id="oyp-5n-QJ4">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Jyz-p6-NWM"/>
+                    </navigationItem>
                 </tableViewController>
-                <customObject id="hlo-dc-GLd" customClass="IndicatorController">
-                    <connections>
-                        <outlet property="indicatorRss" destination="UqI-5e-3gE" id="wf8-4K-6IB"/>
-                    </connections>
-                </customObject>
+                <customObject id="hlo-dc-GLd" customClass="IndicatorController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWN-tL-v8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1647" y="-564"/>
