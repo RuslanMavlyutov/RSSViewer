@@ -1,4 +1,5 @@
 #import "RSSFeedModel.h"
+#import "ExtScope.h"
 
 @interface RSSFeedModel()
 
@@ -9,17 +10,19 @@
 
 @implementation RSSFeedModel
 
--(id) init
+-(instancetype) init
 {
-    _loader = [[RSSLoader alloc] init];
-    _parser = [[RSSParser alloc] init];
+    self.loader = [[RSSLoader alloc] init];
+    self.parser = [[RSSParser alloc] init];
 
     return self;
 }
 
 - (void) loadRSSWithUrl:(NSURL *)url completion:(ChannelBlock)completion
 {
+    @weakify(self);
     [self.loader loadChannelWithUrl:url competitionHandler: ^(NSData *data, NSError *error, NSString *warning) {
+        @strongify(self);
         NSLog(@"%@", error);
         if([warning isEqualToString:@""]) {
             [self.parser parserRss: url : data completion:^(Channel *channel, NSError *err, NSString *warning) {

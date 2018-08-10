@@ -2,6 +2,7 @@
 #import "PostListViewController.h"
 #import "RSSFeedModel.h"
 #import "NSString+Warning.h"
+#import "ExtScope.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
@@ -54,7 +55,9 @@ NSString* reloadNotification = @"reloadNotification";
 
 - (void) loadRSSChannel : (NSURL *) url
 {
+    @weakify(self);
     [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
+        @strongify(self);
         if(warning.isEmpty) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self->indicator stopAnimating];
@@ -163,8 +166,7 @@ NSString* reloadNotification = @"reloadNotification";
                                           message:@""
                                           preferredStyle:UIAlertControllerStyleAlert];
 
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
-     {
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
          textField.placeholder = @"https://www.";
      }];
 
@@ -176,8 +178,7 @@ NSString* reloadNotification = @"reloadNotification";
     UIAlertAction *actionOK = [UIAlertAction
                                actionWithTitle:@"Add"
                                style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
+                               handler:^(UIAlertAction *action) {
                                    UITextField *link = alertController.textFields.firstObject;
                                    [self addRssLink:[link text]];
                                }];

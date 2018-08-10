@@ -23,9 +23,12 @@
 		3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */; };
 		31AE610C21157A210037C02E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AE610B21157A210037C02E /* AppDelegate.m */; };
 		31AE6118211C49AF0037C02E /* NSString+Warning.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AE6117211C49AF0037C02E /* NSString+Warning.m */; };
+		31AE611A211D87EC0037C02E /* liblibextobjc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AE6119211D87EC0037C02E /* liblibextobjc.a */; };
+		56A79049331F0B672C66648E /* libPods-RSSViewer_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E55DE243C4523D516432B18 /* Pods-RSSViewer_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSViewer_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSSViewer_ios/Pods-RSSViewer_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		3103C74F20D124E200076F2D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3103C77C20D79A6400076F2D /* IndicatorController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndicatorController.h; sourceTree = "<group>"; };
 		3103C77D20D79A6400076F2D /* IndicatorController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndicatorController.m; sourceTree = "<group>"; };
@@ -55,6 +58,9 @@
 		31AE610B21157A210037C02E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		31AE6116211C49AF0037C02E /* NSString+Warning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Warning.h"; sourceTree = "<group>"; };
 		31AE6117211C49AF0037C02E /* NSString+Warning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Warning.m"; sourceTree = "<group>"; };
+		31AE6119211D87EC0037C02E /* liblibextobjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblibextobjc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		993ECC11DD7419F51FD018F3 /* Pods-RSSViewer_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSViewer_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSSViewer_ios/Pods-RSSViewer_ios.release.xcconfig"; sourceTree = "<group>"; };
+		DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RSSViewer_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31AE611A211D87EC0037C02E /* liblibextobjc.a in Frameworks */,
 				3103C75020D124E200076F2D /* WebKit.framework in Frameworks */,
+				56A79049331F0B672C66648E /* libPods-RSSViewer_ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +80,9 @@
 		3103C74E20D124E100076F2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31AE6119211D87EC0037C02E /* liblibextobjc.a */,
 				3103C74F20D124E200076F2D /* WebKit.framework */,
+				DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,6 +93,7 @@
 				31214A2E20D0EACA00340599 /* RSSViewer_ios */,
 				31214A2D20D0EACA00340599 /* Products */,
 				3103C74E20D124E100076F2D /* Frameworks */,
+				C24BA1F80148EEFFDC0BAF77 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +179,15 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		C24BA1F80148EEFFDC0BAF77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E55DE243C4523D516432B18 /* Pods-RSSViewer_ios.debug.xcconfig */,
+				993ECC11DD7419F51FD018F3 /* Pods-RSSViewer_ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +195,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31214A4220D0EACB00340599 /* Build configuration list for PBXNativeTarget "RSSViewer_ios" */;
 			buildPhases = (
+				BF63CE1D7FF2033248144CD5 /* [CP] Check Pods Manifest.lock */,
 				31214A2820D0EACA00340599 /* Sources */,
 				31214A2920D0EACA00340599 /* Frameworks */,
 				31214A2A20D0EACA00340599 /* Resources */,
@@ -233,6 +254,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BF63CE1D7FF2033248144CD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RSSViewer_ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		31214A2820D0EACA00340599 /* Sources */ = {
@@ -388,6 +430,7 @@
 		};
 		31214A4320D0EACB00340599 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E55DE243C4523D516432B18 /* Pods-RSSViewer_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -401,6 +444,7 @@
 		};
 		31214A4420D0EACB00340599 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 993ECC11DD7419F51FD018F3 /* Pods-RSSViewer_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

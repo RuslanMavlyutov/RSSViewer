@@ -2,6 +2,7 @@
 #import "PostDetailViewController.h"
 #import "Post.h"
 #import "NSString+Warning.h"
+#import "ExtScope.h"
 
 static NSString* const cellName = @"cell";
 
@@ -26,7 +27,9 @@ static NSString* const cellName = @"cell";
 
 - (void) updateRssModel
 {
+    @weakify(self);
     [rssFeedModel loadRSSWithUrl:currentChannel.urlChannel completion:^(Channel *channel, NSError *error, NSString *warning) {
+        @strongify(self);
         if(warning.isEmpty)
             [self alertMessage:warning];
         if(channel) {
@@ -67,8 +70,7 @@ static NSString* const cellName = @"cell";
     UIAlertAction *actionOK = [UIAlertAction
                                actionWithTitle:@"Ok"
                                style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
+                               handler:^(UIAlertAction *action) {
                                }];
 
     [alertController addAction:actionOK];

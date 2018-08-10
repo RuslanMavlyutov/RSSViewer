@@ -1,6 +1,5 @@
 #import "RSSParser.h"
 #import "Post.h"
-//#include "TableController.h"
 
 NSString* reloadChannelNotification = @"reloadChannelNotification";
 NSString* IndicatorRSSNotification = @"IndicatorRSSNotification";
@@ -38,10 +37,10 @@ static NSString *const itemElementName = @"item";
 - (void)parserRss: (NSURL *) url : (NSData *)rss completion:(void (^)(Channel *, NSError *, NSString *))completion
 {
     urlChannel = url;
-    self->parser = [[NSXMLParser alloc] initWithData:rss];
-    [self->parser setDelegate:self];
-    [self->parser setShouldResolveExternalEntities:NO];
-    [self->parser parse];
+    parser = [[NSXMLParser alloc] initWithData:rss];
+    [parser setDelegate:self];
+    [parser setShouldResolveExternalEntities:NO];
+    [parser parse];
     completion(feedChannel, nil, nil);
 }
 

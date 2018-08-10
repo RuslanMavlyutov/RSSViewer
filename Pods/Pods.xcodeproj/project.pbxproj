@@ -1,0 +1,671 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09D08BAEC49960DDAD6C2F2B45D13EC4 /* EXTADT.m in Sources */ = {isa = PBXBuildFile; fileRef = BD040DB28458B3B82C4C95F0C3F7CE89 /* EXTADT.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		122CAFB110C84E1520291E5E9D53E55C /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C75CC2F3A1892F3EEC920B8DFB9442 /* EXTScope.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1C4AE28BC74EAEE1AA49C32020B78698 /* EXTSafeCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = E2701FDB4D03F3DC1B1F80305F96E8A5 /* EXTSafeCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		288A2B97BAA60ED69DD48BD428E62737 /* Pods-RSSViewer_ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477EBADF8EAA459A44AAC9D6666982B /* Pods-RSSViewer_ios-dummy.m */; };
+		2EC67BBDAD866D6369A6AE7C8AF0711F /* NSMethodSignature+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = 2199782F1ED40C872278B543B8F5F0E7 /* NSMethodSignature+EXT.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		36531E98C1D902DAEAB59331AFC0AC22 /* EXTSafeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01356467E2DBC92F030F7D24D80330D0 /* EXTSafeCategory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		41E53E43CB5BF5410DA167D37ADD93A7 /* EXTSynthesize.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C725C6AFFCD9A9619693A3A56D58ABE /* EXTSynthesize.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5D981A323C1F5D73B93DDFE1ACFD6581 /* NSInvocation+EXT.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F01C7E07C3983DCB0E86AE916280CF2 /* NSInvocation+EXT.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5F9577977ABC1F26D1EBE1987C5D70E2 /* EXTNil.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A51E03C49B99ECE7C08B99FD2B6A379 /* EXTNil.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		669EC9F74A46165345B61CC2D3EB1AB8 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = E7CD3FE3026F59BEEFC7B8789EE5E82B /* metamacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		682BCBD3512E39F044C14B53EAC4B231 /* EXTNil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7333207A3FFF8DDE7ED7D2108614A72F /* EXTNil.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6BD8E4C05160294863BF1017C0D0DDA5 /* EXTScope.h in Headers */ = {isa = PBXBuildFile; fileRef = C5A0FB86029C103A83B2269AF6212959 /* EXTScope.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6C3C7278B44D0024396265F4E9FD243E /* NSMethodSignature+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D313C9CF89D160F5FCFA2EC08BB913 /* NSMethodSignature+EXT.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7E80D2A120E8190E2B674BF706D197FC /* EXTSelectorChecking.h in Headers */ = {isa = PBXBuildFile; fileRef = CFA698D2FE8EE78379EA0A8786E51EBF /* EXTSelectorChecking.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8DF5A7C3E6E5350DFE4300D6F75A5D29 /* EXTSelectorChecking.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA3A196E73F07B11065EC8C7C7CD6C7 /* EXTSelectorChecking.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A297F6ECB36E97189CF92D416D258DD8 /* EXTADT.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C95136FAD0F836D63A673F3ACCCF55 /* EXTADT.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BB437B76B7777FF428E1B4E5174F5859 /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F4D50779EDA2C187EB928AE0DD3433 /* EXTRuntimeExtensions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C641C4E25F75225C11B74146ACAB1F5C /* libextobjc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D0040C55301F7F34E12179D00DE127 /* libextobjc-dummy.m */; };
+		C6943BDF8ABA900555B2649532DDB324 /* EXTConcreteProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 5273F40524553640580A619580C8426E /* EXTConcreteProtocol.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CEFF2CFA09B82ABF313634C412AA22F0 /* EXTRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 18EFF5E2E586F983B2D7176201581E8B /* EXTRuntimeExtensions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DCB10EB29B3BECA19E0286E7038628F9 /* EXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 08552B340FD176CDA5FCCCDD6E2B1B4E /* EXTKeyPathCoding.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DF2FD30FC3B54E453CBF0F9556F19B7A /* extobjc.h in Headers */ = {isa = PBXBuildFile; fileRef = A97CF1EA786E3379856D078BF97B7CCB /* extobjc.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F17460680E4CA8C83EE0545BE3601BFF /* EXTConcreteProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B7E0AC4E6D88A4125598BCAC510493B /* EXTConcreteProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F44D13959F7590CEB66DBFAB14B62AEF /* NSInvocation+EXT.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC19F137C4542B0310912840B016F69 /* NSInvocation+EXT.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD9B862F3E89FC1D12B6C3270AA9F7CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66DC3FF50F0E6F406448128376602936;
+			remoteInfo = libextobjc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01356467E2DBC92F030F7D24D80330D0 /* EXTSafeCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTSafeCategory.m; path = extobjc/EXTSafeCategory.m; sourceTree = "<group>"; };
+		08552B340FD176CDA5FCCCDD6E2B1B4E /* EXTKeyPathCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTKeyPathCoding.h; path = extobjc/EXTKeyPathCoding.h; sourceTree = "<group>"; };
+		18EFF5E2E586F983B2D7176201581E8B /* EXTRuntimeExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTRuntimeExtensions.h; path = extobjc/EXTRuntimeExtensions.h; sourceTree = "<group>"; };
+		2199782F1ED40C872278B543B8F5F0E7 /* NSMethodSignature+EXT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMethodSignature+EXT.h"; path = "extobjc/NSMethodSignature+EXT.h"; sourceTree = "<group>"; };
+		28D0040C55301F7F34E12179D00DE127 /* libextobjc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "libextobjc-dummy.m"; sourceTree = "<group>"; };
+		5273F40524553640580A619580C8426E /* EXTConcreteProtocol.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTConcreteProtocol.m; path = extobjc/EXTConcreteProtocol.m; sourceTree = "<group>"; };
+		6F01C7E07C3983DCB0E86AE916280CF2 /* NSInvocation+EXT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+EXT.h"; path = "extobjc/NSInvocation+EXT.h"; sourceTree = "<group>"; };
+		7333207A3FFF8DDE7ED7D2108614A72F /* EXTNil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTNil.m; path = extobjc/EXTNil.m; sourceTree = "<group>"; };
+		74EC0CDCC00BA821EBF06F26BC67451E /* liblibextobjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = liblibextobjc.a; path = liblibextobjc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C95136FAD0F836D63A673F3ACCCF55 /* EXTADT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTADT.h; path = extobjc/EXTADT.h; sourceTree = "<group>"; };
+		7C725C6AFFCD9A9619693A3A56D58ABE /* EXTSynthesize.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTSynthesize.h; path = extobjc/EXTSynthesize.h; sourceTree = "<group>"; };
+		80D313C9CF89D160F5FCFA2EC08BB913 /* NSMethodSignature+EXT.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMethodSignature+EXT.m"; path = "extobjc/NSMethodSignature+EXT.m"; sourceTree = "<group>"; };
+		816AE405A3AD21810874BE90BC2EEC93 /* Pods-RSSViewer_ios-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RSSViewer_ios-frameworks.sh"; sourceTree = "<group>"; };
+		8477EBADF8EAA459A44AAC9D6666982B /* Pods-RSSViewer_ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RSSViewer_ios-dummy.m"; sourceTree = "<group>"; };
+		860D946C49697D69839F33817CAFF910 /* Pods-RSSViewer_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSSViewer_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		898345F6A9E19C8B77F76E757994AC66 /* libextobjc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "libextobjc-prefix.pch"; sourceTree = "<group>"; };
+		915A71F1B64BCC8895B80F58A6AA988B /* libextobjc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = libextobjc.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98C75CC2F3A1892F3EEC920B8DFB9442 /* EXTScope.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTScope.m; path = extobjc/EXTScope.m; sourceTree = "<group>"; };
+		9A51E03C49B99ECE7C08B99FD2B6A379 /* EXTNil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTNil.h; path = extobjc/EXTNil.h; sourceTree = "<group>"; };
+		9B7E0AC4E6D88A4125598BCAC510493B /* EXTConcreteProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTConcreteProtocol.h; path = extobjc/EXTConcreteProtocol.h; sourceTree = "<group>"; };
+		A97CF1EA786E3379856D078BF97B7CCB /* extobjc.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = extobjc.h; path = extobjc/extobjc.h; sourceTree = "<group>"; };
+		AE926830B7725364373A20257BC51B68 /* Pods-RSSViewer_ios-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RSSViewer_ios-resources.sh"; sourceTree = "<group>"; };
+		B88908B94E220EAEA1FB4DBF19521070 /* Pods-RSSViewer_ios-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RSSViewer_ios-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BD040DB28458B3B82C4C95F0C3F7CE89 /* EXTADT.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTADT.m; path = extobjc/EXTADT.m; sourceTree = "<group>"; };
+		BFA3A196E73F07B11065EC8C7C7CD6C7 /* EXTSelectorChecking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTSelectorChecking.m; path = extobjc/EXTSelectorChecking.m; sourceTree = "<group>"; };
+		C18915AC49EEC11E407A25AEA4127737 /* Pods-RSSViewer_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RSSViewer_ios.release.xcconfig"; sourceTree = "<group>"; };
+		C2F4D50779EDA2C187EB928AE0DD3433 /* EXTRuntimeExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTRuntimeExtensions.m; path = extobjc/EXTRuntimeExtensions.m; sourceTree = "<group>"; };
+		C5A0FB86029C103A83B2269AF6212959 /* EXTScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTScope.h; path = extobjc/EXTScope.h; sourceTree = "<group>"; };
+		CFA698D2FE8EE78379EA0A8786E51EBF /* EXTSelectorChecking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTSelectorChecking.h; path = extobjc/EXTSelectorChecking.h; sourceTree = "<group>"; };
+		D4160E97E9EE1C3F2C736F4FA3537274 /* Pods-RSSViewer_ios-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RSSViewer_ios-acknowledgements.plist"; sourceTree = "<group>"; };
+		D50448E11042B77ED4D622DCD9BE42CF /* libPods-RSSViewer_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-RSSViewer_ios.a"; path = "libPods-RSSViewer_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2701FDB4D03F3DC1B1F80305F96E8A5 /* EXTSafeCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTSafeCategory.h; path = extobjc/EXTSafeCategory.h; sourceTree = "<group>"; };
+		E7CD3FE3026F59BEEFC7B8789EE5E82B /* metamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = metamacros.h; path = extobjc/metamacros.h; sourceTree = "<group>"; };
+		EBC19F137C4542B0310912840B016F69 /* NSInvocation+EXT.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+EXT.m"; path = "extobjc/NSInvocation+EXT.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E4B8F6FEC9958C75D15E5D87095717D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91FFA81FDD78208C256A3BAA6BC4B21D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B91AE3B0A9535A446F6940E5B803B00 /* EXTScope */ = {
+			isa = PBXGroup;
+			children = (
+				C5A0FB86029C103A83B2269AF6212959 /* EXTScope.h */,
+				98C75CC2F3A1892F3EEC920B8DFB9442 /* EXTScope.m */,
+			);
+			name = EXTScope;
+			sourceTree = "<group>";
+		};
+		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23F952D2FEB455D32FD9C7F703EEA4F9 /* NSInvocation+EXT */ = {
+			isa = PBXGroup;
+			children = (
+				6F01C7E07C3983DCB0E86AE916280CF2 /* NSInvocation+EXT.h */,
+				EBC19F137C4542B0310912840B016F69 /* NSInvocation+EXT.m */,
+			);
+			name = "NSInvocation+EXT";
+			sourceTree = "<group>";
+		};
+		3462A9721ED9AC1F4920713BDCC233F4 /* Pods-RSSViewer_ios */ = {
+			isa = PBXGroup;
+			children = (
+				B88908B94E220EAEA1FB4DBF19521070 /* Pods-RSSViewer_ios-acknowledgements.markdown */,
+				D4160E97E9EE1C3F2C736F4FA3537274 /* Pods-RSSViewer_ios-acknowledgements.plist */,
+				8477EBADF8EAA459A44AAC9D6666982B /* Pods-RSSViewer_ios-dummy.m */,
+				816AE405A3AD21810874BE90BC2EEC93 /* Pods-RSSViewer_ios-frameworks.sh */,
+				AE926830B7725364373A20257BC51B68 /* Pods-RSSViewer_ios-resources.sh */,
+				860D946C49697D69839F33817CAFF910 /* Pods-RSSViewer_ios.debug.xcconfig */,
+				C18915AC49EEC11E407A25AEA4127737 /* Pods-RSSViewer_ios.release.xcconfig */,
+			);
+			name = "Pods-RSSViewer_ios";
+			path = "Target Support Files/Pods-RSSViewer_ios";
+			sourceTree = "<group>";
+		};
+		472058EEF765ED7A72F0EB4E20A41A49 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3462A9721ED9AC1F4920713BDCC233F4 /* Pods-RSSViewer_ios */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		50275EFE68DB06621E350500A9910D18 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				915A71F1B64BCC8895B80F58A6AA988B /* libextobjc.xcconfig */,
+				28D0040C55301F7F34E12179D00DE127 /* libextobjc-dummy.m */,
+				898345F6A9E19C8B77F76E757994AC66 /* libextobjc-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/libextobjc";
+			sourceTree = "<group>";
+		};
+		5E0B128DBBEAF1CCB0F63FC994788404 /* EXTKeyPathCoding */ = {
+			isa = PBXGroup;
+			children = (
+				08552B340FD176CDA5FCCCDD6E2B1B4E /* EXTKeyPathCoding.h */,
+			);
+			name = EXTKeyPathCoding;
+			sourceTree = "<group>";
+		};
+		666FC37DD161F8C97373A0626507CEC6 /* EXTNil */ = {
+			isa = PBXGroup;
+			children = (
+				9A51E03C49B99ECE7C08B99FD2B6A379 /* EXTNil.h */,
+				7333207A3FFF8DDE7ED7D2108614A72F /* EXTNil.m */,
+			);
+			name = EXTNil;
+			sourceTree = "<group>";
+		};
+		6B926B5FC6B8C5EE9EC149D08C5D5101 /* RuntimeExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				18EFF5E2E586F983B2D7176201581E8B /* EXTRuntimeExtensions.h */,
+				C2F4D50779EDA2C187EB928AE0DD3433 /* EXTRuntimeExtensions.m */,
+				E7CD3FE3026F59BEEFC7B8789EE5E82B /* metamacros.h */,
+			);
+			name = RuntimeExtensions;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
+				88CD6454BBE513E484A4A92205B4C5D0 /* Pods */,
+				FF8F9FD0B513B195FACADB7FAB7DAA41 /* Products */,
+				472058EEF765ED7A72F0EB4E20A41A49 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		88CD6454BBE513E484A4A92205B4C5D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1AED9647540554133E57BBB33C3E264 /* libextobjc */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C53AEB29CEB2520BE95C6687B45832F /* UmbrellaHeader */ = {
+			isa = PBXGroup;
+			children = (
+				A97CF1EA786E3379856D078BF97B7CCB /* extobjc.h */,
+			);
+			name = UmbrellaHeader;
+			sourceTree = "<group>";
+		};
+		A1AED9647540554133E57BBB33C3E264 /* libextobjc */ = {
+			isa = PBXGroup;
+			children = (
+				A4EF251B9C4297069D78D01BA9ED9A34 /* EXTADT */,
+				FCC36DFF175C9895261E811A0BA5FEDE /* EXTConcreteProtocol */,
+				5E0B128DBBEAF1CCB0F63FC994788404 /* EXTKeyPathCoding */,
+				666FC37DD161F8C97373A0626507CEC6 /* EXTNil */,
+				F5C47AA077189551C53A0F0C26533C36 /* EXTSafeCategory */,
+				0B91AE3B0A9535A446F6940E5B803B00 /* EXTScope */,
+				B863C24F2C045F2E015FCC5B692DD787 /* EXTSelectorChecking */,
+				D68F0F5C33B3731173A6CBB7F4C5F570 /* EXTSynthesize */,
+				23F952D2FEB455D32FD9C7F703EEA4F9 /* NSInvocation+EXT */,
+				D23A1B7960976F4828BB0CC63B72E913 /* NSMethodSignature+EXT */,
+				6B926B5FC6B8C5EE9EC149D08C5D5101 /* RuntimeExtensions */,
+				50275EFE68DB06621E350500A9910D18 /* Support Files */,
+				8C53AEB29CEB2520BE95C6687B45832F /* UmbrellaHeader */,
+			);
+			name = libextobjc;
+			path = libextobjc;
+			sourceTree = "<group>";
+		};
+		A4EF251B9C4297069D78D01BA9ED9A34 /* EXTADT */ = {
+			isa = PBXGroup;
+			children = (
+				79C95136FAD0F836D63A673F3ACCCF55 /* EXTADT.h */,
+				BD040DB28458B3B82C4C95F0C3F7CE89 /* EXTADT.m */,
+			);
+			name = EXTADT;
+			sourceTree = "<group>";
+		};
+		B863C24F2C045F2E015FCC5B692DD787 /* EXTSelectorChecking */ = {
+			isa = PBXGroup;
+			children = (
+				CFA698D2FE8EE78379EA0A8786E51EBF /* EXTSelectorChecking.h */,
+				BFA3A196E73F07B11065EC8C7C7CD6C7 /* EXTSelectorChecking.m */,
+			);
+			name = EXTSelectorChecking;
+			sourceTree = "<group>";
+		};
+		D23A1B7960976F4828BB0CC63B72E913 /* NSMethodSignature+EXT */ = {
+			isa = PBXGroup;
+			children = (
+				2199782F1ED40C872278B543B8F5F0E7 /* NSMethodSignature+EXT.h */,
+				80D313C9CF89D160F5FCFA2EC08BB913 /* NSMethodSignature+EXT.m */,
+			);
+			name = "NSMethodSignature+EXT";
+			sourceTree = "<group>";
+		};
+		D68F0F5C33B3731173A6CBB7F4C5F570 /* EXTSynthesize */ = {
+			isa = PBXGroup;
+			children = (
+				7C725C6AFFCD9A9619693A3A56D58ABE /* EXTSynthesize.h */,
+			);
+			name = EXTSynthesize;
+			sourceTree = "<group>";
+		};
+		F5C47AA077189551C53A0F0C26533C36 /* EXTSafeCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E2701FDB4D03F3DC1B1F80305F96E8A5 /* EXTSafeCategory.h */,
+				01356467E2DBC92F030F7D24D80330D0 /* EXTSafeCategory.m */,
+			);
+			name = EXTSafeCategory;
+			sourceTree = "<group>";
+		};
+		FCC36DFF175C9895261E811A0BA5FEDE /* EXTConcreteProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				9B7E0AC4E6D88A4125598BCAC510493B /* EXTConcreteProtocol.h */,
+				5273F40524553640580A619580C8426E /* EXTConcreteProtocol.m */,
+			);
+			name = EXTConcreteProtocol;
+			sourceTree = "<group>";
+		};
+		FF8F9FD0B513B195FACADB7FAB7DAA41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74EC0CDCC00BA821EBF06F26BC67451E /* liblibextobjc.a */,
+				D50448E11042B77ED4D622DCD9BE42CF /* libPods-RSSViewer_ios.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B00B42928ED634CA42FC75631A555CB8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A297F6ECB36E97189CF92D416D258DD8 /* EXTADT.h in Headers */,
+				F17460680E4CA8C83EE0545BE3601BFF /* EXTConcreteProtocol.h in Headers */,
+				DCB10EB29B3BECA19E0286E7038628F9 /* EXTKeyPathCoding.h in Headers */,
+				5F9577977ABC1F26D1EBE1987C5D70E2 /* EXTNil.h in Headers */,
+				DF2FD30FC3B54E453CBF0F9556F19B7A /* extobjc.h in Headers */,
+				CEFF2CFA09B82ABF313634C412AA22F0 /* EXTRuntimeExtensions.h in Headers */,
+				1C4AE28BC74EAEE1AA49C32020B78698 /* EXTSafeCategory.h in Headers */,
+				6BD8E4C05160294863BF1017C0D0DDA5 /* EXTScope.h in Headers */,
+				7E80D2A120E8190E2B674BF706D197FC /* EXTSelectorChecking.h in Headers */,
+				41E53E43CB5BF5410DA167D37ADD93A7 /* EXTSynthesize.h in Headers */,
+				669EC9F74A46165345B61CC2D3EB1AB8 /* metamacros.h in Headers */,
+				5D981A323C1F5D73B93DDFE1ACFD6581 /* NSInvocation+EXT.h in Headers */,
+				2EC67BBDAD866D6369A6AE7C8AF0711F /* NSMethodSignature+EXT.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0B0348D6E73CD53D405DE8FEF6CB9124 /* Pods-RSSViewer_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EB9C2C6C1C9D1DE8390A6CB12A0F095 /* Build configuration list for PBXNativeTarget "Pods-RSSViewer_ios" */;
+			buildPhases = (
+				82A7F2C405E67CDE131F15B13A00D07D /* Sources */,
+				91FFA81FDD78208C256A3BAA6BC4B21D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				420D00E6A052B572223F697E511678C9 /* PBXTargetDependency */,
+			);
+			name = "Pods-RSSViewer_ios";
+			productName = "Pods-RSSViewer_ios";
+			productReference = D50448E11042B77ED4D622DCD9BE42CF /* libPods-RSSViewer_ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		66DC3FF50F0E6F406448128376602936 /* libextobjc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45FEF481C9E605D3815500B4E0F85EBF /* Build configuration list for PBXNativeTarget "libextobjc" */;
+			buildPhases = (
+				D7A7C537D9A36AFD031C2AD8590D32C2 /* Sources */,
+				6E4B8F6FEC9958C75D15E5D87095717D /* Frameworks */,
+				B00B42928ED634CA42FC75631A555CB8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libextobjc;
+			productName = libextobjc;
+			productReference = 74EC0CDCC00BA821EBF06F26BC67451E /* liblibextobjc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = FF8F9FD0B513B195FACADB7FAB7DAA41 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66DC3FF50F0E6F406448128376602936 /* libextobjc */,
+				0B0348D6E73CD53D405DE8FEF6CB9124 /* Pods-RSSViewer_ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		82A7F2C405E67CDE131F15B13A00D07D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288A2B97BAA60ED69DD48BD428E62737 /* Pods-RSSViewer_ios-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7A7C537D9A36AFD031C2AD8590D32C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09D08BAEC49960DDAD6C2F2B45D13EC4 /* EXTADT.m in Sources */,
+				C6943BDF8ABA900555B2649532DDB324 /* EXTConcreteProtocol.m in Sources */,
+				682BCBD3512E39F044C14B53EAC4B231 /* EXTNil.m in Sources */,
+				BB437B76B7777FF428E1B4E5174F5859 /* EXTRuntimeExtensions.m in Sources */,
+				36531E98C1D902DAEAB59331AFC0AC22 /* EXTSafeCategory.m in Sources */,
+				122CAFB110C84E1520291E5E9D53E55C /* EXTScope.m in Sources */,
+				8DF5A7C3E6E5350DFE4300D6F75A5D29 /* EXTSelectorChecking.m in Sources */,
+				C641C4E25F75225C11B74146ACAB1F5C /* libextobjc-dummy.m in Sources */,
+				F44D13959F7590CEB66DBFAB14B62AEF /* NSInvocation+EXT.m in Sources */,
+				6C3C7278B44D0024396265F4E9FD243E /* NSMethodSignature+EXT.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		420D00E6A052B572223F697E511678C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libextobjc;
+			target = 66DC3FF50F0E6F406448128376602936 /* libextobjc */;
+			targetProxy = DD9B862F3E89FC1D12B6C3270AA9F7CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5D19BBB925B3D23EFCBBAAD7D35A9704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 915A71F1B64BCC8895B80F58A6AA988B /* libextobjc.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/libextobjc/libextobjc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = libextobjc;
+				PRODUCT_NAME = libextobjc;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5DC0083F57E9AB706B46C5B5D73B38D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		728C5F9C5AF8F118D8AAB48DAD7C6BB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 860D946C49697D69839F33817CAFF910 /* Pods-RSSViewer_ios.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F08C4B676E48D38759B762CBA13C831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 915A71F1B64BCC8895B80F58A6AA988B /* libextobjc.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/libextobjc/libextobjc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = libextobjc;
+				PRODUCT_NAME = libextobjc;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEEA80476F98EB645C4DD53EB2BB6D88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		DD3079B1A170B60B4ED620B03E7FB7C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C18915AC49EEC11E407A25AEA4127737 /* Pods-RSSViewer_ios.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DC0083F57E9AB706B46C5B5D73B38D8 /* Debug */,
+				AEEA80476F98EB645C4DD53EB2BB6D88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45FEF481C9E605D3815500B4E0F85EBF /* Build configuration list for PBXNativeTarget "libextobjc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D19BBB925B3D23EFCBBAAD7D35A9704 /* Debug */,
+				8F08C4B676E48D38759B762CBA13C831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EB9C2C6C1C9D1DE8390A6CB12A0F095 /* Build configuration list for PBXNativeTarget "Pods-RSSViewer_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				728C5F9C5AF8F118D8AAB48DAD7C6BB4 /* Debug */,
+				DD3079B1A170B60B4ED620B03E7FB7C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
