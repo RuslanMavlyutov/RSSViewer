@@ -18,7 +18,6 @@ NSString* reloadNotification = @"reloadNotification";
     NSArray<NSString *> *linkArray;
     NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
-    NSArray<RSSFeedModel *> *modelArray;
     UIActivityIndicatorView *indicator;
 }
 
@@ -30,7 +29,6 @@ NSString* reloadNotification = @"reloadNotification";
     urlArray = [[NSArray alloc] init];
     linkArray = [defaults arrayForKey:mainSettings];
     channels = [[NSArray alloc] init];
-    modelArray = [[NSArray alloc] init];
     [self initIndicator];
 
     if(!linkArray)
@@ -102,7 +100,6 @@ NSString* reloadNotification = @"reloadNotification";
                     [self->indicator stopAnimating];
                 });
             }
-            self->modelArray = [self->modelArray arrayByAddingObjectsFromArray: [[NSArray alloc] initWithObjects:self->rssFeedModel, nil]];
         }
     }];
 }
@@ -133,7 +130,7 @@ NSString* reloadNotification = @"reloadNotification";
     [self.navigationController pushViewController:vc animated:YES];
 
     Channel *selectedChannel = [channels objectAtIndex:indexPath.row];
-    [vc showChannel:selectedChannel : [modelArray objectAtIndex:indexPath.row]];
+    [vc showChannel:selectedChannel : rssFeedModel];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

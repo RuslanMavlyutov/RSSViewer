@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/Entities/PostListViewController.m"
+            timestampString = "555607852.683377"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-updateRssModel"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PostListViewController updateRssModel]"
+                  moduleName = "RSSViewer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruslanmavlyutov/Documents/Projects%20Obj/RSSViewer_ios/RSSViewer_ios/Entities/PostListViewController.m"
+                  timestampString = "555607376.660724"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "49">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[PostListViewController updateRssModel]_block_invoke"
+                  moduleName = "RSSViewer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruslanmavlyutov/Documents/Projects%20Obj/RSSViewer_ios/RSSViewer_ios/Entities/PostListViewController.m"
+                  timestampString = "555607376.6630549"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "127">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.33"
+                  moduleName = "RSSViewer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruslanmavlyutov/Documents/Projects%20Obj/RSSViewer_ios/RSSViewer_ios/Entities/PostListViewController.m"
+                  timestampString = "555607376.666719"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

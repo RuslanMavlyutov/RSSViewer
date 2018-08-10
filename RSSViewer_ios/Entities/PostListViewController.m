@@ -33,13 +33,11 @@ static NSString* const cellName = @"cell";
         if(warning.isEmpty)
             [self alertMessage:warning];
         if(channel) {
-            if([[self->currentChannel posts] count] != [[channel posts] count]) {
-                self->currentChannel = channel;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self->refreshControl endRefreshing];
-                    [self.tableView reloadData];
-                });
-            }
+            self->currentChannel = channel;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self->refreshControl endRefreshing];
+                [self.tableView reloadData];
+            });
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self->refreshControl endRefreshing];
