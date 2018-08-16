@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				31AE611121158B3C0037C02E /* Category */,
-				31AE6113211C47B00037C02E /* Entities */,
+				31AE6113211C47B00037C02E /* Presentation */,
 				3179518E20E3D7C5009D3DA0 /* Model */,
 				31214A3520D0EACA00340599 /* Main.storyboard */,
 				31214A3820D0EACB00340599 /* Assets.xcassets */,
@@ -125,12 +125,8 @@
 			children = (
 				31AE6115211C48960037C02E /* Parser */,
 				31AE6114211C47CB0037C02E /* Loader */,
-				3179518B20E379B7009D3DA0 /* Channel.h */,
-				3179518C20E379B8009D3DA0 /* Channel.m */,
-				3179518820E369EA009D3DA0 /* Post.h */,
-				3179518920E369EA009D3DA0 /* Post.m */,
-				3197CE5320EFAAE600B5C233 /* RSSFeedModel.h */,
-				3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */,
+				31AE6124212558180037C02E /* FeedModel */,
+				31AE6125212558340037C02E /* Logic */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,21 +140,18 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		31AE6113211C47B00037C02E /* Entities */ = {
+		31AE6113211C47B00037C02E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				31AE610A21157A210037C02E /* AppDelegate.h */,
 				31AE610B21157A210037C02E /* AppDelegate.m */,
+				31AE61232125579C0037C02E /* PostDetail */,
+				31AE61222125578E0037C02E /* PostList */,
+				31AE6121212557790037C02E /* ChannelList */,
 				3103C77C20D79A6400076F2D /* IndicatorController.h */,
 				3103C77D20D79A6400076F2D /* IndicatorController.m */,
-				31214A4820D10F7C00340599 /* PostDetailViewController.h */,
-				31214A4920D10F7C00340599 /* PostDetailViewController.m */,
-				31214A4520D0EEFB00340599 /* PostListViewController.h */,
-				31214A4620D0EEFB00340599 /* PostListViewController.m */,
-				3179518F20E66690009D3DA0 /* ChannelListViewController.h */,
-				3179519020E66690009D3DA0 /* ChannelListViewController.m */,
 			);
-			path = Entities;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		31AE6114211C47CB0037C02E /* Loader */ = {
@@ -177,6 +170,61 @@
 				3197CE5120EFA72100B5C233 /* RSSParser.m */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		31AE6121212557790037C02E /* ChannelList */ = {
+			isa = PBXGroup;
+			children = (
+				3179518F20E66690009D3DA0 /* ChannelListViewController.h */,
+				3179519020E66690009D3DA0 /* ChannelListViewController.m */,
+			);
+			path = ChannelList;
+			sourceTree = "<group>";
+		};
+		31AE61222125578E0037C02E /* PostList */ = {
+			isa = PBXGroup;
+			children = (
+				31214A4520D0EEFB00340599 /* PostListViewController.h */,
+				31214A4620D0EEFB00340599 /* PostListViewController.m */,
+			);
+			path = PostList;
+			sourceTree = "<group>";
+		};
+		31AE61232125579C0037C02E /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				31214A4820D10F7C00340599 /* PostDetailViewController.h */,
+				31214A4920D10F7C00340599 /* PostDetailViewController.m */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		31AE6124212558180037C02E /* FeedModel */ = {
+			isa = PBXGroup;
+			children = (
+				3197CE5320EFAAE600B5C233 /* RSSFeedModel.h */,
+				3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */,
+			);
+			path = FeedModel;
+			sourceTree = "<group>";
+		};
+		31AE6125212558340037C02E /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				31AE61262125584E0037C02E /* Entities */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		31AE61262125584E0037C02E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3179518B20E379B7009D3DA0 /* Channel.h */,
+				3179518C20E379B8009D3DA0 /* Channel.m */,
+				3179518820E369EA009D3DA0 /* Post.h */,
+				3179518920E369EA009D3DA0 /* Post.m */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C24BA1F80148EEFFDC0BAF77 /* Pods */ = {
