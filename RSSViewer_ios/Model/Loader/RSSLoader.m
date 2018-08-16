@@ -19,8 +19,10 @@
             }
         }
         if(competitionHandler) {
-            competitionHandler(data, error, warning);
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                competitionHandler(data, error, warning);
+            });
+        }
     }];
 
     [dataTask resume];

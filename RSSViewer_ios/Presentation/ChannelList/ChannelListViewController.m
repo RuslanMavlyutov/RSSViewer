@@ -47,9 +47,7 @@ NSString* reloadNotification = @"reloadNotification";
     [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
         @strongify(self);
         if(warning.isNotEmpty) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self stopAnimateIndicator];
-            });
+            [self stopAnimateIndicator];
             UIAlertController *alertController = [UIAlertController
                                                   alertControllerWithTitle:@"Warning:"
                                                   message:warning
@@ -85,10 +83,8 @@ NSString* reloadNotification = @"reloadNotification";
                 }
                 self->urlArray = [[NSMutableArray alloc] initWithArray:tempUrl];
                 self->channels = [[NSArray alloc] initWithArray:tempChannel];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.tableView reloadData];
-                    [self stopAnimateIndicator];
-                });
+                [self.tableView reloadData];
+                [self stopAnimateIndicator];
             }
         }
     }];

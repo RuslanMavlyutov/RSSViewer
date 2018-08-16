@@ -41,7 +41,9 @@ static NSString *const itemElementName = @"item";
     [parser setDelegate:self];
     [parser setShouldResolveExternalEntities:NO];
     [parser parse];
-    completion(feedChannel, nil, nil);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        completion(self.feedChannel, nil, nil);
+    });
 }
 
 - (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName

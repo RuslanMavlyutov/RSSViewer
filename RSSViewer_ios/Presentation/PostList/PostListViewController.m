@@ -32,14 +32,10 @@ static NSString* const cellName = @"cell";
             [self alertMessage:warning];
         if(channel) {
             self->currentChannel = channel;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView.refreshControl endRefreshing];
-                [self.tableView reloadData];
-            });
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView.refreshControl endRefreshing];
-        });
+            [self.tableView reloadData];
+        }
+        [self.tableView.refreshControl endRefreshing];
     }];
 }
 
