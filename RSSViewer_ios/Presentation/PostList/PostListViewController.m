@@ -14,15 +14,13 @@ static NSString* const cellName = @"cell";
 {
     Channel *currentChannel;
     RSSFeedModel* rssFeedModel;
-    UIRefreshControl *refreshControl;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    refreshControl = [[UIRefreshControl alloc] init];
-    [self.tableView addSubview:refreshControl];
-    [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void) updateRssModel
@@ -35,12 +33,12 @@ static NSString* const cellName = @"cell";
         if(channel) {
             self->currentChannel = channel;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self->refreshControl endRefreshing];
+                [self.tableView.refreshControl endRefreshing];
                 [self.tableView reloadData];
             });
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self->refreshControl endRefreshing];
+            [self.tableView.refreshControl endRefreshing];
         });
     }];
 }
