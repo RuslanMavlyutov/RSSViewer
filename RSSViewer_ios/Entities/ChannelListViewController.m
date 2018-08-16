@@ -18,7 +18,6 @@ NSString* reloadNotification = @"reloadNotification";
     NSArray<NSString *> *linkArray;
     NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
-    UIActivityIndicatorView *indicator;
 }
 
 - (void)viewDidLoad
@@ -29,7 +28,6 @@ NSString* reloadNotification = @"reloadNotification";
     urlArray = [[NSArray alloc] init];
     linkArray = [defaults arrayForKey:mainSettings];
     channels = [[NSArray alloc] init];
-    [self initIndicator];
 
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
@@ -38,17 +36,9 @@ NSString* reloadNotification = @"reloadNotification";
 
     for(int i = 0; i < linkArray.count; i++) {
         NSURL *url = [NSURL URLWithString:linkArray[i]];
-        [indicator startAnimating];
+        [self startAnimateIndicator];
         [self loadRSSChannel:url];
     }
-}
-
--(void) initIndicator
-{
-    indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator.color = [UIColor blackColor];
-    indicator.hidesWhenStopped = true;
-    self.tableView.backgroundView = indicator;
 }
 
 - (void) loadRSSChannel : (NSURL *) url
@@ -58,7 +48,7 @@ NSString* reloadNotification = @"reloadNotification";
         @strongify(self);
         if(warning.isNotEmpty) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self->indicator stopAnimating];
+                [self stopAnimateIndicator];
             });
             UIAlertController *alertController = [UIAlertController
                                                   alertControllerWithTitle:@"Warning:"
@@ -97,7 +87,7 @@ NSString* reloadNotification = @"reloadNotification";
                 self->channels = [[NSArray alloc] initWithArray:tempChannel];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
-                    [self->indicator stopAnimating];
+                    [self stopAnimateIndicator];
                 });
             }
         }
@@ -156,6 +146,31 @@ NSString* reloadNotification = @"reloadNotification";
     }
 }
 
+-(void) startAnimateIndicator
+{
+    UIAlertController *pending = [UIAlertController alertControllerWithTitle:nil
+                                                                     message:@"Please wait...\n\n"
+                                                              preferredStyle:UIAlertControllerStyleAlert];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator.color = [UIColor blackColor];
+    indicator.translatesAutoresizingMaskIntoConstraints=NO;
+    [pending.view addSubview:indicator];
+    NSDictionary *views = @{@"pending" : pending.view, @"indicator" : indicator};
+
+    NSArray *constraintsVertical = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[indicator]-(20)-|" options:0 metrics:nil views:views];
+    NSArray *constraintsHorizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[indicator]|" options:0 metrics:nil views:views];
+    NSArray *constraints = [constraintsVertical arrayByAddingObjectsFromArray:constraintsHorizontal];
+    [pending.view addConstraints:constraints];
+    [indicator setUserInteractionEnabled:NO];
+    [indicator startAnimating];
+    [self presentViewController:pending animated:YES completion:nil];
+}
+
+-(void) stopAnimateIndicator
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)addRssChanel:(UIBarButtonItem *)sender
 {
     UIAlertController *alertController = [UIAlertController
@@ -195,7 +210,7 @@ NSString* reloadNotification = @"reloadNotification";
     if([linkArray containsObject:link])
         return;
 
-    [indicator startAnimating];
+    [self startAnimateIndicator];
     NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
     [array addObject:link];
     linkArray = [NSArray arrayWithArray:array];
