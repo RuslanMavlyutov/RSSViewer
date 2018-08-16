@@ -2,7 +2,7 @@
 
 @implementation NSString (Warning)
 
-- (BOOL) isEmpty
+- (BOOL) isNotEmpty
 {
     return self != nil && ![self isEqualToString:@""];
 }

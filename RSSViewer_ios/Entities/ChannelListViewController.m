@@ -56,7 +56,7 @@ NSString* reloadNotification = @"reloadNotification";
     @weakify(self);
     [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
         @strongify(self);
-        if(warning.isEmpty) {
+        if(warning.isNotEmpty) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self->indicator stopAnimating];
             });

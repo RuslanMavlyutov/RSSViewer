@@ -2,6 +2,6 @@
 
 @interface NSString (Warning)
 
-- (BOOL) isEmpty;
+- (BOOL) isNotEmpty;
 
 @end

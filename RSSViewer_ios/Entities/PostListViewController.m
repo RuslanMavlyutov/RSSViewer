@@ -30,7 +30,7 @@ static NSString* const cellName = @"cell";
     @weakify(self);
     [rssFeedModel loadRSSWithUrl:currentChannel.urlChannel completion:^(Channel *channel, NSError *error, NSString *warning) {
         @strongify(self);
-        if(warning.isEmpty)
+        if(warning.isNotEmpty)
             [self alertMessage:warning];
         if(channel) {
             self->currentChannel = channel;
