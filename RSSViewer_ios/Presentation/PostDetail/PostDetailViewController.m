@@ -8,9 +8,12 @@
 
 @implementation PostDetailViewController
 
--(void) loadLink: (NSString *) urlString
+@synthesize urlStr;
+
+-(void) viewDidLoad
 {
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    [super viewDidLoad];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {

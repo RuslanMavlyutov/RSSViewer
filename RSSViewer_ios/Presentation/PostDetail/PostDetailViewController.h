@@ -2,5 +2,5 @@
 #import <WebKit/WebKit.h>
 
 @interface PostDetailViewController : UIViewController
--(void) loadLink: (NSString *) urlString;
+@property (copy, nonatomic) NSString *urlStr;
 @end

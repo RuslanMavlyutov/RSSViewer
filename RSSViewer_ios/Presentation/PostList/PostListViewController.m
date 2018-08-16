@@ -82,8 +82,7 @@ static NSString* const cellName = @"cell";
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PostDetailViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"detail"];
     [self.navigationController pushViewController:vc animated:YES];
-    [vc view];
-    [vc loadLink:strLink];
+    vc.urlStr = strLink;
 }
 
 @end
