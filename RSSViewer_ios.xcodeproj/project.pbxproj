@@ -24,6 +24,7 @@
 		31AE610C21157A210037C02E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AE610B21157A210037C02E /* AppDelegate.m */; };
 		31AE6118211C49AF0037C02E /* NSString+Warning.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AE6117211C49AF0037C02E /* NSString+Warning.m */; };
 		31AE611A211D87EC0037C02E /* liblibextobjc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AE6119211D87EC0037C02E /* liblibextobjc.a */; };
+		31AE612C21256AB10037C02E /* UIViewController+AlertMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AE612B21256AB10037C02E /* UIViewController+AlertMessage.m */; };
 		56A79049331F0B672C66648E /* libPods-RSSViewer_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		31AE6116211C49AF0037C02E /* NSString+Warning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Warning.h"; sourceTree = "<group>"; };
 		31AE6117211C49AF0037C02E /* NSString+Warning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Warning.m"; sourceTree = "<group>"; };
 		31AE6119211D87EC0037C02E /* liblibextobjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = liblibextobjc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		31AE612A21256AB10037C02E /* UIViewController+AlertMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertMessage.h"; sourceTree = "<group>"; };
+		31AE612B21256AB10037C02E /* UIViewController+AlertMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertMessage.m"; sourceTree = "<group>"; };
 		993ECC11DD7419F51FD018F3 /* Pods-RSSViewer_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSViewer_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSSViewer_ios/Pods-RSSViewer_ios.release.xcconfig"; sourceTree = "<group>"; };
 		DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RSSViewer_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,6 +137,8 @@
 		31AE611121158B3C0037C02E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				31AE612A21256AB10037C02E /* UIViewController+AlertMessage.h */,
+				31AE612B21256AB10037C02E /* UIViewController+AlertMessage.m */,
 				31AE6116211C49AF0037C02E /* NSString+Warning.h */,
 				31AE6117211C49AF0037C02E /* NSString+Warning.m */,
 			);
@@ -330,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31AE610C21157A210037C02E /* AppDelegate.m in Sources */,
+				31AE612C21256AB10037C02E /* UIViewController+AlertMessage.m in Sources */,
 				31214A4A20D10F7C00340599 /* PostDetailViewController.m in Sources */,
 				31214A4720D0EEFB00340599 /* PostListViewController.m in Sources */,
 				3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */,

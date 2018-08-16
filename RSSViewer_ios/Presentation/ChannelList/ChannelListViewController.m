@@ -2,6 +2,7 @@
 #import "PostListViewController.h"
 #import "RSSFeedModel.h"
 #import "NSString+Warning.h"
+#import "UIViewController+AlertMessage.h"
 #import "ExtScope.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
@@ -46,23 +47,8 @@ NSString* reloadNotification = @"reloadNotification";
     @weakify(self);
     [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
         @strongify(self);
-        if(warning.isNotEmpty) {
-            [self stopAnimateIndicator];
-            UIAlertController *alertController = [UIAlertController
-                                                  alertControllerWithTitle:@"Warning:"
-                                                  message:warning
-                                                  preferredStyle:UIAlertControllerStyleAlert];
-
-            UIAlertAction *actionOK = [UIAlertAction
-                                       actionWithTitle:@"Ok"
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction *action)
-                                       {
-                                       }];
-
-            [alertController addAction:actionOK];
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
+        if(warning.isNotEmpty)
+            [self dismissViewControllerAnimated:YES completion:^{[self showErrorMessage:warning];}];
         if(channel) {
             NSArray *arrayChannel = [[NSArray alloc] initWithObjects:channel, nil];
             self->channels = [self->channels arrayByAddingObjectsFromArray:arrayChannel];
@@ -214,6 +200,10 @@ NSString* reloadNotification = @"reloadNotification";
     [self loadRSSChannel:url];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:linkArray forKey:mainSettings];
+        NSDictionary *dict = [defaults dictionaryRepresentation];
+        for (id key in dict) {
+            [defaults removeObjectForKey:key];
+        }
     [defaults synchronize];
 }
 

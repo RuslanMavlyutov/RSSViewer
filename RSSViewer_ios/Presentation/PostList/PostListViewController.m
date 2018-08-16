@@ -2,6 +2,7 @@
 #import "PostDetailViewController.h"
 #import "Post.h"
 #import "NSString+Warning.h"
+#import "UIViewController+AlertMessage.h"
 #import "ExtScope.h"
 
 static NSString* const cellName = @"cell";
@@ -29,7 +30,7 @@ static NSString* const cellName = @"cell";
     [rssFeedModel loadRSSWithUrl:currentChannel.urlChannel completion:^(Channel *channel, NSError *error, NSString *warning) {
         @strongify(self);
         if(warning.isNotEmpty)
-            [self alertMessage:warning];
+            [self showErrorMessage:warning];
         if(channel) {
             self->currentChannel = channel;
             [self.tableView.refreshControl endRefreshing];
@@ -50,24 +51,6 @@ static NSString* const cellName = @"cell";
     rssFeedModel = feedModel;
 
     [self.tableView reloadData];
-}
-
-- (void) alertMessage : (NSString *) warning
-{
-    UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Warning:"
-                                          message:warning
-                                          preferredStyle:UIAlertControllerStyleAlert];
-
-    UIAlertAction *actionOK = [UIAlertAction
-                               actionWithTitle:@"Ok"
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action) {
-                               }];
-
-    [alertController addAction:actionOK];
-
-    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
