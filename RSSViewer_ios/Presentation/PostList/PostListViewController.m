@@ -1,5 +1,6 @@
 #import "PostListViewController.h"
 #import "PostDetailViewController.h"
+#import "PostListCell.h"
 #import "Post.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
@@ -58,6 +59,11 @@ static NSString* const cellName = @"cell";
     return 1;
 }
 
+- (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[currentChannel posts] count];
@@ -66,11 +72,16 @@ static NSString* const cellName = @"cell";
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = [indexPath row];
+    static NSString *tableIdenitifier = @"PostListCell";
+    PostListCell *cell = (PostListCell *)[tableView dequeueReusableCellWithIdentifier:tableIdenitifier];
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName];
+    if(cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PostListCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
 
-    cell.textLabel.text = [[[currentChannel posts] objectAtIndex:row] title];
-    cell.detailTextLabel.text = [[[currentChannel posts] objectAtIndex:row] description];
+    cell.titlePost.text = [[[currentChannel posts] objectAtIndex:row] title];
+    cell.subtitlePost.text = [[[currentChannel posts] objectAtIndex:row] pubDate];
 
     return cell;
 }
