@@ -2,6 +2,6 @@
 
 @implementation Post
 
-@synthesize title, description, pubDate, guid;
+@synthesize title, description, pubDate, guid, link;
 
 @end

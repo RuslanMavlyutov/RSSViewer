@@ -93,7 +93,22 @@ static NSString* const cellName = @"cell";
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     PostDetailViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"detail"];
     [self.navigationController pushViewController:vc animated:YES];
-    vc.urlStr = strLink;
+
+    NSURL *url = [NSURL URLWithString:strLink];
+    if([self isLinkValid:url]) {
+        vc.urlStr = strLink;
+        return;
+    }
+
+    strLink = [[[currentChannel posts] objectAtIndex:[indexPath row]] link];
+    url = [NSURL URLWithString:strLink];
+    if([self isLinkValid:url])
+        vc.urlStr = strLink;
+}
+
+-(BOOL) isLinkValid : (NSURL *) link
+{
+    return link && link.scheme && link.host;
 }
 
 @end
