@@ -3,6 +3,7 @@
 #import "RSSFeedModel.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
+#import "ChannelCell.h"
 #import "ExtScope.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
@@ -76,16 +77,26 @@ NSString* reloadNotification = @"reloadNotification";
     }];
 }
 
+- (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdenitifier = @"simpleTableCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdenitifier];
+    static NSString *tableIdenitifier = @"ChannelCell";
+    ChannelCell *cell = (ChannelCell *)[tableView dequeueReusableCellWithIdentifier:tableIdenitifier];
 
     if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdenitifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChannelCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
 
-    cell.textLabel.text = [[channels objectAtIndex:indexPath.row] title];
+    cell.titleChannel.text = [[channels objectAtIndex:indexPath.row] title];
+    cell.subtitleChannel.text = [[channels objectAtIndex:indexPath.row] description];
+
+    NSURL *urlImage = [NSURL URLWithString:[[channels objectAtIndex:indexPath.row] url]];
+    cell.imageChannel.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlImage]];
 
     return cell;
 }
@@ -199,11 +210,6 @@ NSString* reloadNotification = @"reloadNotification";
     NSURL *url = [NSURL URLWithString:link];
     [self loadRSSChannel:url];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:linkArray forKey:mainSettings];
-        NSDictionary *dict = [defaults dictionaryRepresentation];
-        for (id key in dict) {
-            [defaults removeObjectForKey:key];
-        }
     [defaults synchronize];
 }
 

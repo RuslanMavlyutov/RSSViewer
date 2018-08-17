@@ -18,6 +18,8 @@
 		3179518A20E369EA009D3DA0 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518920E369EA009D3DA0 /* Post.m */; };
 		3179518D20E379B8009D3DA0 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518C20E379B8009D3DA0 /* Channel.m */; };
 		3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179519020E66690009D3DA0 /* ChannelListViewController.m */; };
+		318CF9BC2125A37F003B2965 /* ChannelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 318CF9BB2125A37F003B2965 /* ChannelCell.m */; };
+		318CF9BE2125A588003B2965 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318CF9BD2125A588003B2965 /* ChannelCell.xib */; };
 		3197CE4F20EFA5CD00B5C233 /* RSSLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE4E20EFA5CD00B5C233 /* RSSLoader.m */; };
 		3197CE5220EFA72100B5C233 /* RSSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE5120EFA72100B5C233 /* RSSParser.m */; };
 		3197CE5520EFAAE600B5C233 /* RSSFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3197CE5420EFAAE600B5C233 /* RSSFeedModel.m */; };
@@ -49,6 +51,9 @@
 		3179518C20E379B8009D3DA0 /* Channel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
 		3179518F20E66690009D3DA0 /* ChannelListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelListViewController.h; sourceTree = "<group>"; };
 		3179519020E66690009D3DA0 /* ChannelListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelListViewController.m; sourceTree = "<group>"; };
+		318CF9BA2125A37F003B2965 /* ChannelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelCell.h; sourceTree = "<group>"; };
+		318CF9BB2125A37F003B2965 /* ChannelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelCell.m; sourceTree = "<group>"; };
+		318CF9BD2125A588003B2965 /* ChannelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCell.xib; sourceTree = "<group>"; };
 		3197CE4D20EFA5CD00B5C233 /* RSSLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSLoader.h; sourceTree = "<group>"; };
 		3197CE4E20EFA5CD00B5C233 /* RSSLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSLoader.m; sourceTree = "<group>"; };
 		3197CE5020EFA72100B5C233 /* RSSParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSParser.h; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 		31214A2E20D0EACA00340599 /* RSSViewer_ios */ = {
 			isa = PBXGroup;
 			children = (
+				318CF9B9212582AC003B2965 /* ChannelCell */,
 				31AE611121158B3C0037C02E /* Category */,
 				31AE6113211C47B00037C02E /* Presentation */,
 				3179518E20E3D7C5009D3DA0 /* Model */,
@@ -132,6 +138,16 @@
 				31AE6125212558340037C02E /* Logic */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		318CF9B9212582AC003B2965 /* ChannelCell */ = {
+			isa = PBXGroup;
+			children = (
+				318CF9BA2125A37F003B2965 /* ChannelCell.h */,
+				318CF9BB2125A37F003B2965 /* ChannelCell.m */,
+				318CF9BD2125A588003B2965 /* ChannelCell.xib */,
+			);
+			path = ChannelCell;
 			sourceTree = "<group>";
 		};
 		31AE611121158B3C0037C02E /* Category */ = {
@@ -301,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31214A3C20D0EACB00340599 /* LaunchScreen.storyboard in Resources */,
+				318CF9BE2125A588003B2965 /* ChannelCell.xib in Resources */,
 				31214A3920D0EACB00340599 /* Assets.xcassets in Resources */,
 				31214A3720D0EACA00340599 /* Main.storyboard in Resources */,
 			);
@@ -347,6 +364,7 @@
 				3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */,
 				31214A3F20D0EACB00340599 /* main.m in Sources */,
 				3197CE5220EFA72100B5C233 /* RSSParser.m in Sources */,
+				318CF9BC2125A37F003B2965 /* ChannelCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

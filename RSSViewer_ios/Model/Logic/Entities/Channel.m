@@ -2,6 +2,6 @@
 
 @implementation Channel
 
-@synthesize title, link, description, posts, urlChannel;
+@synthesize title, link, description, posts, url, urlChannel;
 
 @end
