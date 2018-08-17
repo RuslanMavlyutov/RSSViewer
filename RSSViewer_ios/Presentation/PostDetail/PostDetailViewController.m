@@ -10,6 +10,12 @@
 
 @synthesize urlStr;
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self.webView addObserver:self forKeyPath:@"loading" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+}
+
 -(void) viewDidLoad
 {
     [super viewDidLoad];
