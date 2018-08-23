@@ -12,6 +12,8 @@ static NSString *const thirdChannelRss = @"https://www.kommersant.ru/rss/regions
 static NSString *const fourthChannelRss = @"https://habr.com/rss/interesting";
 static NSString *const fivethChannelRss = @"https://lenta.ru/rss/news";
 static NSString *const mainSettings = @"settings";
+static NSString *const partPrefix = @"https://";
+static NSString *const fullPrefix = @"https://www.";
 
 NSString* reloadNotification = @"reloadNotification";
 
@@ -55,7 +57,9 @@ NSString* reloadNotification = @"reloadNotification";
             self->channels = [self->channels arrayByAddingObjectsFromArray:arrayChannel];
             NSArray *arrayUrl = [[NSArray alloc] initWithObjects:url, nil];
             self->urlArray = [self->urlArray arrayByAddingObjectsFromArray:arrayUrl];
-          if(self->channels.count == self->linkArray.count) {
+            if(![self->linkArray containsObject:url.absoluteString])
+                [self saveSettings:url];
+            if(self->channels.count == self->linkArray.count) {
                 NSMutableArray *tempUrl = [[NSMutableArray alloc] init];
                 NSMutableArray *tempChannel = [[NSMutableArray alloc] init];
                 for(int i = 0; i <  self->urlArray.count; i++) {
@@ -196,21 +200,51 @@ NSString* reloadNotification = @"reloadNotification";
 
 - (void) addRssLink:(NSString *) link
 {
-    NSLog(@"Link: %@", link);
-
-    // TODO: check link error
-
     if([linkArray containsObject:link])
         return;
 
-    [self startAnimateIndicator];
-    NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
-    [array addObject:link];
-    linkArray = [NSArray arrayWithArray:array];
+    if([link length] > 3)
+        link = [self addMissPrefixString:link];
+
     NSURL *url = [NSURL URLWithString:link];
+    if(![self isLinkValid:url]) {
+        [self showErrorMessage:@"Not valid link!"];
+        return;
+    }
+
+    [self startAnimateIndicator];
     [self loadRSSChannel:url];
+}
+
+- (void) saveSettings : (NSURL *) url
+{
+    NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
+    [array addObject:url.absoluteString];
+    linkArray = [NSArray arrayWithArray:array];
+
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:linkArray forKey:mainSettings];
     [defaults synchronize];
+}
+
+- (NSString *) addMissPrefixString : (NSString *) link
+{
+    NSString *firstSymbols;
+    firstSymbols = [link substringToIndex:3];
+
+    if(![firstSymbols isEqualToString:@"htt"]) {
+        if([firstSymbols isEqualToString:@"www"]) {
+            link = [partPrefix stringByAppendingString:link];
+        } else {
+            link = [fullPrefix stringByAppendingString:link];
+        }
+    }
+    return link;
+}
+
+- (BOOL) isLinkValid : (NSURL *) link
+{
+    return link && link.scheme && link.host;
 }
 
 @end
