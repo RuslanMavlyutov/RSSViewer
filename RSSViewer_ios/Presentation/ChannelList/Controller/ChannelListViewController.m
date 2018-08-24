@@ -45,6 +45,8 @@ NSString* reloadNotification = @"reloadNotification";
 
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(ChannelCell.class) bundle:nil]
          forCellReuseIdentifier:NSStringFromClass(ChannelCell.class)];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 60;
 
     for(int i = 0; i < linkArray.count; i++) {
         NSURL *url = [NSURL URLWithString:linkArray[i]];
@@ -87,11 +89,6 @@ NSString* reloadNotification = @"reloadNotification";
             }
         }
     }];
-}
-
-- (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

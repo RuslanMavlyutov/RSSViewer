@@ -102,22 +102,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ja3-MK-tgD">
-                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ja3-MK-tgD">
+                                <rect key="frame" x="4" y="24" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oMe-T8-4Xg">
-                                <rect key="frame" x="169" y="348" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oMe-T8-4Xg">
+                                <rect key="frame" x="173" y="329" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="Y7e-n3-Wer"/>
+                                    <constraint firstAttribute="height" constant="37" id="b79-KO-Lck"/>
+                                </constraints>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oMe-T8-4Xg" firstAttribute="centerX" secondItem="Ja3-MK-tgD" secondAttribute="centerX" id="6iu-18-DfP"/>
+                            <constraint firstItem="Ja3-MK-tgD" firstAttribute="bottom" secondItem="dVO-cE-JMD" secondAttribute="bottom" constant="4" id="G7S-Ip-7YS"/>
+                            <constraint firstItem="Ja3-MK-tgD" firstAttribute="trailing" secondItem="dVO-cE-JMD" secondAttribute="trailing" constant="4" id="H4z-vI-FhV"/>
+                            <constraint firstItem="Ja3-MK-tgD" firstAttribute="top" secondItem="dVO-cE-JMD" secondAttribute="top" constant="4" id="MgL-BT-4wB"/>
+                            <constraint firstItem="oMe-T8-4Xg" firstAttribute="centerY" secondItem="Ja3-MK-tgD" secondAttribute="centerY" id="NFb-eL-Y29"/>
+                            <constraint firstItem="Ja3-MK-tgD" firstAttribute="leading" secondItem="dVO-cE-JMD" secondAttribute="leading" constant="4" id="gzj-dJ-Cg8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dVO-cE-JMD"/>
                     </view>
                     <navigationItem key="navigationItem" title="RSS Detail" id="mbJ-eV-zOI"/>

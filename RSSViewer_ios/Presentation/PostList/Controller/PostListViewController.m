@@ -25,6 +25,8 @@ static NSString* const cellName = @"cell";
     self.tableView.refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(PostListCell.class) bundle:nil]
          forCellReuseIdentifier:NSStringFromClass(PostListCell.class)];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 60;
     [self.tableView.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -60,11 +62,6 @@ static NSString* const cellName = @"cell";
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-}
-
-- (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    return 60;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
