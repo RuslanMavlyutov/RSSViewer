@@ -10,10 +10,10 @@
 
 @implementation RSSFeedModel
 
--(instancetype) init
+- (instancetype) initWithLoader :(RSSLoader *)loader parser:(RSSParser *)parser
 {
-    self.loader = [[RSSLoader alloc] init];
-    self.parser = [[RSSParser alloc] init];
+    self.loader = loader;
+    self.parser = parser;
 
     return self;
 }
@@ -21,7 +21,7 @@
 - (void) loadRSSWithUrl:(NSURL *)url completion:(ChannelBlock)completion
 {
     @weakify(self);
-    [self.loader loadChannelWithUrl:url competitionHandler: ^(NSData *data, NSError *error, NSString *warning) {
+    [self.loader loadChannelWithUrl:url competitionHandler:^(NSData *data, NSError *error, NSString *warning) {
         @strongify(self);
         NSLog(@"%@", error);
         if([warning isEqualToString:@""]) {

@@ -1,5 +1,7 @@
 #import "ChannelListViewController.h"
 #import "PostListViewController.h"
+#import "RSSLoader.h"
+#import "RSSParser.h"
 #import "RSSFeedModel.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
@@ -37,7 +39,9 @@ NSString* reloadNotification = @"reloadNotification";
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
-    rssFeedModel = [[RSSFeedModel alloc] init];
+    RSSParser *parser = [[RSSParser alloc] init];
+    RSSLoader *loader = [[RSSLoader alloc] init];
+    rssFeedModel = [[RSSFeedModel alloc] initWithLoader:loader parser:parser];
 
     for(int i = 0; i < linkArray.count; i++) {
         NSURL *url = [NSURL URLWithString:linkArray[i]];
