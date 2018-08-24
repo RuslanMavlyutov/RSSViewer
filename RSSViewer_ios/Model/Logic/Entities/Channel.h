@@ -6,7 +6,7 @@
 @property (nonatomic, retain) NSString *link;
 @property (nonatomic, retain) NSString *description;
 @property (nonatomic, retain) NSArray *posts;
-@property (nonatomic, retain) NSString *url;
+@property (nonatomic, retain) NSURL *url;
 @property (nonatomic, retain) NSURL *urlChannel;
 
 @end
