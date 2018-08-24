@@ -4,6 +4,7 @@
 #import "Post.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
+#import "UIViewController+CheckLink.h"
 #import "ExtScope.h"
 
 static NSString* const cellName = @"cell";
@@ -104,11 +105,6 @@ static NSString* const cellName = @"cell";
     url = [NSURL URLWithString:strLink];
     if([self isLinkValid:url])
         vc.urlStr = strLink;
-}
-
--(BOOL) isLinkValid : (NSURL *) link
-{
-    return link && link.scheme && link.host;
 }
 
 @end

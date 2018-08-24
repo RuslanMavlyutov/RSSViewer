@@ -3,6 +3,7 @@
 #import "RSSFeedModel.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
+#import "UIViewController+CheckLink.h"
 #import "ChannelCell.h"
 #import "ExtScope.h"
 
@@ -240,11 +241,6 @@ NSString* reloadNotification = @"reloadNotification";
         }
     }
     return link;
-}
-
-- (BOOL) isLinkValid : (NSURL *) link
-{
-    return link && link.scheme && link.host;
 }
 
 @end
