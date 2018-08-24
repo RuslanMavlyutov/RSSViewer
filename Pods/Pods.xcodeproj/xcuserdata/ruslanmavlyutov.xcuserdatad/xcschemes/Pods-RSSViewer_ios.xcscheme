@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0B0348D6E73CD53D405DE8FEF6CB9124"
+               BlueprintIdentifier = "2C03D0B85B4D13B6134304D510B42018"
                BlueprintName = "Pods-RSSViewer_ios"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPods-RSSViewer_ios.a">

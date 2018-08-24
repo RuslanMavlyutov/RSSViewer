@@ -30,6 +30,7 @@
 		31C108492126C66800CDD3C3 /* PostListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C108472126C66800CDD3C3 /* PostListCell.m */; };
 		31C1084A2126C66800CDD3C3 /* PostListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31C108482126C66800CDD3C3 /* PostListCell.xib */; };
 		31C1085B212FDD7700CDD3C3 /* UIViewController+CheckLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C1085A212FDD7700CDD3C3 /* UIViewController+CheckLink.m */; };
+		31C1085D213033F300CDD3C3 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C1085C213033F300CDD3C3 /* libSDWebImage.a */; };
 		56A79049331F0B672C66648E /* libPods-RSSViewer_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		31C108482126C66800CDD3C3 /* PostListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListCell.xib; sourceTree = "<group>"; };
 		31C10859212FDD7700CDD3C3 /* UIViewController+CheckLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CheckLink.h"; sourceTree = "<group>"; };
 		31C1085A212FDD7700CDD3C3 /* UIViewController+CheckLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CheckLink.m"; sourceTree = "<group>"; };
+		31C1085C213033F300CDD3C3 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		993ECC11DD7419F51FD018F3 /* Pods-RSSViewer_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSViewer_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSSViewer_ios/Pods-RSSViewer_ios.release.xcconfig"; sourceTree = "<group>"; };
 		DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RSSViewer_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31C1085D213033F300CDD3C3 /* libSDWebImage.a in Frameworks */,
 				31AE611A211D87EC0037C02E /* liblibextobjc.a in Frameworks */,
 				3103C75020D124E200076F2D /* WebKit.framework in Frameworks */,
 				56A79049331F0B672C66648E /* libPods-RSSViewer_ios.a in Frameworks */,
@@ -96,6 +99,7 @@
 		3103C74E20D124E100076F2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31C1085C213033F300CDD3C3 /* libSDWebImage.a */,
 				31AE6119211D87EC0037C02E /* liblibextobjc.a */,
 				3103C74F20D124E200076F2D /* WebKit.framework */,
 				DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */,

@@ -34,17 +34,23 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
+  - SDWebImage (5.0.0-beta2):
+    - SDWebImage/Core (= 5.0.0-beta2)
+  - SDWebImage/Core (5.0.0-beta2)
 
 DEPENDENCIES:
   - libextobjc (~> 0.4)
+  - SDWebImage (= 5.0.0-beta2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - libextobjc
+    - SDWebImage
 
 SPEC CHECKSUMS:
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  SDWebImage: 8e4aaf5805e954ad426702adf5a8c012a7f581d1
 
-PODFILE CHECKSUM: 3a7b790101fbc871bc72a5de9b128df545d3e20e
+PODFILE CHECKSUM: c49c1e3af6a35ae765c41a716ab0a2317bfc8f0a
 
 COCOAPODS: 1.5.3

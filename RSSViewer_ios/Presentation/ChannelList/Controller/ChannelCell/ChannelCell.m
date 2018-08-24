@@ -1,5 +1,6 @@
 #import "ChannelCell.h"
 #import "Channel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ChannelCell ()
 
@@ -18,7 +19,7 @@
     titleLabel.text = [channel title];
     subtitleLabel.text = [channel description];
     NSURL *urlImage = [NSURL URLWithString:[channel url]];
-    imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlImage]];
+    [imageView sd_setImageWithURL:urlImage];
 }
 
 - (void) layoutSubviews
