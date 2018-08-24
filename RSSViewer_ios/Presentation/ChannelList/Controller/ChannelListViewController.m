@@ -43,6 +43,9 @@ NSString* reloadNotification = @"reloadNotification";
     RSSLoader *loader = [[RSSLoader alloc] init];
     rssFeedModel = [[RSSFeedModel alloc] initWithLoader:loader parser:parser];
 
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(ChannelCell.class) bundle:nil]
+         forCellReuseIdentifier:NSStringFromClass(ChannelCell.class)];
+
     for(int i = 0; i < linkArray.count; i++) {
         NSURL *url = [NSURL URLWithString:linkArray[i]];
         [self startAnimateIndicator];
@@ -93,13 +96,7 @@ NSString* reloadNotification = @"reloadNotification";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *tableIdenitifier = @"ChannelCell";
-    ChannelCell *cell = (ChannelCell *)[tableView dequeueReusableCellWithIdentifier:tableIdenitifier];
-
-    if(cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChannelCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
+    ChannelCell *cell = (ChannelCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(ChannelCell.class)];
 
     cell.titleChannel.text = [[channels objectAtIndex:indexPath.row] title];
     cell.subtitleChannel.text = [[channels objectAtIndex:indexPath.row] description];

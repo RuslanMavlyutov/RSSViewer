@@ -23,6 +23,8 @@ static NSString* const cellName = @"cell";
 {
     [super viewDidLoad];
     self.tableView.refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(PostListCell.class) bundle:nil]
+         forCellReuseIdentifier:NSStringFromClass(PostListCell.class)];
     [self.tableView.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -73,13 +75,7 @@ static NSString* const cellName = @"cell";
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = [indexPath row];
-    static NSString *tableIdenitifier = @"PostListCell";
-    PostListCell *cell = (PostListCell *)[tableView dequeueReusableCellWithIdentifier:tableIdenitifier];
-
-    if(cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"PostListCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
+    PostListCell *cell = (PostListCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(PostListCell.class)];
 
     cell.titlePost.text = [[[currentChannel posts] objectAtIndex:row] title];
     cell.subtitlePost.text = [[[currentChannel posts] objectAtIndex:row] pubDate];
