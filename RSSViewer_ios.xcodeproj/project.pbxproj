@@ -121,8 +121,6 @@
 		31214A2E20D0EACA00340599 /* RSSViewer_ios */ = {
 			isa = PBXGroup;
 			children = (
-				31C108452126C63500CDD3C3 /* PostListCell */,
-				318CF9B9212582AC003B2965 /* ChannelCell */,
 				31AE611121158B3C0037C02E /* Category */,
 				31AE6113211C47B00037C02E /* Presentation */,
 				3179518E20E3D7C5009D3DA0 /* Model */,
@@ -202,8 +200,7 @@
 		31AE6121212557790037C02E /* ChannelList */ = {
 			isa = PBXGroup;
 			children = (
-				3179518F20E66690009D3DA0 /* ChannelListViewController.h */,
-				3179519020E66690009D3DA0 /* ChannelListViewController.m */,
+				31C10857212FDB5100CDD3C3 /* Controller */,
 			);
 			path = ChannelList;
 			sourceTree = "<group>";
@@ -211,8 +208,7 @@
 		31AE61222125578E0037C02E /* PostList */ = {
 			isa = PBXGroup;
 			children = (
-				31214A4520D0EEFB00340599 /* PostListViewController.h */,
-				31214A4620D0EEFB00340599 /* PostListViewController.m */,
+				31C10858212FDBA800CDD3C3 /* Controller */,
 			);
 			path = PostList;
 			sourceTree = "<group>";
@@ -262,6 +258,26 @@
 				31C108482126C66800CDD3C3 /* PostListCell.xib */,
 			);
 			path = PostListCell;
+			sourceTree = "<group>";
+		};
+		31C10857212FDB5100CDD3C3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				318CF9B9212582AC003B2965 /* ChannelCell */,
+				3179518F20E66690009D3DA0 /* ChannelListViewController.h */,
+				3179519020E66690009D3DA0 /* ChannelListViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		31C10858212FDBA800CDD3C3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				31C108452126C63500CDD3C3 /* PostListCell */,
+				31214A4520D0EEFB00340599 /* PostListViewController.h */,
+				31214A4620D0EEFB00340599 /* PostListViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C24BA1F80148EEFFDC0BAF77 /* Pods */ = {
