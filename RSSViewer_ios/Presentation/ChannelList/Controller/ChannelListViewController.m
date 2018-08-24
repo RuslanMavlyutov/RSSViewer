@@ -97,12 +97,7 @@ NSString* reloadNotification = @"reloadNotification";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChannelCell *cell = (ChannelCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(ChannelCell.class)];
-
-    cell.titleChannel.text = [[channels objectAtIndex:indexPath.row] title];
-    cell.subtitleChannel.text = [[channels objectAtIndex:indexPath.row] description];
-
-    NSURL *urlImage = [NSURL URLWithString:[[channels objectAtIndex:indexPath.row] url]];
-    cell.imageChannel.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:urlImage]];
+    [cell configureForChannel:[channels objectAtIndex:indexPath.row]];
 
     return cell;
 }

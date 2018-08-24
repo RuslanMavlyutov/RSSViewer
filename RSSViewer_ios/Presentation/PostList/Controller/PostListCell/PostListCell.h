@@ -1,7 +1,9 @@
 #import <UIKit/UIKit.h>
 
+@class Post;
+
 @interface PostListCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *titlePost;
-@property (strong, nonatomic) IBOutlet UILabel *subtitlePost;
+
+- (void) configureForPost : (Post *) post;
 
 @end

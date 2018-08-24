@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
+@class Channel;
+
 @interface ChannelCell : UITableViewCell
 
-@property (nonatomic, retain) IBOutlet UILabel *titleChannel;
-@property (nonatomic, retain) IBOutlet UILabel *subtitleChannel;
-@property (nonatomic, retain) IBOutlet UIImageView *imageChannel;
+- (void) configureForChannel: (Channel *) channel;
 
 @end

@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "Channel.h"
+
+@class Channel;
 
 typedef void(^ChannelBlock) (Channel *, NSError *, NSString *warning);
 

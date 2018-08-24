@@ -76,9 +76,7 @@ static NSString* const cellName = @"cell";
 {
     NSUInteger row = [indexPath row];
     PostListCell *cell = (PostListCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass(PostListCell.class)];
-
-    cell.titlePost.text = [[[currentChannel posts] objectAtIndex:row] title];
-    cell.subtitlePost.text = [[[currentChannel posts] objectAtIndex:row] pubDate];
+    [cell configureForPost:[[currentChannel posts] objectAtIndex:row]];
 
     return cell;
 }

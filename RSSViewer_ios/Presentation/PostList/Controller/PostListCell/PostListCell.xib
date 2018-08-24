@@ -36,8 +36,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
-                <outlet property="subtitlePost" destination="G3L-Wu-fOx" id="iqV-cD-Ml0"/>
-                <outlet property="titlePost" destination="Oul-UG-U7L" id="lPk-1C-Nv9"/>
+                <outlet property="subtitleLabel" destination="G3L-Wu-fOx" id="56p-XE-F51"/>
+                <outlet property="titleLabel" destination="Oul-UG-U7L" id="Ot3-Gn-uAR"/>
             </connections>
         </tableViewCell>
     </objects>

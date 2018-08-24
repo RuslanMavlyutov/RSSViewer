@@ -1,4 +1,5 @@
 #import "RSSParser.h"
+#import "Channel.h"
 #import "Post.h"
 
 NSString* reloadChannelNotification = @"reloadChannelNotification";

@@ -38,9 +38,9 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="imageChannel" destination="WHy-96-vt3" id="j31-AL-Kao"/>
-                <outlet property="subtitleChannel" destination="zQg-uQ-wBp" id="xK8-q1-lhY"/>
-                <outlet property="titleChannel" destination="7p6-nk-Rgr" id="Fj6-RA-wZ9"/>
+                <outlet property="imageView" destination="WHy-96-vt3" id="5Wz-d7-4jN"/>
+                <outlet property="subtitleLabel" destination="zQg-uQ-wBp" id="eLe-2T-ZUB"/>
+                <outlet property="titleLabel" destination="7p6-nk-Rgr" id="G5h-Vt-tou"/>
             </connections>
             <point key="canvasLocation" x="33" y="53"/>
         </tableViewCell>
