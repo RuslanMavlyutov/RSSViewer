@@ -265,7 +265,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Presentation/PostList/Controller/PostListViewController.m"
-            timestampString = "556807377.3756371"
+            timestampString = "557242419.002679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -281,7 +281,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Presentation/PostList/Controller/PostListViewController.m"
-            timestampString = "556807377.375705"
+            timestampString = "557242419.002739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -351,6 +351,22 @@
             startingLineNumber = "42"
             endingLineNumber = "42"
             landmarkName = "-stopAnimationIndicator"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/Presentation/ChannelList/Controller/ChannelListViewController.m"
+            timestampString = "557242419.003783"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "-addRssLink:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

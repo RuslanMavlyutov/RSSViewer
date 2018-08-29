@@ -4,7 +4,7 @@
 #import "Post.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
-#import "UIViewController+CheckLink.h"
+#import "NSURL+CheckLink.h"
 #import "ExtScope.h"
 
 static NSString* const cellName = @"cell";
@@ -87,14 +87,14 @@ static NSString* const cellName = @"cell";
     [self.navigationController pushViewController:vc animated:YES];
 
     NSURL *url = [NSURL URLWithString:strLink];
-    if([self isLinkValid:url]) {
+    if(url.isLinkValid) {
         vc.urlStr = strLink;
         return;
     }
 
     strLink = [[[currentChannel posts] objectAtIndex:[indexPath row]] link];
     url = [NSURL URLWithString:strLink];
-    if([self isLinkValid:url])
+    if(url.isLinkValid)
         vc.urlStr = strLink;
 }
 

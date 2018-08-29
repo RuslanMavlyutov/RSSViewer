@@ -5,7 +5,7 @@
 #import "RSSFeedModel.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
-#import "UIViewController+CheckLink.h"
+#import "NSURL+CheckLink.h"
 #import "ChannelCell.h"
 #import "ExtScope.h"
 
@@ -201,7 +201,7 @@ NSString* reloadNotification = @"reloadNotification";
         link = [self addMissPrefixString:link];
 
     NSURL *url = [NSURL URLWithString:link];
-    if(![self isLinkValid:url]) {
+    if(!url.isLinkValid) {
         [self showErrorMessage:@"Not valid link!"];
         return;
     }
