@@ -124,6 +124,9 @@ NSString* reloadNotification = @"reloadNotification";
         NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
         [array removeObjectAtIndex:indexPath.row];
         linkArray = [NSArray arrayWithArray:array];
+        NSMutableArray *urlMutableArray = [NSMutableArray arrayWithArray:urlArray];
+        [urlMutableArray removeObjectAtIndex:indexPath.row];
+        urlArray = [NSArray arrayWithArray:urlMutableArray];
         array = [NSMutableArray arrayWithArray:channels];
         [array removeObjectAtIndex:indexPath.row];
         channels = [NSArray arrayWithArray:array];
@@ -193,11 +196,13 @@ NSString* reloadNotification = @"reloadNotification";
 
 - (void) addRssLink:(NSString *) link
 {
-    if([linkArray containsObject:link])
-        return;
-
     NSError *error = NULL;
     link = [rssUrlParser checkUrlWithString:link error:&error];
+
+    if([linkArray containsObject:link]) {
+        [self showErrorMessage:@"This rss channel already esists!"];
+        return;
+    }
 
     NSURL *url = [NSURL URLWithString:link];
     if(error) {
