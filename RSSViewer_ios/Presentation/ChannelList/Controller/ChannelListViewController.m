@@ -5,9 +5,9 @@
 #import "RSSFeedModel.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
-#import "NSURL+CheckLink.h"
 #import "ChannelCell.h"
 #import "ExtScope.h"
+#import "RssUrlParser.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
@@ -15,9 +15,6 @@ static NSString *const thirdChannelRss = @"https://www.kommersant.ru/rss/regions
 static NSString *const fourthChannelRss = @"https://habr.com/rss/interesting";
 static NSString *const fivethChannelRss = @"https://lenta.ru/rss/news";
 static NSString *const mainSettings = @"settings";
-static NSString *const partPrefix = @"https://";
-static NSString *const fullPrefix = @"https://www.";
-
 NSString* reloadNotification = @"reloadNotification";
 
 @implementation ChannelListViewController {
@@ -25,6 +22,7 @@ NSString* reloadNotification = @"reloadNotification";
     NSArray<NSString *> *linkArray;
     NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
+    RssUrlParser *rssUrlParser;
 }
 
 - (void)viewDidLoad
@@ -35,6 +33,7 @@ NSString* reloadNotification = @"reloadNotification";
     urlArray = [[NSArray alloc] init];
     linkArray = [defaults arrayForKey:mainSettings];
     channels = [[NSArray alloc] init];
+    rssUrlParser = [[RssUrlParser alloc] init];
 
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
@@ -197,12 +196,13 @@ NSString* reloadNotification = @"reloadNotification";
     if([linkArray containsObject:link])
         return;
 
-    if([link length] > 3)
-        link = [self addMissPrefixString:link];
+    NSError *error = NULL;
+    link = [rssUrlParser checkUrlWithString:link error:&error];
 
     NSURL *url = [NSURL URLWithString:link];
-    if(!url.isLinkValid) {
+    if(error) {
         [self showErrorMessage:@"Not valid link!"];
+        NSLog(@"error");
         return;
     }
 
@@ -219,21 +219,6 @@ NSString* reloadNotification = @"reloadNotification";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:linkArray forKey:mainSettings];
     [defaults synchronize];
-}
-
-- (NSString *) addMissPrefixString : (NSString *) link
-{
-    NSString *firstSymbols;
-    firstSymbols = [link substringToIndex:3];
-
-    if(![firstSymbols isEqualToString:@"htt"]) {
-        if([firstSymbols isEqualToString:@"www"]) {
-            link = [partPrefix stringByAppendingString:link];
-        } else {
-            link = [fullPrefix stringByAppendingString:link];
-        }
-    }
-    return link;
 }
 
 @end

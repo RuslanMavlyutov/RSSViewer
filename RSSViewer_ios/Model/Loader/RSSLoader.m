@@ -9,7 +9,7 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
         NSString *warning;
         if(error) {
-            warning = @"Page can't be found";
+            warning = @"RSS channel can't be found";
         } else {
             NSInteger statusCode = [(NSHTTPURLResponse*)response statusCode];
             if(statusCode != 404) {

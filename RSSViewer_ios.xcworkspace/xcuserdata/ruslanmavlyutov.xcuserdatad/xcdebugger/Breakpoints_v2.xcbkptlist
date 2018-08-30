@@ -361,11 +361,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Presentation/ChannelList/Controller/ChannelListViewController.m"
-            timestampString = "557242419.003783"
+            timestampString = "557303205.555764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "-addRssLink:"
             landmarkType = "7">
          </BreakpointContent>
