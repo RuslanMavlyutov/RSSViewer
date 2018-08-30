@@ -188,9 +188,9 @@
 				31AE61232125579C0037C02E /* PostDetail */,
 				31AE61222125578E0037C02E /* PostList */,
 				31AE6121212557790037C02E /* ChannelList */,
-				3103C77C20D79A6400076F2D /* IndicatorController.h */,
 				31C1086C2137DB7100CDD3C3 /* AlertSpinnerController.h */,
 				31C1086D2137DB7100CDD3C3 /* AlertSpinnerController.m */,
+				3103C77C20D79A6400076F2D /* IndicatorController.h */,
 				3103C77D20D79A6400076F2D /* IndicatorController.m */,
 			);
 			path = Presentation;

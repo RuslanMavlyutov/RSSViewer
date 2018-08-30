@@ -25,11 +25,8 @@ static NSString *const fullPrefix = @"https://www.";
 
 - (NSString *) addMissPrefixString : (NSString *) link
 {
-    NSString *firstSymbols;
-    firstSymbols = [link substringToIndex:3];
-
-    if(![firstSymbols isEqualToString:@"htt"]) {
-        if([firstSymbols isEqualToString:@"www"]) {
+    if(![link hasPrefix:@"htt"]) {
+        if([link hasPrefix:@"www"]) {
             link = [partPrefix stringByAppendingString:link];
         } else {
             link = [fullPrefix stringByAppendingString:link];
