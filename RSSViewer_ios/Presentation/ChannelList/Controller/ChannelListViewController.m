@@ -3,6 +3,7 @@
 #import "RSSLoader.h"
 #import "RSSParser.h"
 #import "RSSFeedModel.h"
+#import "AlertSpinnerController.h"
 #import "NSString+Warning.h"
 #import "UIViewController+AlertMessage.h"
 #import "ChannelCell.h"
@@ -23,6 +24,7 @@ NSString* reloadNotification = @"reloadNotification";
     NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
     RssUrlParser *rssUrlParser;
+    AlertSpinnerController *alertSpinner;
 }
 
 - (void)viewDidLoad
@@ -34,6 +36,7 @@ NSString* reloadNotification = @"reloadNotification";
     linkArray = [defaults arrayForKey:mainSettings];
     channels = [[NSArray alloc] init];
     rssUrlParser = [[RssUrlParser alloc] init];
+    alertSpinner = [[AlertSpinnerController alloc] init];
 
     if(!linkArray)
         linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
@@ -49,9 +52,9 @@ NSString* reloadNotification = @"reloadNotification";
 
     for(int i = 0; i < linkArray.count; i++) {
         NSURL *url = [NSURL URLWithString:linkArray[i]];
-        [self startAnimateIndicator];
         [self loadRSSChannel:url];
     }
+    [alertSpinner startAnimateIndicator];
 }
 
 - (void) loadRSSChannel : (NSURL *) url
@@ -84,7 +87,7 @@ NSString* reloadNotification = @"reloadNotification";
                 self->urlArray = [[NSMutableArray alloc] initWithArray:tempUrl];
                 self->channels = [[NSArray alloc] initWithArray:tempChannel];
                 [self.tableView reloadData];
-                [self stopAnimateIndicator];
+                [self->alertSpinner stopAnimateIndicator];
             }
         }
     }];
@@ -139,31 +142,6 @@ NSString* reloadNotification = @"reloadNotification";
     }
 }
 
--(void) startAnimateIndicator
-{
-    UIAlertController *pending = [UIAlertController alertControllerWithTitle:nil
-                                                                     message:@"Please wait...\n\n"
-                                                              preferredStyle:UIAlertControllerStyleAlert];
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator.color = [UIColor blackColor];
-    indicator.translatesAutoresizingMaskIntoConstraints=NO;
-    [pending.view addSubview:indicator];
-    NSDictionary *views = @{@"pending" : pending.view, @"indicator" : indicator};
-
-    NSArray *constraintsVertical = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[indicator]-(20)-|" options:0 metrics:nil views:views];
-    NSArray *constraintsHorizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[indicator]|" options:0 metrics:nil views:views];
-    NSArray *constraints = [constraintsVertical arrayByAddingObjectsFromArray:constraintsHorizontal];
-    [pending.view addConstraints:constraints];
-    [indicator setUserInteractionEnabled:NO];
-    [indicator startAnimating];
-    [self presentViewController:pending animated:YES completion:nil];
-}
-
--(void) stopAnimateIndicator
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (IBAction)addRssChanel:(UIBarButtonItem *)sender
 {
     UIAlertController *alertController = [UIAlertController
@@ -211,7 +189,7 @@ NSString* reloadNotification = @"reloadNotification";
         return;
     }
 
-    [self startAnimateIndicator];
+    [alertSpinner startAnimateIndicator];
     [self loadRSSChannel:url];
 }
 

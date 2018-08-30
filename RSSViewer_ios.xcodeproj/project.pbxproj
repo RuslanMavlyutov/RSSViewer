@@ -32,6 +32,7 @@
 		31C1085D213033F300CDD3C3 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31C1085C213033F300CDD3C3 /* libSDWebImage.a */; };
 		31C108602136CD6C00CDD3C3 /* NSURL+CheckLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C1085F2136CD6C00CDD3C3 /* NSURL+CheckLink.m */; };
 		31C108682136E54200CDD3C3 /* RssUrlParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C108672136E54200CDD3C3 /* RssUrlParser.m */; };
+		31C1086E2137DB7100CDD3C3 /* AlertSpinnerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C1086D2137DB7100CDD3C3 /* AlertSpinnerController.m */; };
 		56A79049331F0B672C66648E /* libPods-RSSViewer_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		31C1085F2136CD6C00CDD3C3 /* NSURL+CheckLink.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+CheckLink.m"; sourceTree = "<group>"; };
 		31C108662136E54200CDD3C3 /* RssUrlParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RssUrlParser.h; sourceTree = "<group>"; };
 		31C108672136E54200CDD3C3 /* RssUrlParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RssUrlParser.m; sourceTree = "<group>"; };
+		31C1086C2137DB7100CDD3C3 /* AlertSpinnerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertSpinnerController.h; sourceTree = "<group>"; };
+		31C1086D2137DB7100CDD3C3 /* AlertSpinnerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertSpinnerController.m; sourceTree = "<group>"; };
 		993ECC11DD7419F51FD018F3 /* Pods-RSSViewer_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSSViewer_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSSViewer_ios/Pods-RSSViewer_ios.release.xcconfig"; sourceTree = "<group>"; };
 		DEFA521DAB6F035CAC3B039A /* libPods-RSSViewer_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RSSViewer_ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -186,6 +189,8 @@
 				31AE61222125578E0037C02E /* PostList */,
 				31AE6121212557790037C02E /* ChannelList */,
 				3103C77C20D79A6400076F2D /* IndicatorController.h */,
+				31C1086C2137DB7100CDD3C3 /* AlertSpinnerController.h */,
+				31C1086D2137DB7100CDD3C3 /* AlertSpinnerController.m */,
 				3103C77D20D79A6400076F2D /* IndicatorController.m */,
 			);
 			path = Presentation;
@@ -406,6 +411,7 @@
 				3179518D20E379B8009D3DA0 /* Channel.m in Sources */,
 				31C108492126C66800CDD3C3 /* PostListCell.m in Sources */,
 				3179518A20E369EA009D3DA0 /* Post.m in Sources */,
+				31C1086E2137DB7100CDD3C3 /* AlertSpinnerController.m in Sources */,
 				31AE6118211C49AF0037C02E /* NSString+Warning.m in Sources */,
 				31C108602136CD6C00CDD3C3 /* NSURL+CheckLink.m in Sources */,
 				3197CE4F20EFA5CD00B5C233 /* RSSLoader.m in Sources */,

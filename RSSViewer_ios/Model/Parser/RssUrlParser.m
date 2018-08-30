@@ -9,10 +9,6 @@ static NSString *const fullPrefix = @"https://www.";
     [super awakeFromNib];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 - (NSString *) checkUrlWithString : (NSString *) urlStr error: (NSError**) error
 {
     if([urlStr length] > 3) {
