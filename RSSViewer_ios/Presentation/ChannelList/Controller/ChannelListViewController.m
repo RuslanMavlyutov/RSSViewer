@@ -9,6 +9,7 @@
 #import "ChannelCell.h"
 #import "ExtScope.h"
 #import "RssUrlParser.h"
+#import "Storage.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
@@ -25,21 +26,22 @@ NSString* reloadNotification = @"reloadNotification";
     RSSFeedModel *rssFeedModel;
     RssUrlParser *rssUrlParser;
     AlertSpinnerController *alertSpinner;
+    Storage *storage;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     urlArray = [[NSArray alloc] init];
-    linkArray = [defaults arrayForKey:mainSettings];
-    channels = [[NSArray alloc] init];
+//    linkArray = [defaults arrayForKey:mainSettings];
+//    channels = [[NSArray alloc] init];
     rssUrlParser = [[RssUrlParser alloc] init];
     alertSpinner = [[AlertSpinnerController alloc] init];
-
-    if(!linkArray)
-        linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
+    storage = [[Storage alloc] init];
+//    if(!linkArray)
+//        linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
     RSSParser *parser = [[RSSParser alloc] init];
     RSSLoader *loader = [[RSSLoader alloc] init];
@@ -50,11 +52,13 @@ NSString* reloadNotification = @"reloadNotification";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
 
-    for(int i = 0; i < linkArray.count; i++) {
-        NSURL *url = [NSURL URLWithString:linkArray[i]];
-        [self loadRSSChannel:url];
-    }
-    [alertSpinner startAnimateIndicator];
+    channels = [storage loadChannel];
+
+//    for(int i = 0; i < linkArray.count; i++) {
+//        NSURL *url = [NSURL URLWithString:linkArray[i]];
+//        [self loadRSSChannel:url];
+//    }
+//    [alertSpinner startAnimateIndicator];
 }
 
 - (void) loadRSSChannel : (NSURL *) url
@@ -69,8 +73,10 @@ NSString* reloadNotification = @"reloadNotification";
             self->channels = [self->channels arrayByAddingObjectsFromArray:arrayChannel];
             NSArray *arrayUrl = [[NSArray alloc] initWithObjects:url, nil];
             self->urlArray = [self->urlArray arrayByAddingObjectsFromArray:arrayUrl];
-            if(![self->linkArray containsObject:url.absoluteString])
+            if(![self->linkArray containsObject:url.absoluteString]) {
+                [self->storage saveEtities:channel];
                 [self saveSettings:url];
+            }
             if(self->channels.count == self->linkArray.count) {
                 NSMutableArray *tempUrl = [[NSMutableArray alloc] init];
                 NSMutableArray *tempChannel = [[NSMutableArray alloc] init];
@@ -199,9 +205,9 @@ NSString* reloadNotification = @"reloadNotification";
     [array addObject:url.absoluteString];
     linkArray = [NSArray arrayWithArray:array];
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:linkArray forKey:mainSettings];
-    [defaults synchronize];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:linkArray forKey:mainSettings];
+//    [defaults synchronize];
 }
 
 @end
