@@ -13,7 +13,7 @@ static NSString *const itemElementName = @"item";
 @property (strong, nonatomic) dispatch_queue_t parsingQueue;
 @property (nonatomic, assign) id currentElement;
 @property (nonatomic, retain) NSMutableString *currentElementData;
-@property (nonatomic, retain) Channel *feedChannel;
+@property (nonatomic, retain) DomainChannel *feedChannel;
 
 @end
 
@@ -35,7 +35,7 @@ static NSString *const itemElementName = @"item";
     return self;
 }
 
-- (void)parserRss: (NSURL *) url : (NSData *)rss completion:(void (^)(Channel *, NSError *, NSString *))completion
+- (void)parserRss: (NSURL *) url : (NSData *)rss completion:(void (^)(DomainChannel *, NSError *, NSString *))completion
 {
     urlChannel = url;
     parser = [[NSXMLParser alloc] initWithData:rss];
@@ -54,7 +54,7 @@ static NSString *const itemElementName = @"item";
 
     if([element isEqualToString: channelElementName]) {
 
-        Channel *channel = [[Channel alloc] init];
+        DomainChannel *channel = [[DomainChannel alloc] init];
         if(channel.urlChannel.absoluteString.length == 0)
             channel.urlChannel = urlChannel;
         feedChannel = channel;

@@ -2,9 +2,9 @@
 
 @implementation PersistantChannel
 
-- (Channel *) channelParser : (RssChannel *) rssChannel
+- (DomainChannel *) channelParser : (RssChannel *) rssChannel
 {
-    Channel *channel = [[Channel alloc] init];
+    DomainChannel *channel = [[DomainChannel alloc] init];
     channel.title = [rssChannel title];
     channel.link = [rssChannel link];
     channel.description = [rssChannel descriptionChannel];

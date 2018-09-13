@@ -15,7 +15,7 @@ static NSString* const cellName = @"cell";
 
 @implementation PostListViewController
 {
-    Channel *currentChannel;
+    DomainChannel *currentChannel;
     RSSFeedModel* rssFeedModel;
 }
 
@@ -33,7 +33,7 @@ static NSString* const cellName = @"cell";
 - (void) updateRssModel
 {
     @weakify(self);
-    [rssFeedModel loadRSSWithUrl:currentChannel.urlChannel completion:^(Channel *channel, NSError *error, NSString *warning) {
+    [rssFeedModel loadRSSWithUrl:currentChannel.urlChannel completion:^(DomainChannel *channel, NSError *error, NSString *warning) {
         @strongify(self);
         if(warning.isNotEmpty)
             [self showErrorMessage:warning];
@@ -51,7 +51,7 @@ static NSString* const cellName = @"cell";
     [self updateRssModel];
 }
 
-- (void) showChannel : (Channel *) channel : (RSSFeedModel *) feedModel
+- (void) showChannel : (DomainChannel *) channel : (RSSFeedModel *) feedModel
 {
     currentChannel = channel;
     rssFeedModel = feedModel;

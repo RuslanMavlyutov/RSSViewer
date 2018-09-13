@@ -14,7 +14,7 @@
 
 @synthesize titleLabel, subtitleLabel, imageView;
 
-- (void) configureForChannel: (Channel *) channel
+- (void) configureForChannel: (DomainChannel *) channel
 {
     titleLabel.text = [channel title];
     subtitleLabel.text = [channel description];

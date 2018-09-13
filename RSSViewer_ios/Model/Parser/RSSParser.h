@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
-@class Channel;
+@class DomainChannel;
 
-typedef void(^ChannelBlock) (Channel *, NSError *, NSString *warning);
+typedef void(^ChannelBlock) (DomainChannel *, NSError *, NSString *warning);
 
 @interface RSSParser : NSObject
 

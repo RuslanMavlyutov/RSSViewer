@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
-@class Channel;
+@class DomainChannel;
 
 @interface ChannelCell : UITableViewCell
 
-- (void) configureForChannel: (Channel *) channel;
+- (void) configureForChannel: (DomainChannel *) channel;
 
 @end

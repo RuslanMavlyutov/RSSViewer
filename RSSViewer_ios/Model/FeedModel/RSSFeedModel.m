@@ -25,7 +25,7 @@
         @strongify(self);
         NSLog(@"%@", error);
         if([warning isEqualToString:@""]) {
-            [self.parser parserRss: url : data completion:^(Channel *channel, NSError *err, NSString *warning) {
+            [self.parser parserRss: url : data completion:^(DomainChannel *channel, NSError *err, NSString *warning) {
                 if(err)
                     NSLog(@"%@", error);
                 completion(channel, err, warning);

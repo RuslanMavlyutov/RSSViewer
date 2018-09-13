@@ -1,6 +1,6 @@
 #import "Channel.h"
 
-@implementation Channel
+@implementation DomainChannel
 
 @synthesize title, link, description, posts, url, urlChannel;
 

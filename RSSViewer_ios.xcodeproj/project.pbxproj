@@ -16,7 +16,7 @@
 		31214A4720D0EEFB00340599 /* PostListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A4620D0EEFB00340599 /* PostListViewController.m */; };
 		31214A4A20D10F7C00340599 /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A4920D10F7C00340599 /* PostDetailViewController.m */; };
 		31510FF72142518700942D7D /* RSSViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31510FF52142518700942D7D /* RSSViewer.xcdatamodeld */; };
-		3151104021426C1300942D7D /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151103F21426C1300942D7D /* Storage.m */; };
+		3151104021426C1300942D7D /* PersistanceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151103F21426C1300942D7D /* PersistanceStorage.m */; };
 		31511044214290F000942D7D /* PersistantChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511043214290F000942D7D /* PersistantChannel.m */; };
 		3151104F214294EB00942D7D /* RssChannel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151104D214294EB00942D7D /* RssChannel+CoreDataProperties.m */; };
 		31511050214294EB00942D7D /* RssChannel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151104E214294EB00942D7D /* RssChannel+CoreDataClass.m */; };
@@ -57,8 +57,8 @@
 		31214A4820D10F7C00340599 /* PostDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailViewController.h; sourceTree = "<group>"; };
 		31214A4920D10F7C00340599 /* PostDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailViewController.m; sourceTree = "<group>"; };
 		31510FF62142518700942D7D /* RSSViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSSViewer.xcdatamodel; sourceTree = "<group>"; };
-		3151103E21426C1300942D7D /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
-		3151103F21426C1300942D7D /* Storage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
+		3151103E21426C1300942D7D /* PersistanceStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistanceStorage.h; sourceTree = "<group>"; };
+		3151103F21426C1300942D7D /* PersistanceStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistanceStorage.m; sourceTree = "<group>"; };
 		31511042214290F000942D7D /* PersistantChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistantChannel.h; sourceTree = "<group>"; };
 		31511043214290F000942D7D /* PersistantChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistantChannel.m; sourceTree = "<group>"; };
 		3151104B214294EA00942D7D /* RssChannel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RssChannel+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 		3151104121426C2000942D7D /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				3151103E21426C1300942D7D /* Storage.h */,
-				3151103F21426C1300942D7D /* Storage.m */,
+				3151103E21426C1300942D7D /* PersistanceStorage.h */,
+				3151103F21426C1300942D7D /* PersistanceStorage.m */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -454,7 +454,7 @@
 				31AE6118211C49AF0037C02E /* NSString+Warning.m in Sources */,
 				31511044214290F000942D7D /* PersistantChannel.m in Sources */,
 				31C108602136CD6C00CDD3C3 /* NSURL+CheckLink.m in Sources */,
-				3151104021426C1300942D7D /* Storage.m in Sources */,
+				3151104021426C1300942D7D /* PersistanceStorage.m in Sources */,
 				3197CE4F20EFA5CD00B5C233 /* RSSLoader.m in Sources */,
 				31C108682136E54200CDD3C3 /* RssUrlParser.m in Sources */,
 				3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */,

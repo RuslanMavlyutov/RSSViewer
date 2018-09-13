@@ -1,8 +1,8 @@
 #import "Channel.h"
 #import "RssChannel+CoreDataClass.h"
 
-@interface PersistantChannel : Channel
+@interface PersistantChannel : DomainChannel
 
-- (Channel *) channelParser : (RssChannel *) rssChannel;
+- (DomainChannel *) channelParser : (RssChannel *) rssChannel;
 
 @end

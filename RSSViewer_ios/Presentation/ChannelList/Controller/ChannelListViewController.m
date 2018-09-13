@@ -9,7 +9,7 @@
 #import "ChannelCell.h"
 #import "ExtScope.h"
 #import "RssUrlParser.h"
-#import "Storage.h"
+#import "PersistanceStorage.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
@@ -20,13 +20,13 @@ static NSString *const mainSettings = @"settings";
 NSString* reloadNotification = @"reloadNotification";
 
 @implementation ChannelListViewController {
-    NSArray<Channel *> *channels;
+    NSArray<DomainChannel *> *channels;
     NSArray<NSString *> *linkArray;
     NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
     RssUrlParser *rssUrlParser;
     AlertSpinnerController *alertSpinner;
-    Storage *storage;
+    CoreDataPersistanceStorage *storage;
 }
 
 - (void)viewDidLoad
@@ -39,7 +39,7 @@ NSString* reloadNotification = @"reloadNotification";
 //    channels = [[NSArray alloc] init];
     rssUrlParser = [[RssUrlParser alloc] init];
     alertSpinner = [[AlertSpinnerController alloc] init];
-    storage = [[Storage alloc] init];
+    storage = [[CoreDataPersistanceStorage alloc] init];
 //    if(!linkArray)
 //        linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
@@ -52,7 +52,13 @@ NSString* reloadNotification = @"reloadNotification";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
 
-    channels = [storage loadChannel];
+    channels = [storage fetchAllChannels:^(NSError *error) {
+        if(error) {
+            NSLog(@"Error while fetching:\n%@",
+                  ([error localizedDescription] != nil) ?
+                  [error localizedDescription] : @"Unknown Error");
+        }
+    }];
 
 //    for(int i = 0; i < linkArray.count; i++) {
 //        NSURL *url = [NSURL URLWithString:linkArray[i]];
@@ -64,7 +70,7 @@ NSString* reloadNotification = @"reloadNotification";
 - (void) loadRSSChannel : (NSURL *) url
 {
     @weakify(self);
-    [rssFeedModel loadRSSWithUrl:url completion:^(Channel *channel, NSError *error, NSString *warning) {
+    [rssFeedModel loadRSSWithUrl:url completion:^(DomainChannel *channel, NSError *error, NSString *warning) {
         @strongify(self);
         if(warning.isNotEmpty)
             [self dismissViewControllerAnimated:YES completion:^{[self showErrorMessage:warning];}];
@@ -74,7 +80,7 @@ NSString* reloadNotification = @"reloadNotification";
             NSArray *arrayUrl = [[NSArray alloc] initWithObjects:url, nil];
             self->urlArray = [self->urlArray arrayByAddingObjectsFromArray:arrayUrl];
             if(![self->linkArray containsObject:url.absoluteString]) {
-                [self->storage saveEtities:channel completion:^(NSError *error, bool isUniqueLink) {
+                [self->storage saveChannel:channel completion:^(NSError *error, bool isUniqueLink) {
                     if(error) {
                         NSLog(@"%@",error);
                     } else if(!isUniqueLink) {
@@ -129,7 +135,7 @@ NSString* reloadNotification = @"reloadNotification";
     PostListViewController *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"table"];
     [self.navigationController pushViewController:vc animated:YES];
 
-    Channel *selectedChannel = [channels objectAtIndex:indexPath.row];
+    DomainChannel *selectedChannel = [channels objectAtIndex:indexPath.row];
     [vc showChannel:selectedChannel : rssFeedModel];
 }
 

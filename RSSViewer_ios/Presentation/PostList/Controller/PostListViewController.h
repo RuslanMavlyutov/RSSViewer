@@ -5,6 +5,6 @@
 
 @interface PostListViewController : UITableViewController
 
-- (void) showChannel : (Channel *) channel : (RSSFeedModel *) feedModel;
+- (void) showChannel : (DomainChannel *) channel : (RSSFeedModel *) feedModel;
 
 @end

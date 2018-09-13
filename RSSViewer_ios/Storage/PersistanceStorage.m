@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "Storage.h"
+#import "PersistanceStorage.h"
 #import "Channel.h"
 #import "PersistantChannel.h"
 #import "RssChannel+CoreDataClass.h"
@@ -7,7 +7,7 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-@implementation Storage {
+@implementation CoreDataPersistanceStorage {
     NSMutableArray<RssChannel *> *channels;
     NSManagedObjectContext *context;
 }
@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void) saveEtities : (Channel *) channel completion: (void (^)(NSError*, bool isUniqueLink)) completion
+- (void) saveChannel : (DomainChannel *) channel completion: (void (^)(NSError *error, bool isUniqueLink)) completion
 {
     UIApplication *application = [UIApplication sharedApplication];
     NSPersistentContainer *container = ((AppDelegate*)[application delegate]).persistentContainer;
@@ -65,34 +65,22 @@
     }];
 }
 
-- (NSArray<Channel *> *) loadChannel
+- (NSArray<DomainChannel *> *) fetchAllChannels : (void (^)(NSError*)) completion
 {
-    NSArray *result = [self fetchArrayInContext];
+    __block NSError *error = nil;
+    __block NSArray *result;
+    [context performBlockAndWait:^{
+        result = [self->context executeFetchRequest:[RssChannel fetchRequest] error:&error];
+    }];
 
     channels =  [[NSMutableArray alloc]initWithArray:result];
-    NSMutableArray<Channel *> *channelArray = [[NSMutableArray alloc] init];
+    NSMutableArray<DomainChannel *> *channelArray = [[NSMutableArray alloc] init];
     for(int i = 0; i < channels.count; i++) {
         PersistantChannel *channel = [[PersistantChannel alloc] init];
         [channelArray addObject:[channel channelParser:[channels objectAtIndex:i]]];
     }
-
+    completion(error);
     return [[NSArray alloc] initWithArray:channelArray];
-}
-
-- (NSArray *)fetchArrayInContext
-{
-    __block NSArray *array;
-    __block NSError *error = nil;
-    [context performBlockAndWait:^{
-        array = [self->context executeFetchRequest:[RssChannel fetchRequest] error:&error];
-    }];
-
-    if (error) {
-        [self showError:error];
-        return [NSArray array];
-    }
-
-    return array;
 }
 
 - (void) showError : (NSError *) error
