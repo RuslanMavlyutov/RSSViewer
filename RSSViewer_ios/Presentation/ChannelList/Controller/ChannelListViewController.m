@@ -74,27 +74,38 @@ NSString* reloadNotification = @"reloadNotification";
             NSArray *arrayUrl = [[NSArray alloc] initWithObjects:url, nil];
             self->urlArray = [self->urlArray arrayByAddingObjectsFromArray:arrayUrl];
             if(![self->linkArray containsObject:url.absoluteString]) {
-                [self->storage saveEtities:channel];
-                [self saveSettings:url];
-            }
-            if(self->channels.count == self->linkArray.count) {
-                NSMutableArray *tempUrl = [[NSMutableArray alloc] init];
-                NSMutableArray *tempChannel = [[NSMutableArray alloc] init];
-                for(int i = 0; i <  self->urlArray.count; i++) {
-                    int index = 0;
-                    for(NSURL* url in self->urlArray) {
-                        if([self->linkArray[i] isEqual: url.absoluteString]) {
-                            [tempUrl addObject:url];
-                            [tempChannel addObject:self->channels[index]];
-                        }
-                        index++;
+                [self->storage saveEtities:channel completion:^(NSError *error, bool isUniqueLink) {
+                    if(error) {
+                        NSLog(@"%@",error);
+                    } else if(!isUniqueLink) {
+                        [self showErrorMessage:@"This rss channel already esists!"];
+                    } else {
+                        [self saveSettings:url];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.tableView reloadData];
+                        });
                     }
-                }
-                self->urlArray = [[NSMutableArray alloc] initWithArray:tempUrl];
-                self->channels = [[NSArray alloc] initWithArray:tempChannel];
-                [self.tableView reloadData];
-                [self->alertSpinner stopAnimateIndicator];
+                }];
             }
+//            if(self->channels.count == self->linkArray.count) {
+//                NSMutableArray *tempUrl = [[NSMutableArray alloc] init];
+//                NSMutableArray *tempChannel = [[NSMutableArray alloc] init];
+//                for(int i = 0; i <  self->urlArray.count; i++) {
+//                    int index = 0;
+//                    for(NSURL* url in self->urlArray) {
+//                        if([self->linkArray[i] isEqual: url.absoluteString]) {
+//                            [tempUrl addObject:url];
+//                            [tempChannel addObject:self->channels[index]];
+//                        }
+//                        index++;
+//                    }
+//                }
+//                self->urlArray = [[NSMutableArray alloc] initWithArray:tempUrl];
+//                self->channels = [[NSArray alloc] initWithArray:tempChannel];
+//                [self.tableView reloadData];
+//                [self->alertSpinner stopAnimateIndicator];
+//            }
+            [self->alertSpinner stopAnimateIndicator];
         }
     }];
 }

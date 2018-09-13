@@ -4,7 +4,7 @@
 
 @interface Storage : NSObject
 
-- (void) saveEtities : (Channel *) channel;
-- (Channel *) loadChannel;
+- (void) saveEtities : (Channel *) channel completion: (void (^)(NSError*, bool)) completion;
+- (NSArray<Channel *> *) loadChannel;
 
 @end
