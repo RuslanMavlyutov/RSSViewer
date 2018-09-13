@@ -65,7 +65,7 @@
     }];
 }
 
-- (NSArray<DomainChannel *> *) fetchAllChannels : (void (^)(NSError*)) completion
+- (void) fetchAllChannels : (void (^)(NSArray<DomainChannel *> *, NSError*)) completion
 {
     __block NSError *error = nil;
     __block NSArray *result;
@@ -79,8 +79,7 @@
         PersistantChannel *channel = [[PersistantChannel alloc] init];
         [channelArray addObject:[channel channelParser:[channels objectAtIndex:i]]];
     }
-    completion(error);
-    return [[NSArray alloc] initWithArray:channelArray];
+    completion([[NSArray alloc] initWithArray:channelArray], error);
 }
 
 - (void) showError : (NSError *) error

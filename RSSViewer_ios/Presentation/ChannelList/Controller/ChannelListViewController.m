@@ -52,12 +52,14 @@ NSString* reloadNotification = @"reloadNotification";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 60;
 
-    channels = [storage fetchAllChannels:^(NSError *error) {
+    [storage fetchAllChannels:^(NSArray<DomainChannel *> *result, NSError *error) {
         if(error) {
             NSLog(@"Error while fetching:\n%@",
                   ([error localizedDescription] != nil) ?
                   [error localizedDescription] : @"Unknown Error");
         }
+        if(result)
+            self->channels = result;
     }];
 
 //    for(int i = 0; i < linkArray.count; i++) {
