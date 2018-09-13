@@ -1,6 +1,6 @@
 #import "Post.h"
 
-@implementation Post
+@implementation DomainPost
 
 @synthesize title, description, pubDate, guid, link;
 

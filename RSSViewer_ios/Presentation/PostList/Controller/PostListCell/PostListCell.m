@@ -12,7 +12,7 @@
 
 @synthesize titleLabel, subtitleLabel;
 
-- (void) configureForPost : (Post *) post
+- (void) configureForPost : (DomainPost *) post
 {
     titleLabel.text = [post title];
     subtitleLabel.text = [post pubDate];

@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
-@class Post;
+@class DomainPost;
 
 @interface PostListCell : UITableViewCell
 
-- (void) configureForPost : (Post *) post;
+- (void) configureForPost : (DomainPost *) post;
 
 @end

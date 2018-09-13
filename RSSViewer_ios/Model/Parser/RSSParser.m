@@ -65,7 +65,7 @@ static NSString *const itemElementName = @"item";
 
     if ([element isEqualToString:itemElementName]) {
 
-        Post *post = [[Post alloc] init];
+        DomainPost *post = [[DomainPost alloc] init];
         NSArray *currentPost = [[NSArray alloc] initWithObjects:post, nil];
         feedChannel.posts = [feedChannel.posts arrayByAddingObjectsFromArray:currentPost];
         currentElement = post;
