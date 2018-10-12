@@ -38,7 +38,8 @@
         request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", channel.urlChannel.absoluteString];
 
         NSError *error = nil;
-        NSArray *matches = [context executeFetchRequest:request error:&error];
+        RssChannel *persistanceChannel = nil;
+        NSArray<RssChannel*> *matches = [context executeFetchRequest:request error:&error];
         bool isUniqueLink = false;
 
         if(!matches || error || [matches count] > 1) {
@@ -68,7 +69,7 @@
             RssPost *rssPost;
             NSFetchRequest *requestPost;
             NSError *err = nil;
-            NSArray *matchesPost;
+            NSArray<RssPost*> *matchesPost;
             for (int i = 0; i < [channel.posts count]; i++) {
                 rssPost = [[RssPost alloc] initWithContext:context];
                 requestPost = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssPost.class)];
