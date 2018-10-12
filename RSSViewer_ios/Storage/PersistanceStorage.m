@@ -32,7 +32,7 @@
     @weakify(self);
     [container performBackgroundTask:^(NSManagedObjectContext *context) {
         @strongify(self);
-        RssChannel *rssChannel = [[RssChannel alloc] initWithEntity:[RssChannel entity] insertIntoManagedObjectContext:context];
+        RssChannel *rssChannel = [[RssChannel alloc] initWithContext:context];
 
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"RssChannel"];
         request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", channel.urlChannel.absoluteString];
@@ -70,7 +70,7 @@
             NSError *err = nil;
             NSArray *matchesPost;
             for (int i = 0; i < [channel.posts count]; i++) {
-                rssPost = [[RssPost alloc] initWithEntity:[RssPost entity] insertIntoManagedObjectContext:context];
+                rssPost = [[RssPost alloc] initWithContext:context];
                 requestPost = [NSFetchRequest fetchRequestWithEntityName:@"RssPost"];
                 matchesPost = [context executeFetchRequest:requestPost error:&err];
 

@@ -18,7 +18,7 @@
 {
     titleLabel.text = [channel title];
     subtitleLabel.text = [channel description];
-    [imageView sd_setImageWithURL:[channel url]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:[channel url]]];
 }
 
 - (void) layoutSubviews

@@ -8,7 +8,7 @@
     channel.title = [rssChannel title];
     channel.link = [rssChannel link];
     channel.description = [rssChannel descriptionChannel];
-    channel.url = [NSURL URLWithString:[rssChannel url]];
+    channel.url = [rssChannel url];
     channel.urlChannel = [NSURL URLWithString:[rssChannel urlChannel]];
 
     return channel;
