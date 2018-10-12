@@ -34,7 +34,7 @@
         @strongify(self);
         RssChannel *rssChannel = [[RssChannel alloc] initWithContext:context];
 
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"RssChannel"];
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssChannel.class)];
         request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", channel.urlChannel.absoluteString];
 
         NSError *error = nil;
@@ -71,7 +71,7 @@
             NSArray *matchesPost;
             for (int i = 0; i < [channel.posts count]; i++) {
                 rssPost = [[RssPost alloc] initWithContext:context];
-                requestPost = [NSFetchRequest fetchRequestWithEntityName:@"RssPost"];
+                requestPost = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssPost.class)];
                 matchesPost = [context executeFetchRequest:requestPost error:&err];
 
                 if(!matchesPost || err || [matches count] > 1) {
