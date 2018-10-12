@@ -20,6 +20,9 @@
 		31511044214290F000942D7D /* PersistantChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511043214290F000942D7D /* PersistantChannel.m */; };
 		3151104F214294EB00942D7D /* RssChannel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151104D214294EB00942D7D /* RssChannel+CoreDataProperties.m */; };
 		31511050214294EB00942D7D /* RssChannel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151104E214294EB00942D7D /* RssChannel+CoreDataClass.m */; };
+		31511061214A904100942D7D /* RssPost+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151105E214A904100942D7D /* RssPost+CoreDataProperties.m */; };
+		31511062214A904100942D7D /* RssPost+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511060214A904100942D7D /* RssPost+CoreDataClass.m */; };
+		31511065214A933C00942D7D /* PersistantPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511064214A933C00942D7D /* PersistantPost.m */; };
 		3179518A20E369EA009D3DA0 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518920E369EA009D3DA0 /* Post.m */; };
 		3179518D20E379B8009D3DA0 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518C20E379B8009D3DA0 /* Channel.m */; };
 		3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179519020E66690009D3DA0 /* ChannelListViewController.m */; };
@@ -65,6 +68,12 @@
 		3151104C214294EB00942D7D /* RssChannel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RssChannel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		3151104D214294EB00942D7D /* RssChannel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RssChannel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		3151104E214294EB00942D7D /* RssChannel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RssChannel+CoreDataClass.m"; sourceTree = "<group>"; };
+		3151105D214A904100942D7D /* RssPost+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RssPost+CoreDataProperties.h"; path = "/Users/ruslanmavlyutov/Documents/Projects Obj/RSSViewer_ios/RSSViewer_ios/CoreData/RssPost+CoreDataProperties.h"; sourceTree = "<absolute>"; };
+		3151105E214A904100942D7D /* RssPost+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "RssPost+CoreDataProperties.m"; path = "/Users/ruslanmavlyutov/Documents/Projects Obj/RSSViewer_ios/RSSViewer_ios/CoreData/RssPost+CoreDataProperties.m"; sourceTree = "<absolute>"; };
+		3151105F214A904100942D7D /* RssPost+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RssPost+CoreDataClass.h"; path = "/Users/ruslanmavlyutov/Documents/Projects Obj/RSSViewer_ios/RSSViewer_ios/CoreData/RssPost+CoreDataClass.h"; sourceTree = "<absolute>"; };
+		31511060214A904100942D7D /* RssPost+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "RssPost+CoreDataClass.m"; path = "/Users/ruslanmavlyutov/Documents/Projects Obj/RSSViewer_ios/RSSViewer_ios/CoreData/RssPost+CoreDataClass.m"; sourceTree = "<absolute>"; };
+		31511063214A933C00942D7D /* PersistantPost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistantPost.h; sourceTree = "<group>"; };
+		31511064214A933C00942D7D /* PersistantPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistantPost.m; sourceTree = "<group>"; };
 		3179518820E369EA009D3DA0 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		3179518920E369EA009D3DA0 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		3179518B20E379B7009D3DA0 /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
@@ -165,6 +174,10 @@
 		31510FF42142517300942D7D /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3151105F214A904100942D7D /* RssPost+CoreDataClass.h */,
+				31511060214A904100942D7D /* RssPost+CoreDataClass.m */,
+				3151105D214A904100942D7D /* RssPost+CoreDataProperties.h */,
+				3151105E214A904100942D7D /* RssPost+CoreDataProperties.m */,
 				3151104B214294EA00942D7D /* RssChannel+CoreDataClass.h */,
 				3151104E214294EB00942D7D /* RssChannel+CoreDataClass.m */,
 				3151104C214294EB00942D7D /* RssChannel+CoreDataProperties.h */,
@@ -302,6 +315,8 @@
 				31511043214290F000942D7D /* PersistantChannel.m */,
 				3179518B20E379B7009D3DA0 /* Channel.h */,
 				3179518C20E379B8009D3DA0 /* Channel.m */,
+				31511063214A933C00942D7D /* PersistantPost.h */,
+				31511064214A933C00942D7D /* PersistantPost.m */,
 				3179518820E369EA009D3DA0 /* Post.h */,
 				3179518920E369EA009D3DA0 /* Post.m */,
 			);
@@ -442,6 +457,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31511065214A933C00942D7D /* PersistantPost.m in Sources */,
+				31511061214A904100942D7D /* RssPost+CoreDataProperties.m in Sources */,
 				31AE610C21157A210037C02E /* AppDelegate.m in Sources */,
 				31AE612C21256AB10037C02E /* UIViewController+AlertMessage.m in Sources */,
 				31214A4A20D10F7C00340599 /* PostDetailViewController.m in Sources */,
@@ -459,6 +476,7 @@
 				31C108682136E54200CDD3C3 /* RssUrlParser.m in Sources */,
 				3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */,
 				3103C77E20D79A6400076F2D /* IndicatorController.m in Sources */,
+				31511062214A904100942D7D /* RssPost+CoreDataClass.m in Sources */,
 				31511050214294EB00942D7D /* RssChannel+CoreDataClass.m in Sources */,
 				31214A3F20D0EACB00340599 /* main.m in Sources */,
 				31510FF72142518700942D7D /* RSSViewer.xcdatamodeld in Sources */,

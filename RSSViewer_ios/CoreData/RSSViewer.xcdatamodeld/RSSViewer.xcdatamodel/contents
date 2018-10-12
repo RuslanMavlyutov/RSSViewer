@@ -6,8 +6,18 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlChannel" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RssPost" inverseName="whichRssChannel" inverseEntity="RssPost" syncable="YES"/>
+    </entity>
+    <entity name="RssPost" representedClassName="RssPost" syncable="YES">
+        <attribute name="descriptionPost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pubDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="whichRssChannel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RssChannel" inverseName="posts" inverseEntity="RssChannel" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RssChannel" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="RssChannel" positionX="-90" positionY="-21" width="128" height="133"/>
+        <element name="RssPost" positionX="-299" positionY="-25" width="128" height="133"/>
     </elements>
 </model>
