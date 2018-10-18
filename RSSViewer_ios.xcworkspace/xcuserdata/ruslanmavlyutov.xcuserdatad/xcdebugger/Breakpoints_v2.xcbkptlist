@@ -265,7 +265,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Presentation/PostList/Controller/PostListViewController.m"
-            timestampString = "561556050.928797"
+            timestampString = "561558176.673867"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
@@ -281,7 +281,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Presentation/PostList/Controller/PostListViewController.m"
-            timestampString = "561556050.9288549"
+            timestampString = "561558176.673925"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -696,7 +696,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Storage/PersistanceStorage.m"
-            timestampString = "561556050.929262"
+            timestampString = "561558176.674345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -712,7 +712,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RSSViewer_ios/Presentation/PostList/Controller/PostListViewController.m"
-            timestampString = "561556050.931125"
+            timestampString = "561558176.675698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -751,6 +751,22 @@
                   offsetFromSymbolStart = "57">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RSSViewer_ios/Model/Logic/Entities/PersistantChannel.m"
+            timestampString = "561558176.675745"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "-channelParser:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

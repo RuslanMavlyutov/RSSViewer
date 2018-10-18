@@ -10,7 +10,10 @@
     channel.description = [rssChannel descriptionChannel];
     channel.url = [rssChannel url];
     channel.urlChannel = [NSURL URLWithString:[rssChannel urlChannel]];
-    channel.posts = [[rssChannel posts] allObjects];
+    NSMutableArray<DomainPost *> *domainPosts = [[NSMutableArray alloc] init];
+    for(RssPost *post in [rssChannel posts])
+        [domainPosts addObject:(DomainPost *)post];
+    channel.posts = [domainPosts copy];
 
     return channel;
 }
