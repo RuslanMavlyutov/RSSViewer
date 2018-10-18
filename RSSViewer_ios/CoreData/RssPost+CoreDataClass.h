@@ -1,11 +1,3 @@
-//
-//  RssPost+CoreDataClass.h
-//  
-//
-//  Created by Ruslan Mavlyutov on 13/09/2018.
-//
-//
-
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 

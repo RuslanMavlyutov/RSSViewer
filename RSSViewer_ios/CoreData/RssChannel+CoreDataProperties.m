@@ -1,11 +1,3 @@
-//
-//  RssChannel+CoreDataProperties.m
-//
-//
-//  Created by Ruslan Mavlyutov on 07/09/2018.
-//
-//
-
 #import "RssChannel+CoreDataProperties.h"
 
 @implementation RssChannel (CoreDataProperties)
@@ -19,5 +11,6 @@
 @dynamic title;
 @dynamic url;
 @dynamic urlChannel;
+@dynamic posts;
 
 @end

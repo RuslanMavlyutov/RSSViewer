@@ -32,7 +32,6 @@
     @weakify(self);
     [container performBackgroundTask:^(NSManagedObjectContext *context) {
         @strongify(self);
-        RssChannel *rssChannel = [[RssChannel alloc] initWithContext:context];
 
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssChannel.class)];
         request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", channel.urlChannel.absoluteString];
@@ -42,61 +41,37 @@
         NSArray<RssChannel*> *matches = [context executeFetchRequest:request error:&error];
         bool isUniqueLink = false;
 
-        if(!matches || error || [matches count] > 1) {
-            if (error) {
-                [self showError:error];
-                return;
-            }
-        } else if ([matches count]) {
-            NSLog(@"the same link");
+        if ([matches count] ==  1) {
+            persistanceChannel = matches[0];
         } else {
-            rssChannel.title = channel.title;
-            rssChannel.link = channel.link;
-            rssChannel.descriptionChannel = channel.description;
-            rssChannel.url = channel.url;
-            rssChannel.urlChannel = [channel.urlChannel absoluteString];
+            persistanceChannel = [[RssChannel alloc] initWithContext:context];
+
+            persistanceChannel.title = channel.title;
+            persistanceChannel.link = channel.link;
+            persistanceChannel.descriptionChannel = channel.description;
+            persistanceChannel.url = channel.url;
+            persistanceChannel.urlChannel = [channel.urlChannel absoluteString];
+
+            RssPost *persistancePost = nil;
+            for (int i = 0; i < [channel.posts count]; i++) {
+                persistancePost = [[RssPost alloc] initWithContext:context];
+                persistancePost.title = [channel.posts[i] title];
+                persistancePost.descriptionPost = [channel.posts[i] description];
+                persistancePost.pubDate = [channel.posts[i] pubDate];
+                persistancePost.guid = [channel.posts[i] guid];
+                persistancePost.link = [channel.posts[i] link];
+                [persistanceChannel addPostsObject:persistancePost];
+            }
 
             isUniqueLink = true;
 
             error = nil;
             [context save:&error];
             if (error) {
-                [self showError:error];
+                [self logError:error];
                 return;
             }
-            [self->channels addObject:rssChannel];
-
-            RssPost *rssPost;
-            NSFetchRequest *requestPost;
-            NSError *err = nil;
-            NSArray<RssPost*> *matchesPost;
-            for (int i = 0; i < [channel.posts count]; i++) {
-                rssPost = [[RssPost alloc] initWithContext:context];
-                requestPost = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssPost.class)];
-                matchesPost = [context executeFetchRequest:requestPost error:&err];
-
-                if(!matchesPost || err || [matches count] > 1) {
-                    if (error) {
-                        [self showError:error];
-                        return;
-                    }
-                } else if ([matches count]) {
-                    NSLog(@"the same link");
-                } else {
-                    rssPost.title = [channel.posts[i] title];
-                    rssPost.descriptionPost = [channel.posts[i] description];
-                    rssPost.pubDate = [channel.posts[i] pubDate];
-                    rssPost.guid = [channel.posts[i] guid];
-                    rssPost.link = [channel.posts[i] link];
-                }
-                error = nil;
-                [context save:&error];
-                if (error) {
-                    [self showError:error];
-                    return;
-                }
-                [self->posts addObject:rssPost];
-            }
+            [self->channels addObject:persistanceChannel];
         }
         completion(error, isUniqueLink);
     }];
@@ -105,34 +80,23 @@
 - (void) fetchAllChannels : (void (^)(NSArray<DomainChannel *> *, NSError*)) completion
 {
     __block NSError *errorChannel = nil;
-    __block NSError *errorPost = nil;
     __block NSArray *resultChannel;
-    __block NSArray *resultPosts;
     [context performBlockAndWait:^{
         resultChannel = [self->context executeFetchRequest:[RssChannel fetchRequest] error:&errorChannel];
-        resultPosts = [self->context executeFetchRequest:[RssPost fetchRequest] error:&errorPost];
     }];
-
-    posts = [[NSMutableArray alloc] initWithArray:resultPosts];
-    NSMutableArray<DomainPost *> *postArray = [[NSMutableArray alloc] init];
-    for(int i = 0; i < posts.count; i++) {
-        PersistantPost *post = [[PersistantPost alloc] init];
-        [postArray addObject:[post postParser:[posts objectAtIndex:i]]];
-    }
 
     channels =  [[NSMutableArray alloc]initWithArray:resultChannel];
     NSMutableArray<DomainChannel *> *channelArray = [[NSMutableArray alloc] init];
     for(int i = 0; i < channels.count; i++) {
         PersistantChannel *channel = [[PersistantChannel alloc] init];
         channel = (PersistantChannel*)[channel channelParser:[channels objectAtIndex:i]];
-        channel.posts = posts;
         [channelArray addObject:channel];
     }
 
     completion([[NSArray alloc] initWithArray:channelArray], errorChannel);
 }
 
-- (void) showError : (NSError *) error
+- (void) logError : (NSError *) error
 {
     NSLog(@"Error while fetching:\n%@",
           ([error localizedDescription] != nil) ?

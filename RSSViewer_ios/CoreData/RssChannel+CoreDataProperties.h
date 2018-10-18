@@ -1,11 +1,3 @@
-//
-//  RssChannel+CoreDataProperties.h
-//
-//
-//  Created by Ruslan Mavlyutov on 07/09/2018.
-//
-//
-
 #import "RssChannel+CoreDataClass.h"
 
 
@@ -20,6 +12,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *title;
 @property (nullable, nonatomic, copy) NSString *url;
 @property (nullable, nonatomic, copy) NSString *urlChannel;
+@property (nullable, nonatomic, retain) NSSet<RssPost *> *posts;
+
+@end
+
+@interface RssChannel (CoreDataGeneratedAccessors)
+
+- (void)addPostsObject:(RssPost *)value;
+- (void)removePostsObject:(RssPost *)value;
+- (void)addPosts:(NSSet<RssPost *> *)values;
+- (void)removePosts:(NSSet<RssPost *> *)values;
 
 @end
 

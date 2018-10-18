@@ -1,13 +1,7 @@
-//
-//  RssChannel+CoreDataClass.h
-//
-//
-//  Created by Ruslan Mavlyutov on 07/09/2018.
-//
-//
-
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
+@class RssPost;
 
 NS_ASSUME_NONNULL_BEGIN
 

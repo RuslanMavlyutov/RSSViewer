@@ -10,6 +10,7 @@
     channel.description = [rssChannel descriptionChannel];
     channel.url = [rssChannel url];
     channel.urlChannel = [NSURL URLWithString:[rssChannel urlChannel]];
+    channel.posts = [[rssChannel posts] allObjects];
 
     return channel;
 }
