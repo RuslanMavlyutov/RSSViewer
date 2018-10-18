@@ -38,11 +38,15 @@
 
         NSError *error = nil;
         RssChannel *persistanceChannel = nil;
+        RssPost *persistancePost = nil;
         NSArray<RssChannel*> *matches = [context executeFetchRequest:request error:&error];
-        bool isUniqueLink = false;
+        bool isUniqueLink = true;
 
         if ([matches count] ==  1) {
             persistanceChannel = matches[0];
+            for (RssPost *post in persistanceChannel.posts) {
+                [context deleteObject:post];
+            }
         } else {
             persistanceChannel = [[RssChannel alloc] initWithContext:context];
 
@@ -51,27 +55,21 @@
             persistanceChannel.descriptionChannel = channel.description;
             persistanceChannel.url = channel.url;
             persistanceChannel.urlChannel = [channel.urlChannel absoluteString];
+        }
+        for (int i = 0; i < [channel.posts count]; i++) {
+            persistancePost = [[RssPost alloc] initWithContext:context];
+            persistancePost.title = [channel.posts[i] title];
+            persistancePost.descriptionPost = [channel.posts[i] description];
+            persistancePost.pubDate = [channel.posts[i] pubDate];
+            persistancePost.guid = [channel.posts[i] guid];
+            persistancePost.link = [channel.posts[i] link];
+            [persistanceChannel addPostsObject:persistancePost];
+        }
 
-            RssPost *persistancePost = nil;
-            for (int i = 0; i < [channel.posts count]; i++) {
-                persistancePost = [[RssPost alloc] initWithContext:context];
-                persistancePost.title = [channel.posts[i] title];
-                persistancePost.descriptionPost = [channel.posts[i] description];
-                persistancePost.pubDate = [channel.posts[i] pubDate];
-                persistancePost.guid = [channel.posts[i] guid];
-                persistancePost.link = [channel.posts[i] link];
-                [persistanceChannel addPostsObject:persistancePost];
-            }
-
-            isUniqueLink = true;
-
-            error = nil;
-            [context save:&error];
-            if (error) {
-                [self logError:error];
-                return;
-            }
-            [self->channels addObject:persistanceChannel];
+        [context save:&error];
+        if (error) {
+            [self logError:error];
+            return;
         }
         completion(error, isUniqueLink);
     }];

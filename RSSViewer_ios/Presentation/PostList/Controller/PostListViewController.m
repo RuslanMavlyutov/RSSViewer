@@ -6,6 +6,7 @@
 #import "UIViewController+AlertMessage.h"
 #import "NSURL+CheckLink.h"
 #import "ExtScope.h"
+#import "PersistanceStorage.h"
 
 static NSString* const cellName = @"cell";
 
@@ -39,6 +40,12 @@ static NSString* const cellName = @"cell";
             [self showErrorMessage:warning];
         if(channel) {
             self->currentChannel = channel;
+            CoreDataPersistanceStorage *storage = [[CoreDataPersistanceStorage alloc] init];
+            [storage saveChannel:channel completion:^(NSError *error, bool isUniqueLink) {
+                if(error) {
+                    NSLog(@"%@",error);
+                }
+            }];
             [self.tableView.refreshControl endRefreshing];
             [self.tableView reloadData];
         }
