@@ -41,7 +41,7 @@ static NSString* const cellName = @"cell";
         if(channel) {
             self->currentChannel = channel;
             CoreDataPersistanceStorage *storage = [[CoreDataPersistanceStorage alloc] init];
-            [storage saveChannel:channel completion:^(NSError *error, bool isUniqueLink) {
+            [storage saveChannel:channel completion:^(NSError *error) {
                 if(error) {
                     NSLog(@"%@",error);
                 }

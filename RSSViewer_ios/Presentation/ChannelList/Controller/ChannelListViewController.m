@@ -82,11 +82,9 @@ NSString* reloadNotification = @"reloadNotification";
             NSArray *arrayUrl = [[NSArray alloc] initWithObjects:url, nil];
             self->urlArray = [self->urlArray arrayByAddingObjectsFromArray:arrayUrl];
             if(![self->linkArray containsObject:url.absoluteString]) {
-                [self->storage saveChannel:channel completion:^(NSError *error, bool isUniqueLink) {
+                [self->storage saveChannel:channel completion:^(NSError *error) {
                     if(error) {
                         NSLog(@"%@",error);
-                    } else if(!isUniqueLink) {
-                        [self showErrorMessage:@"This rss channel already esists!"];
                     } else {
                         [self saveSettings:url];
                         dispatch_async(dispatch_get_main_queue(), ^{

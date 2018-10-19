@@ -24,7 +24,7 @@
     return self;
 }
 
-- (void) saveChannel : (DomainChannel *) channel completion: (void (^)(NSError *error, bool isUniqueLink)) completion
+- (void) saveChannel : (DomainChannel *) channel completion: (void (^)(NSError *error)) completion
 {
     UIApplication *application = [UIApplication sharedApplication];
     NSPersistentContainer *container = ((AppDelegate*)[application delegate]).persistentContainer;
@@ -33,46 +33,45 @@
     [container performBackgroundTask:^(NSManagedObjectContext *context) {
         @strongify(self);
 
-        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssChannel.class)];
-        request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", channel.urlChannel.absoluteString];
+        RssChannel *persistanceChannel = nil;
+        persistanceChannel = [self fetchOrCreateInContext:context : channel];
 
         NSError *error = nil;
-        RssChannel *persistanceChannel = nil;
-        RssPost *persistancePost = nil;
-        NSArray<RssChannel*> *matches = [context executeFetchRequest:request error:&error];
-        bool isUniqueLink = true;
-
-        if ([matches count] ==  1) {
-            persistanceChannel = matches[0];
-            for (RssPost *post in persistanceChannel.posts) {
-                [context deleteObject:post];
-            }
-        } else {
-            persistanceChannel = [[RssChannel alloc] initWithContext:context];
-
-            persistanceChannel.title = channel.title;
-            persistanceChannel.link = channel.link;
-            persistanceChannel.descriptionChannel = channel.description;
-            persistanceChannel.url = channel.url;
-            persistanceChannel.urlChannel = [channel.urlChannel absoluteString];
-        }
-        for (int i = 0; i < [channel.posts count]; i++) {
-            persistancePost = [[RssPost alloc] initWithContext:context];
-            persistancePost.title = [channel.posts[i] title];
-            persistancePost.descriptionPost = [channel.posts[i] description];
-            persistancePost.pubDate = [channel.posts[i] pubDate];
-            persistancePost.guid = [channel.posts[i] guid];
-            persistancePost.link = [channel.posts[i] link];
-            [persistanceChannel addPostsObject:persistancePost];
-        }
-
         [context save:&error];
         if (error) {
             [self logError:error];
             return;
         }
-        completion(error, isUniqueLink);
+        completion(error);
     }];
+}
+
+- (RssChannel *) fetchOrCreateInContext : (NSManagedObjectContext *) ctx : (DomainChannel *) channel
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssChannel.class)];
+    request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", channel.urlChannel.absoluteString];
+    NSError *error = nil;
+    NSArray<RssChannel*> *matches = [ctx executeFetchRequest:request error:&error];
+    if (error) {
+        [self logError:error];
+    }
+
+    RssChannel *persistanceChannel = nil;
+    if ([matches count] ==  1) {
+        persistanceChannel = matches[0];
+        for (RssPost *post in persistanceChannel.posts) {
+            [ctx deleteObject:post];
+        }
+    } else {
+        persistanceChannel = [[RssChannel alloc] initWithContext:ctx];
+        [ChannelMapper fillPersistanceChannel:persistanceChannel fromDomainChannel:channel];
+    }
+    for (int i = 0; i < [channel.posts count]; i++) {
+        RssPost *persistancePost = [[RssPost alloc] initWithContext:ctx];
+        [PostMapper fillPersistancePost:persistancePost fromDomainChannel:channel];
+        [persistanceChannel addPostsObject:persistancePost];
+    }
+    return persistanceChannel;
 }
 
 - (void) fetchAllChannels : (void (^)(NSArray<DomainChannel *> *, NSError*)) completion
