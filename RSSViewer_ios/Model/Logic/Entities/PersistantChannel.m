@@ -11,12 +11,25 @@
     channel.description = [rssChannel descriptionChannel];
     channel.url = [rssChannel url];
     channel.urlChannel = [NSURL URLWithString:[rssChannel urlChannel]];
+    channel.posts = [self sortedPosts:rssChannel];
+
+    return channel;
+}
+
+- (NSArray *) sortedPosts : (RssChannel *) rssChannel
+{
     NSMutableArray<DomainPost *> *domainPosts = [[NSMutableArray alloc] init];
     for(RssPost *post in [rssChannel posts])
         [domainPosts addObject:(DomainPost *)post];
-    channel.posts = [domainPosts copy];
 
-    return channel;
+    NSArray *sortedArray = [domainPosts sortedArrayUsingComparator:
+                            ^NSComparisonResult(DomainPost *obj1, DomainPost *obj2) {
+        NSDate *firstDate = (NSDate *)[(DomainPost *)obj1 pubDate];
+        NSDate *secondDate = (NSDate *)[(DomainPost *)obj2 pubDate];
+        return [firstDate compare:secondDate];
+    }];
+
+    return [[[sortedArray copy] reverseObjectEnumerator] allObjects];
 }
 
 @end

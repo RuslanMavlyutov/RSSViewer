@@ -20,15 +20,13 @@
 @implementation PostMapper
 
 + (void) fillPersistancePost : (RssPost *) persistancePost
-            fromDomainChannel: (DomainChannel *) domainChannel
+            fromDomainChannel: (DomainPost *) post
 {
-    for (int i = 0; i < [domainChannel.posts count]; i++) {
-        persistancePost.title = [domainChannel.posts[i] title];
-        persistancePost.descriptionPost = [domainChannel.posts[i] description];
-        persistancePost.pubDate = [domainChannel.posts[i] pubDate];
-        persistancePost.guid = [domainChannel.posts[i] guid];
-        persistancePost.link = [domainChannel.posts[i] link];
-    }
+    persistancePost.title = [post title];
+    persistancePost.descriptionPost = [post description];
+    persistancePost.pubDate = [post pubDate];
+    persistancePost.guid = [post guid];
+    persistancePost.link = [post link];
 }
 
 @end

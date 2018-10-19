@@ -66,9 +66,10 @@
         persistanceChannel = [[RssChannel alloc] initWithContext:ctx];
         [ChannelMapper fillPersistanceChannel:persistanceChannel fromDomainChannel:channel];
     }
+
     for (int i = 0; i < [channel.posts count]; i++) {
         RssPost *persistancePost = [[RssPost alloc] initWithContext:ctx];
-        [PostMapper fillPersistancePost:persistancePost fromDomainChannel:channel];
+        [PostMapper fillPersistancePost:persistancePost fromDomainChannel: [channel.posts objectAtIndex:i]];
         [persistanceChannel addPostsObject:persistancePost];
     }
     return persistanceChannel;

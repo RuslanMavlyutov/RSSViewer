@@ -11,6 +11,6 @@
 @interface PostMapper : NSObject
 
 + (void) fillPersistancePost : (RssPost *) persistancePost
-            fromDomainChannel: (DomainChannel *) domainChannel;
+            fromDomainChannel: (DomainPost *) post;
 
 @end
