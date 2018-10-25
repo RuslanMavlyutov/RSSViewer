@@ -27,7 +27,7 @@
 {
     [persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-        completion(error);
+            completion(error);
         });
     }];
 }
@@ -48,7 +48,9 @@
         if (error) {
             [self logError:error];
         }
-        completion(error);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(error);
+        });
     }];
 }
 
@@ -100,6 +102,26 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion([[NSArray alloc] initWithArray:channelArray], errorChannel);
+        });
+    }];
+}
+
+- (void) removeChannel : (DomainChannel *) channel completion: (void (^)(NSError *error)) completion
+{
+    @weakify(self);
+    [persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
+        @strongify(self);
+
+        RssChannel *persistanceChannel = [self fetchOrCreateChannelForURL: channel.urlChannel in:context];
+        [context deleteObject:persistanceChannel];
+
+        NSError *error = nil;
+        [context save:&error];
+        if (error) {
+            [self logError:error];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(error);
         });
     }];
 }

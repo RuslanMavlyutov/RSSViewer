@@ -155,19 +155,16 @@ NSString* reloadNotification = @"reloadNotification";
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(editingStyle == UITableViewCellEditingStyleDelete) {
-        NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
-        [array removeObjectAtIndex:indexPath.row];
-        linkArray = [NSArray arrayWithArray:array];
-        NSMutableArray *urlMutableArray = [NSMutableArray arrayWithArray:urlArray];
-        [urlMutableArray removeObjectAtIndex:indexPath.row];
-        urlArray = [NSArray arrayWithArray:urlMutableArray];
-        array = [NSMutableArray arrayWithArray:channels];
+        [storage removeChannel:[channels objectAtIndex:indexPath.row] completion:^(NSError *error) {
+            if(error) {
+                NSLog(@"Error while removing:\n%@",
+                      ([error localizedDescription] != nil) ?
+                      [error localizedDescription] : @"Unknown Error");
+            }
+        }];
+        NSMutableArray *array = [NSMutableArray arrayWithArray:channels];
         [array removeObjectAtIndex:indexPath.row];
         channels = [NSArray arrayWithArray:array];
-
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:linkArray forKey:mainSettings];
-        [defaults synchronize];
 
         [tableView reloadData];
     }
