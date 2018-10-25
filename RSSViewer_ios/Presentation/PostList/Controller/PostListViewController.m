@@ -7,6 +7,7 @@
 #import "NSURL+CheckLink.h"
 #import "ExtScope.h"
 #import "PersistanceStorage.h"
+#import "RSSFeedModel.h"
 
 static NSString* const cellName = @"cell";
 
@@ -18,6 +19,7 @@ static NSString* const cellName = @"cell";
 {
     DomainChannel *currentChannel;
     RSSFeedModel* rssFeedModel;
+    CoreDataPersistanceStorage *storage;
 }
 
 - (void)viewDidLoad
@@ -40,8 +42,7 @@ static NSString* const cellName = @"cell";
             [self showErrorMessage:warning];
         if(channel) {
             self->currentChannel = channel;
-            CoreDataPersistanceStorage *storage = [[CoreDataPersistanceStorage alloc] init];
-            [storage saveChannel:channel completion:^(NSError *error) {
+            [self->storage saveChannel:channel completion:^(NSError *error) {
                 if(error) {
                     NSLog(@"%@",error);
                 }
@@ -59,9 +60,11 @@ static NSString* const cellName = @"cell";
 }
 
 - (void) showChannel : (DomainChannel *) channel : (RSSFeedModel *) feedModel
+          withStorage: (CoreDataPersistanceStorage *) strg
 {
     currentChannel = channel;
     rssFeedModel = feedModel;
+    storage = strg;
 
     [self.tableView reloadData];
 }

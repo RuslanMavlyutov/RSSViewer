@@ -144,7 +144,7 @@ NSString* reloadNotification = @"reloadNotification";
     [self.navigationController pushViewController:vc animated:YES];
 
     DomainChannel *selectedChannel = [channels objectAtIndex:indexPath.row];
-    [vc showChannel:selectedChannel : rssFeedModel];
+    [vc showChannel:selectedChannel : rssFeedModel withStorage:storage];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

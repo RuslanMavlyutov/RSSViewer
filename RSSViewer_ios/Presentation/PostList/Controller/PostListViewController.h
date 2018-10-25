@@ -1,10 +1,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "Channel.h"
-#import "RSSFeedModel.h"
+
+@class RSSFeedModel;
+@class CoreDataPersistanceStorage;
 
 @interface PostListViewController : UITableViewController
 
-- (void) showChannel : (DomainChannel *) channel : (RSSFeedModel *) feedModel;
+- (void) showChannel : (DomainChannel *) channel : (RSSFeedModel *) feedModel
+          withStorage: (CoreDataPersistanceStorage *) strg;
 
 @end
