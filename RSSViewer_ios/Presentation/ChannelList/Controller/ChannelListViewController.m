@@ -40,6 +40,12 @@ NSString* reloadNotification = @"reloadNotification";
     rssUrlParser = [[RssUrlParser alloc] init];
     alertSpinner = [[AlertSpinnerController alloc] init];
     storage = [[CoreDataPersistanceStorage alloc] init];
+    [storage loadStorageWithCompletion:^(NSError *error) {
+        if(error != nil) {
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            abort();
+        }
+    }];
 //    if(!linkArray)
 //        linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
@@ -58,8 +64,10 @@ NSString* reloadNotification = @"reloadNotification";
                   ([error localizedDescription] != nil) ?
                   [error localizedDescription] : @"Unknown Error");
         }
-        if(result)
+        if(result) {
             self->channels = result;
+            [self.tableView reloadData];
+        }
     }];
 
 //    for(int i = 0; i < linkArray.count; i++) {
