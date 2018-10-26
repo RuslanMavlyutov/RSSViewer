@@ -19,19 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oul-UG-U7L">
-                        <rect key="frame" x="20" y="10" width="308" height="14.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="308" id="XTw-9x-VG6"/>
-                        </constraints>
+                        <rect key="frame" x="20" y="10" width="298" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3L-Wu-fOx">
-                        <rect key="frame" x="20" y="47" width="300" height="12"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="300" id="M8v-OQ-jvD"/>
-                        </constraints>
+                        <rect key="frame" x="20" y="47" width="290" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
