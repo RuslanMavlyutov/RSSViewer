@@ -9,7 +9,7 @@ static NSString *const fullPrefix = @"https://www.";
     [super awakeFromNib];
 }
 
-- (NSString *) checkUrlWithString : (NSString *) urlStr error: (NSError**) error
++ (NSString *) checkUrlWithString : (NSString *) urlStr error: (NSError**) error
 {
     if([urlStr length] > 3) {
         urlStr = [self addMissPrefixString:urlStr];
@@ -23,7 +23,7 @@ static NSString *const fullPrefix = @"https://www.";
     return urlStr;
 }
 
-- (NSString *) addMissPrefixString : (NSString *) link
++ (NSString *) addMissPrefixString : (NSString *) link
 {
     if(![link hasPrefix:@"htt"]) {
         if([link hasPrefix:@"www"]) {

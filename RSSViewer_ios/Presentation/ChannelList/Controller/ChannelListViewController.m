@@ -16,15 +16,10 @@ static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/region
 static NSString *const thirdChannelRss = @"https://www.kommersant.ru/rss/regions/saratov.xml";
 static NSString *const fourthChannelRss = @"https://habr.com/rss/interesting";
 static NSString *const fivethChannelRss = @"https://lenta.ru/rss/news";
-static NSString *const mainSettings = @"settings";
-NSString* reloadNotification = @"reloadNotification";
 
 @implementation ChannelListViewController {
     NSArray<DomainChannel *> *channels;
-    NSArray<NSString *> *linkArray;
-    NSArray<NSURL *> *urlArray;
     RSSFeedModel *rssFeedModel;
-    RssUrlParser *rssUrlParser;
     AlertSpinnerController *alertSpinner;
     CoreDataPersistenceStorage *storage;
 }
@@ -33,8 +28,6 @@ NSString* reloadNotification = @"reloadNotification";
 {
     [super viewDidLoad];
 
-    urlArray = [[NSArray alloc] init];
-    rssUrlParser = [[RssUrlParser alloc] init];
     alertSpinner = [[AlertSpinnerController alloc] init];
     storage = [[CoreDataPersistenceStorage alloc] init];
     [storage loadStorageWithCompletion:^(NSError *error) {
@@ -76,20 +69,15 @@ NSString* reloadNotification = @"reloadNotification";
         if(channel) {
             NSArray *arrayChannel = [[NSArray alloc] initWithObjects:channel, nil];
             self->channels = [self->channels arrayByAddingObjectsFromArray:arrayChannel];
-            NSArray *arrayUrl = [[NSArray alloc] initWithObjects:url, nil];
-            self->urlArray = [self->urlArray arrayByAddingObjectsFromArray:arrayUrl];
-            if(![self->linkArray containsObject:url.absoluteString]) {
                 [self->storage saveChannel:channel completion:^(NSError *error) {
                     if(error) {
                         NSLog(@"%@",error);
                     } else {
-                        [self saveSettings:url];
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self.tableView reloadData];
                         });
                     }
                 }];
-            }
             [self->alertSpinner stopAnimateIndicator];
         }
     }];
@@ -174,29 +162,24 @@ NSString* reloadNotification = @"reloadNotification";
 - (void) addRssLink:(NSString *) link
 {
     NSError *error = NULL;
-    link = [rssUrlParser checkUrlWithString:link error:&error];
-
-    if([linkArray containsObject:link]) {
-        [self showErrorMessage:@"This rss channel already esists!"];
-        return;
-    }
-
-    NSURL *url = [NSURL URLWithString:link];
+    link = [RssUrlParser checkUrlWithString:link error:&error];
     if(error) {
         [self showErrorMessage:@"Not valid link!"];
         NSLog(@"error");
         return;
     }
 
+    for(DomainChannel *channel in channels) {
+        if([channel.urlChannel.absoluteString isEqualToString:link]) {
+            [self showErrorMessage:@"This rss channel already esists!"];
+            return;
+        }
+    }
+
+    NSURL *url = [NSURL URLWithString:link];
+
     [alertSpinner startAnimateIndicator];
     [self loadRSSChannel:url];
-}
-
-- (void) saveSettings : (NSURL *) url
-{
-    NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
-    [array addObject:url.absoluteString];
-    linkArray = [NSArray arrayWithArray:array];
 }
 
 @end
