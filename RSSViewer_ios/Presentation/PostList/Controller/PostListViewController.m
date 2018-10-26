@@ -6,7 +6,7 @@
 #import "UIViewController+AlertMessage.h"
 #import "NSURL+CheckLink.h"
 #import "ExtScope.h"
-#import "PersistanceStorage.h"
+#import "PersistenceStorage.h"
 #import "RSSFeedModel.h"
 
 static NSString* const cellName = @"cell";
@@ -19,7 +19,7 @@ static NSString* const cellName = @"cell";
 {
     DomainChannel *currentChannel;
     RSSFeedModel* rssFeedModel;
-    CoreDataPersistanceStorage *storage;
+    CoreDataPersistenceStorage *storage;
 }
 
 - (void)viewDidLoad
@@ -60,7 +60,7 @@ static NSString* const cellName = @"cell";
 }
 
 - (void) showChannel : (DomainChannel *) channel : (RSSFeedModel *) feedModel
-          withStorage: (CoreDataPersistanceStorage *) strg
+          withStorage: (CoreDataPersistenceStorage *) strg
 {
     currentChannel = channel;
     rssFeedModel = feedModel;

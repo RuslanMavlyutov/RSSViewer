@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="RssChannel" representedClassName="RssChannel" syncable="YES">
+    <entity name="PersistenceChannel" representedClassName="PersistenceChannel" syncable="YES">
         <attribute name="descriptionChannel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlChannel" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RssPost" inverseName="channel" inverseEntity="RssPost" syncable="YES"/>
+        <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersistencePost" inverseName="channel" inverseEntity="PersistencePost" syncable="YES"/>
     </entity>
-    <entity name="RssPost" representedClassName="RssPost" syncable="YES">
+    <entity name="PersistencePost" representedClassName="PersistencePost" syncable="YES">
         <attribute name="descriptionPost" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pubDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RssChannel" inverseName="posts" inverseEntity="RssChannel" syncable="YES"/>
+        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PersistenceChannel" inverseName="posts" inverseEntity="PersistenceChannel" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RssChannel" positionX="-90" positionY="-21" width="128" height="133"/>
-        <element name="RssPost" positionX="-299" positionY="-25" width="128" height="133"/>
+        <element name="PersistenceChannel" positionX="-90" positionY="-21" width="128" height="133"/>
+        <element name="PersistencePost" positionX="-299" positionY="-25" width="128" height="133"/>
     </elements>
 </model>

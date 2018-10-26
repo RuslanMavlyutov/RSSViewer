@@ -1,16 +1,16 @@
 #import "AppDelegate.h"
-#import "PersistanceStorage.h"
+#import "PersistenceStorage.h"
 #import "Channel.h"
 #import "Post.h"
-#import "PersistantChannel.h"
-#import "PersistantPost.h"
-#import "RssChannel+CoreDataClass.h"
-#import "RssPost+CoreDataClass.h"
+#import "PersistentChannel.h"
+#import "PersistentPost.h"
+#import "PersistenceChannel+CoreDataClass.h"
+#import "PersistencePost+CoreDataClass.h"
 #import "ExtScope.h"
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 
-@implementation CoreDataPersistanceStorage {
+@implementation CoreDataPersistenceStorage {
     NSPersistentContainer *persistentContainer;
 }
 
@@ -38,10 +38,10 @@
     [persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
         @strongify(self);
 
-        RssChannel *persistanceChannel = [self fetchOrCreateChannelForURL: channel.urlChannel in:context];
-        [ChannelMapper fillPersistanceChannel:persistanceChannel fromDomainChannel:channel];
-        [self deleteAllPostsFromChannel:persistanceChannel in:context];
-        [self mapPostsOfChannel:channel toPersistenceChannel:persistanceChannel using:context];
+        PersistenceChannel *persistenceChannel = [self fetchOrCreateChannelForURL: channel.urlChannel in:context];
+        [ChannelMapper fillPersistenceChannel:persistenceChannel fromDomainChannel:channel];
+        [self deleteAllPostsFromChannel:persistenceChannel in:context];
+        [self mapPostsOfChannel:channel toPersistenceChannel:persistenceChannel using:context];
 
         NSError *error = nil;
         [context save:&error];
@@ -54,34 +54,34 @@
     }];
 }
 
-- (RssChannel *) fetchOrCreateChannelForURL : (NSURL *)url in: (NSManagedObjectContext *) ctx
+- (PersistenceChannel *) fetchOrCreateChannelForURL : (NSURL *)url in: (NSManagedObjectContext *) ctx
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(RssChannel.class)];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(PersistenceChannel.class)];
     request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", url.absoluteString];
     NSError *error = nil;
-    NSArray<RssChannel*> *matches = [ctx executeFetchRequest:request error:&error];
+    NSArray<PersistenceChannel*> *matches = [ctx executeFetchRequest:request error:&error];
     if (error) {
         [self logError:error];
     }
-    return matches.firstObject ?: [[RssChannel alloc] initWithContext:ctx];
+    return matches.firstObject ?: [[PersistenceChannel alloc] initWithContext:ctx];
 }
 
-- (void) deleteAllPostsFromChannel : (RssChannel *) channel
+- (void) deleteAllPostsFromChannel : (PersistenceChannel *) channel
                                 in : (NSManagedObjectContext *) ctx
 {
-    for (RssPost *post in channel.posts) {
+    for (PersistencePost *post in channel.posts) {
         [ctx deleteObject:post];
     }
 }
 
 - (void) mapPostsOfChannel: (DomainChannel *)channel
-      toPersistenceChannel:(RssChannel *) persistanceChannel
+      toPersistenceChannel:(PersistenceChannel *) persistenceChannel
                      using:(NSManagedObjectContext *)ctx
 {
     for (int i = 0; i < [channel.posts count]; i++) {
-        RssPost *persistancePost = [[RssPost alloc] initWithContext:ctx];
-        [PostMapper fillPersistancePost:persistancePost fromDomainChannel: [channel.posts objectAtIndex:i]];
-        [persistanceChannel addPostsObject:persistancePost];
+        PersistencePost *persistencePost = [[PersistencePost alloc] initWithContext:ctx];
+        [PostMapper fillPersistencePost:persistencePost fromDomainChannel: [channel.posts objectAtIndex:i]];
+        [persistenceChannel addPostsObject:persistencePost];
     }
 }
 
@@ -91,13 +91,13 @@
     [context performBlock:^{
         __block NSError *errorChannel = nil;
         __block NSArray *resultChannel;
-        resultChannel = [context executeFetchRequest:[RssChannel fetchRequest] error:&errorChannel];
+        resultChannel = [context executeFetchRequest:[PersistenceChannel fetchRequest] error:&errorChannel];
 
-        NSArray<RssChannel *> *channels =  [[NSMutableArray alloc]initWithArray:resultChannel];
+        NSArray<PersistenceChannel *> *channels =  [[NSMutableArray alloc]initWithArray:resultChannel];
         NSMutableArray<DomainChannel *> *channelArray = [[NSMutableArray alloc] init];
         for(int i = 0; i < channels.count; i++) {
-            PersistantChannel *channel = [[PersistantChannel alloc] init];
-            channel = (PersistantChannel*)[channel channelParser:[channels objectAtIndex:i]];
+            PersistentChannel *channel = [[PersistentChannel alloc] init];
+            channel = (PersistentChannel*)[channel channelParser:[channels objectAtIndex:i]];
             [channelArray addObject:channel];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -112,8 +112,8 @@
     [persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
         @strongify(self);
 
-        RssChannel *persistanceChannel = [self fetchOrCreateChannelForURL: channel.urlChannel in:context];
-        [context deleteObject:persistanceChannel];
+        PersistenceChannel *persistenceChannel = [self fetchOrCreateChannelForURL: channel.urlChannel in:context];
+        [context deleteObject:persistenceChannel];
 
         NSError *error = nil;
         [context save:&error];

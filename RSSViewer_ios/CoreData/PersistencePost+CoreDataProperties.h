@@ -1,18 +1,18 @@
-#import "RssPost+CoreDataClass.h"
+#import "PersistencePost+CoreDataClass.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RssPost (CoreDataProperties)
+@interface PersistencePost (CoreDataProperties)
 
-+ (NSFetchRequest<RssPost *> *)fetchRequest;
++ (NSFetchRequest<PersistencePost *> *)fetchRequest;
 
 @property (nullable, nonatomic, copy) NSString *descriptionPost;
 @property (nullable, nonatomic, copy) NSString *guid;
 @property (nullable, nonatomic, copy) NSString *link;
 @property (nullable, nonatomic, copy) NSString *pubDate;
 @property (nullable, nonatomic, copy) NSString *title;
-@property (nullable, nonatomic, retain) RssChannel *whichRssChannel;
+@property (nullable, nonatomic, retain) PersistenceChannel *channel;
 
 @end
 

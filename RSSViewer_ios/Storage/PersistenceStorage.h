@@ -2,7 +2,7 @@
 
 @class DomainChannel;
 
-@protocol PersistanceStorage
+@protocol PersistenceStorage
 
 - (void) saveChannel : (DomainChannel *) channel completion: (void (^)(NSError*)) completion;
 - (void) fetchAllChannels : (void (^)(NSArray<DomainChannel *> *, NSError*)) completion;
@@ -11,6 +11,6 @@
 
 @end
 
-@interface CoreDataPersistanceStorage : NSObject<PersistanceStorage>
+@interface CoreDataPersistenceStorage : NSObject<PersistenceStorage>
 
 @end

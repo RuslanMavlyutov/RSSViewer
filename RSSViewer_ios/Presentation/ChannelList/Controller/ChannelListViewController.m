@@ -9,7 +9,7 @@
 #import "ChannelCell.h"
 #import "ExtScope.h"
 #import "RssUrlParser.h"
-#import "PersistanceStorage.h"
+#import "PersistenceStorage.h"
 
 static NSString *const firstChannelRss = @"https://developer.apple.com/news/rss/news.rss";
 static NSString *const secondChannelRss = @"https://www.kommersant.ru/rss/regions/irkutsk.xml";
@@ -26,28 +26,23 @@ NSString* reloadNotification = @"reloadNotification";
     RSSFeedModel *rssFeedModel;
     RssUrlParser *rssUrlParser;
     AlertSpinnerController *alertSpinner;
-    CoreDataPersistanceStorage *storage;
+    CoreDataPersistenceStorage *storage;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     urlArray = [[NSArray alloc] init];
-//    linkArray = [defaults arrayForKey:mainSettings];
-//    channels = [[NSArray alloc] init];
     rssUrlParser = [[RssUrlParser alloc] init];
     alertSpinner = [[AlertSpinnerController alloc] init];
-    storage = [[CoreDataPersistanceStorage alloc] init];
+    storage = [[CoreDataPersistenceStorage alloc] init];
     [storage loadStorageWithCompletion:^(NSError *error) {
         if(error != nil) {
             NSLog(@"Unresolved error %@, %@", error, error.userInfo);
             abort();
         }
     }];
-//    if(!linkArray)
-//        linkArray = [NSMutableArray arrayWithObjects:firstChannelRss, secondChannelRss, thirdChannelRss, nil];
 
     RSSParser *parser = [[RSSParser alloc] init];
     RSSLoader *loader = [[RSSLoader alloc] init];
@@ -69,12 +64,6 @@ NSString* reloadNotification = @"reloadNotification";
             [self.tableView reloadData];
         }
     }];
-
-//    for(int i = 0; i < linkArray.count; i++) {
-//        NSURL *url = [NSURL URLWithString:linkArray[i]];
-//        [self loadRSSChannel:url];
-//    }
-//    [alertSpinner startAnimateIndicator];
 }
 
 - (void) loadRSSChannel : (NSURL *) url
@@ -101,24 +90,6 @@ NSString* reloadNotification = @"reloadNotification";
                     }
                 }];
             }
-//            if(self->channels.count == self->linkArray.count) {
-//                NSMutableArray *tempUrl = [[NSMutableArray alloc] init];
-//                NSMutableArray *tempChannel = [[NSMutableArray alloc] init];
-//                for(int i = 0; i <  self->urlArray.count; i++) {
-//                    int index = 0;
-//                    for(NSURL* url in self->urlArray) {
-//                        if([self->linkArray[i] isEqual: url.absoluteString]) {
-//                            [tempUrl addObject:url];
-//                            [tempChannel addObject:self->channels[index]];
-//                        }
-//                        index++;
-//                    }
-//                }
-//                self->urlArray = [[NSMutableArray alloc] initWithArray:tempUrl];
-//                self->channels = [[NSArray alloc] initWithArray:tempChannel];
-//                [self.tableView reloadData];
-//                [self->alertSpinner stopAnimateIndicator];
-//            }
             [self->alertSpinner stopAnimateIndicator];
         }
     }];
@@ -226,10 +197,6 @@ NSString* reloadNotification = @"reloadNotification";
     NSMutableArray *array = [NSMutableArray arrayWithArray:linkArray];
     [array addObject:url.absoluteString];
     linkArray = [NSArray arrayWithArray:array];
-
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    [defaults setObject:linkArray forKey:mainSettings];
-//    [defaults synchronize];
 }
 
 @end
