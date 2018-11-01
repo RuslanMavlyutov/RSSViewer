@@ -1,7 +1,7 @@
-#import "PersistentChannel.h"
+#import "ChannelMapper.h"
 #import "Post.h"
 
-@implementation PersistentChannel
+@implementation ChannelMapper
 
 - (DomainChannel *) channelParser : (PersistenceChannel *) persistenceChannel
 {
@@ -12,7 +12,7 @@
     channel.url = [persistenceChannel url];
     channel.urlChannel = [NSURL URLWithString:[persistenceChannel urlChannel]];
     channel.posts = [self sortedPosts:persistenceChannel];
-
+    
     return channel;
 }
 
@@ -21,21 +21,16 @@
     NSMutableArray<DomainPost *> *domainPosts = [[NSMutableArray alloc] init];
     for(PersistencePost *post in [persistenceChannel posts])
         [domainPosts addObject:(DomainPost *)post];
-
+    
     NSArray *sortedArray = [domainPosts sortedArrayUsingComparator:
                             ^NSComparisonResult(DomainPost *obj1, DomainPost *obj2) {
-        NSDate *firstDate = (NSDate *)[(DomainPost *)obj1 pubDate];
-        NSDate *secondDate = (NSDate *)[(DomainPost *)obj2 pubDate];
-        return [firstDate compare:secondDate];
-    }];
-
+                                NSDate *firstDate = (NSDate *)[(DomainPost *)obj1 pubDate];
+                                NSDate *secondDate = (NSDate *)[(DomainPost *)obj2 pubDate];
+                                return [firstDate compare:secondDate];
+                            }];
+    
     return [[[sortedArray copy] reverseObjectEnumerator] allObjects];
 }
-
-@end
-
-
-@implementation ChannelMapper
 
 + (void) fillPersistenceChannel : (PersistenceChannel *) persistenceChannel
             fromDomainChannel: (DomainChannel *) domainChannel

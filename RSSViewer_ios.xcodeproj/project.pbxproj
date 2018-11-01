@@ -17,8 +17,8 @@
 		31214A4A20D10F7C00340599 /* PostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31214A4920D10F7C00340599 /* PostDetailViewController.m */; };
 		31510FF72142518700942D7D /* RSSViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31510FF52142518700942D7D /* RSSViewer.xcdatamodeld */; };
 		3151104021426C1300942D7D /* PersistenceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151103F21426C1300942D7D /* PersistenceStorage.m */; };
-		31511044214290F000942D7D /* PersistentChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511043214290F000942D7D /* PersistentChannel.m */; };
-		31511065214A933C00942D7D /* PersistentPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511064214A933C00942D7D /* PersistentPost.m */; };
+		31511044214290F000942D7D /* ChannelMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511043214290F000942D7D /* ChannelMapper.m */; };
+		31511065214A933C00942D7D /* PostMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 31511064214A933C00942D7D /* PostMapper.m */; };
 		3179518A20E369EA009D3DA0 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518920E369EA009D3DA0 /* Post.m */; };
 		3179518D20E379B8009D3DA0 /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179518C20E379B8009D3DA0 /* Channel.m */; };
 		3179519120E66690009D3DA0 /* ChannelListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3179519020E66690009D3DA0 /* ChannelListViewController.m */; };
@@ -62,10 +62,10 @@
 		31510FF62142518700942D7D /* RSSViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RSSViewer.xcdatamodel; sourceTree = "<group>"; };
 		3151103E21426C1300942D7D /* PersistenceStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistenceStorage.h; sourceTree = "<group>"; };
 		3151103F21426C1300942D7D /* PersistenceStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistenceStorage.m; sourceTree = "<group>"; };
-		31511042214290F000942D7D /* PersistentChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistentChannel.h; sourceTree = "<group>"; };
-		31511043214290F000942D7D /* PersistentChannel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistentChannel.m; sourceTree = "<group>"; };
-		31511063214A933C00942D7D /* PersistentPost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistentPost.h; sourceTree = "<group>"; };
-		31511064214A933C00942D7D /* PersistentPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersistentPost.m; sourceTree = "<group>"; };
+		31511042214290F000942D7D /* ChannelMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChannelMapper.h; sourceTree = "<group>"; };
+		31511043214290F000942D7D /* ChannelMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChannelMapper.m; sourceTree = "<group>"; };
+		31511063214A933C00942D7D /* PostMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostMapper.h; sourceTree = "<group>"; };
+		31511064214A933C00942D7D /* PostMapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostMapper.m; sourceTree = "<group>"; };
 		3179518820E369EA009D3DA0 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		3179518920E369EA009D3DA0 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		3179518B20E379B7009D3DA0 /* Channel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
@@ -311,12 +311,12 @@
 		31AE61262125584E0037C02E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				31511042214290F000942D7D /* PersistentChannel.h */,
-				31511043214290F000942D7D /* PersistentChannel.m */,
+				31511042214290F000942D7D /* ChannelMapper.h */,
+				31511043214290F000942D7D /* ChannelMapper.m */,
 				3179518B20E379B7009D3DA0 /* Channel.h */,
 				3179518C20E379B8009D3DA0 /* Channel.m */,
-				31511063214A933C00942D7D /* PersistentPost.h */,
-				31511064214A933C00942D7D /* PersistentPost.m */,
+				31511063214A933C00942D7D /* PostMapper.h */,
+				31511064214A933C00942D7D /* PostMapper.m */,
 				3179518820E369EA009D3DA0 /* Post.h */,
 				3179518920E369EA009D3DA0 /* Post.m */,
 			);
@@ -457,7 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31511065214A933C00942D7D /* PersistentPost.m in Sources */,
+				31511065214A933C00942D7D /* PostMapper.m in Sources */,
 				31AE610C21157A210037C02E /* AppDelegate.m in Sources */,
 				31AE612C21256AB10037C02E /* UIViewController+AlertMessage.m in Sources */,
 				31214A4A20D10F7C00340599 /* PostDetailViewController.m in Sources */,
@@ -468,7 +468,7 @@
 				3179518A20E369EA009D3DA0 /* Post.m in Sources */,
 				31C1086E2137DB7100CDD3C3 /* AlertSpinnerController.m in Sources */,
 				31AE6118211C49AF0037C02E /* NSString+Warning.m in Sources */,
-				31511044214290F000942D7D /* PersistentChannel.m in Sources */,
+				31511044214290F000942D7D /* ChannelMapper.m in Sources */,
 				31C108602136CD6C00CDD3C3 /* NSURL+CheckLink.m in Sources */,
 				318D8FFA218215A300957FE4 /* PersistencePost+CoreDataClass.m in Sources */,
 				3151104021426C1300942D7D /* PersistenceStorage.m in Sources */,

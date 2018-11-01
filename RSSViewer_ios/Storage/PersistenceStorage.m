@@ -2,8 +2,8 @@
 #import "PersistenceStorage.h"
 #import "Channel.h"
 #import "Post.h"
-#import "PersistentChannel.h"
-#import "PersistentPost.h"
+#import "ChannelMapper.h"
+#import "PostMapper.h"
 #import "PersistenceChannel+CoreDataClass.h"
 #import "PersistencePost+CoreDataClass.h"
 #import "ExtScope.h"
@@ -38,7 +38,8 @@
     [persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
         @strongify(self);
 
-        PersistenceChannel *persistenceChannel = [self fetchOrCreateChannelForURL: channel.urlChannel in:context];
+        PersistenceChannel *persistenceChannel = [self fetchChannelForURL: channel.urlChannel in:context] ?:
+            [[PersistenceChannel alloc] initWithContext:context];
         [ChannelMapper fillPersistenceChannel:persistenceChannel fromDomainChannel:channel];
         [self deleteAllPostsFromChannel:persistenceChannel in:context];
         [self mapPostsOfChannel:channel toPersistenceChannel:persistenceChannel using:context];
@@ -54,7 +55,7 @@
     }];
 }
 
-- (PersistenceChannel *) fetchOrCreateChannelForURL : (NSURL *)url in: (NSManagedObjectContext *) ctx
+- (PersistenceChannel *) fetchChannelForURL : (NSURL *)url in: (NSManagedObjectContext *) ctx
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass(PersistenceChannel.class)];
     request.predicate = [NSPredicate predicateWithFormat:@"urlChannel = %@", url.absoluteString];
@@ -63,7 +64,7 @@
     if (error) {
         [self logError:error];
     }
-    return matches.firstObject ?: [[PersistenceChannel alloc] initWithContext:ctx];
+    return matches.firstObject;
 }
 
 - (void) deleteAllPostsFromChannel : (PersistenceChannel *) channel
@@ -89,19 +90,24 @@
 {
     NSManagedObjectContext *context = persistentContainer.viewContext;
     [context performBlock:^{
-        __block NSError *errorChannel = nil;
-        __block NSArray *resultChannel;
-        resultChannel = [context executeFetchRequest:[PersistenceChannel fetchRequest] error:&errorChannel];
-
-        NSArray<PersistenceChannel *> *channels =  [[NSMutableArray alloc]initWithArray:resultChannel];
+        NSError *error = nil;
+        NSArray<PersistenceChannel *> *fetchedChannels = [context executeFetchRequest:[PersistenceChannel fetchRequest]
+                                                                              error:&error];
+        if(!fetchedChannels) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil, error);
+            });
+            return;
+        }
+        NSArray<PersistenceChannel *> *channels =  [[NSMutableArray alloc]initWithArray:fetchedChannels];
         NSMutableArray<DomainChannel *> *channelArray = [[NSMutableArray alloc] init];
         for(int i = 0; i < channels.count; i++) {
-            PersistentChannel *channel = [[PersistentChannel alloc] init];
-            channel = (PersistentChannel*)[channel channelParser:[channels objectAtIndex:i]];
+            ChannelMapper *channel = [[ChannelMapper alloc] init];
+            channel = (ChannelMapper *)[channel channelParser:[channels objectAtIndex:i]];
             [channelArray addObject:channel];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            completion([[NSArray alloc] initWithArray:channelArray], errorChannel);
+            completion([channelArray copy], error);
         });
     }];
 }
@@ -112,13 +118,14 @@
     [persistentContainer performBackgroundTask:^(NSManagedObjectContext *context) {
         @strongify(self);
 
-        PersistenceChannel *persistenceChannel = [self fetchOrCreateChannelForURL: channel.urlChannel in:context];
-        [context deleteObject:persistenceChannel];
-
+        PersistenceChannel *persistenceChannel = [self fetchChannelForURL: channel.urlChannel in:context];
         NSError *error = nil;
-        [context save:&error];
-        if (error) {
-            [self logError:error];
+        if(persistenceChannel) {
+            [context deleteObject:persistenceChannel];
+            [context save:&error];
+            if (error) {
+                [self logError:error];
+            }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(error);

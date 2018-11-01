@@ -1,7 +1,7 @@
-#import "PersistentPost.h"
+#import "PostMapper.h"
 #import "Channel.h"
 
-@implementation PersistentPost
+@implementation PostMapper
 
 - (DomainPost *) postParser : (PersistencePost *) persistencePost
 {
@@ -14,10 +14,6 @@
 
     return post;
 }
-
-@end
-
-@implementation PostMapper
 
 + (void) fillPersistencePost : (PersistencePost *) persistencePost
             fromDomainChannel: (DomainPost *) post
